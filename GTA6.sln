@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTA6Game", "GTA6Game\GTA6Game.csproj", "{F92D7D18-25AB-404A-AC42-D87759DFA33E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F92D7D18-25AB-404A-AC42-D87759DFA33E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F92D7D18-25AB-404A-AC42-D87759DFA33E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F92D7D18-25AB-404A-AC42-D87759DFA33E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F92D7D18-25AB-404A-AC42-D87759DFA33E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7F925AEE-7FAF-480A-BCFE-CE4B41F5C63C}
+	EndGlobalSection
+EndGlobal
