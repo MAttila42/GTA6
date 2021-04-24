@@ -18,7 +18,7 @@ namespace GTA6Game.Pages
     /// <summary>
     /// Interaction logic for StartingPage.xaml
     /// </summary>
-    public partial class StartingPage : Page
+    public partial class StartingPage : PageBase
     {
         public StartingPage()
         {
