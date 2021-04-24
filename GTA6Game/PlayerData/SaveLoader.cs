@@ -57,10 +57,11 @@ namespace GTA6Game.PlayerData
             try
             {
                 BinaryFormatter formatter = new BinaryFormatter();
+                Directory.CreateDirectory(Path.GetDirectoryName(savePath));
                 FileStream stream = new FileStream(savePath, FileMode.OpenOrCreate, FileAccess.Write);
                 formatter.Serialize(stream, Save);
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
             }
