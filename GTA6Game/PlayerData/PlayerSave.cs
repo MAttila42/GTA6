@@ -12,7 +12,7 @@ namespace GTA6Game.PlayerData
     /// The player's saved data
     /// </summary>
     [Serializable]
-    public class PlayerSave : INotifyPropertyChanged
+    public class PlayerSave : INotifyPropertyChanged, IDisposable
     {
         /// <summary>
         /// Creates a new save with default values
@@ -48,9 +48,15 @@ namespace GTA6Game.PlayerData
 
         }
 
+        public void Dispose()
+        {
+            PropertyChanged = null;
+        }
+
         private void OnPropertyChanged([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
+
     }
 }
