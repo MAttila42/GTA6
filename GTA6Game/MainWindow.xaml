@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GTA6Game"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Initialized="Window_Initialized">
+        Title="Grand Theft Autó 6" Height="900" Width="1600" Initialized="Window_Initialized">
     <Grid>
         <Frame x:Name="PageContainer" NavigationUIVisibility="Hidden" DockPanel.Dock="Top"></Frame>
     </Grid>
