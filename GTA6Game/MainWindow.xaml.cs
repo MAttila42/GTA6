@@ -18,6 +18,9 @@ namespace GTA6Game
 {
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// The router of the application. 
+        /// </summary>
         private RoutingHelper Router;
 
         public MainWindow()
