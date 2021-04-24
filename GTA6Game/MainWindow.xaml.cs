@@ -1,4 +1,5 @@
-﻿using GTA6Game.Routing;
+﻿using GTA6Game.Pages;
+using GTA6Game.Routing;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +33,7 @@ namespace GTA6Game
         {
             Router = new RoutingHelper(PageContainer);
             Router.CurrentPageChanged += OnCurrentPageChanged;
-
+            Router.ChangeCurrentPage(new StartingPage());
         }
 
         private void OnCurrentPageChanged()
