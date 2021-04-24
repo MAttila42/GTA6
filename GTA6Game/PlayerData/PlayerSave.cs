@@ -11,6 +11,7 @@ namespace GTA6Game.PlayerData
     /// <summary>
     /// The player's saved data
     /// </summary>
+    [Serializable]
     public class PlayerSave : INotifyPropertyChanged
     {
         /// <summary>
