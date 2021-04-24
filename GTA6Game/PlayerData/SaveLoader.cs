@@ -49,6 +49,7 @@ namespace GTA6Game.PlayerData
         /// </summary>
         public static void SetSaveToInitial()
         {
+            Save.Dispose();
             Save = PlayerSave.CreateInitialSave();
             PersistData();
         }
