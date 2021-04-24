@@ -14,6 +14,15 @@ namespace GTA6Game.PlayerData
     public class PlayerSave : INotifyPropertyChanged
     {
         /// <summary>
+        /// Creates a new save with default values
+        /// </summary>
+        /// <returns>The new save</returns>
+        public static PlayerSave CreateInitialSave()
+        {
+            return new PlayerSave() { Money = 1000 };
+        }
+
+        /// <summary>
         /// Event that gets invoked whenever a property of this object changes
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
@@ -33,6 +42,10 @@ namespace GTA6Game.PlayerData
             }
         }
 
+        public PlayerSave()
+        {
+
+        }
 
         private void OnPropertyChanged([CallerMemberName] string name = null)
         {
