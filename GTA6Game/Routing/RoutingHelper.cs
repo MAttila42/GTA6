@@ -44,7 +44,7 @@ namespace GTA6Game.Routing
             {
                 return;
             }
-            CurrentPage.OnAttachedToFrame();
+            CurrentPage.Reload();
         }
 
 

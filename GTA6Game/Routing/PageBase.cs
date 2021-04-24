@@ -15,5 +15,10 @@ namespace GTA6Game.Routing
         {
 
         }
+
+        public virtual void Reload()
+        {
+
+        }
     }
 }
