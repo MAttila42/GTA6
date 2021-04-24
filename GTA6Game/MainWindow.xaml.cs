@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GTA6Game.Routing;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,14 +16,28 @@ using System.Windows.Shapes;
 
 namespace GTA6Game
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// The router of the application. 
+        /// </summary>
+        private RoutingHelper Router;
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Initialized(object sender, EventArgs e)
+        {
+            Router = new RoutingHelper(PageContainer);
+            Router.CurrentPageChanged += OnCurrentPageChanged;
+
+        }
+
+        private void OnCurrentPageChanged()
+        {
+
         }
     }
 }
