@@ -43,6 +43,15 @@ namespace GTA6Game.PlayerData
 
             Save.PropertyChanged += OnSaveChanged;
         }
+           
+        /// <summary>
+        /// Resets the player's data to defaults
+        /// </summary>
+        public static void SetSaveToInitial()
+        {
+            Save = PlayerSave.CreateInitialSave();
+            PersistData();
+        }
 
         private static void OnSaveChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
@@ -66,5 +75,7 @@ namespace GTA6Game.PlayerData
 
             }
         }
+
+
     }
 }
