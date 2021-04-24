@@ -6,28 +6,22 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
-using TeslaCarConfigurator.Data;
 
-namespace TeslaCarConfigurator.Helpers
+namespace GTA6Game.Routing
 {
     public class RoutingHelper
     {
         public PageBase CurrentPage { get; private set; }
 
-        public bool HasConfig => carConfiguration != null;
-
         public event Action CurrentPageChanged;
 
         private Frame container;
-        private CarConfiguration carConfiguration;
-        private MessageBarController messageBarController;
 
 
-        public RoutingHelper(Frame frame, MessageBarController messageBarController)
+        public RoutingHelper(Frame frame)
         {
             container = frame;
             container.Navigated += OnFrameNavigation;
-            this.messageBarController = messageBarController;
         }
 
         private void OnFrameNavigation(object sender, NavigationEventArgs e)
@@ -38,8 +32,6 @@ namespace TeslaCarConfigurator.Helpers
         public void ChangeCurrentPage(PageBase page)
         {
             page.Router = this;
-            page.Config = carConfiguration;
-            page.MessageBarController = messageBarController;
             CurrentPage = page;
             container.Content = page;
             page.OnAttachedToFrame();
@@ -52,15 +44,9 @@ namespace TeslaCarConfigurator.Helpers
             {
                 return;
             }
-            CurrentPage.Config = carConfiguration;
             CurrentPage.OnAttachedToFrame();
         }
 
-        public void SetConfig(CarConfiguration carConfiguration)
-        {
-            this.carConfiguration = carConfiguration;
-
-        }
 
     }
 }
