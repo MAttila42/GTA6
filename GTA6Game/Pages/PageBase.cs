@@ -1,11 +1,12 @@
-﻿using System;
+﻿using GTA6Game.Routing;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace GTA6Game.Routing
+namespace GTA6Game.Pages
 {
     /// <summary>
     /// The base class for all pages. Can use the router (RoutingHelper) to navigate to another page.
