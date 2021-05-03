@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace GTA6Game.PlayerData
 {
     [Serializable]
-    public class Profile : INotifyPropertyChanged,IDisposable
+    public class Profile : INotifyPropertyChanged, IDisposable
     {
         private string name;
 

@@ -13,81 +13,81 @@ namespace GTA6Game.PlayerData
     [Serializable]
     public class ProfileCollection : IEnumerable<Profile>, INotifyPropertyChanged, ISerializable
     {
-        public int NumberOfProfiles => profiles.Count;
+        public int NumberOfProfiles => Profiles.Count;
 
         public Profile this[int i]
         {
             get
             {
-                return profiles[i];
+                return Profiles[i];
             }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private List<Profile> profiles;
+        private List<Profile> Profiles;
 
         public ProfileCollection()
         {
-            profiles = new List<Profile>();
+            Profiles = new List<Profile>();
         }
 
         public ProfileCollection(SerializationInfo info, StreamingContext context)
         {
-            profiles = (List<Profile>)info.GetValue(nameof(profiles), typeof(List<Profile>));
-            foreach (var profile in profiles)
+            Profiles = (List<Profile>)info.GetValue(nameof(Profiles), typeof(List<Profile>));
+            foreach (var profile in Profiles)
             {
                 profile.PropertyChanged += (sender, e) =>
                 {
-                    OnPropertyChanged(nameof(profiles));
+                    OnPropertyChanged(nameof(Profiles));
                 };
             }
         }
 
-        public IEnumerator<Profile> GetEnumerator()
-        {
-            return ((IEnumerable<Profile>)profiles).GetEnumerator();
-        }
-
         public void AddProfile(Profile profile)
         {
-            profiles.Add(profile);
+            Profiles.Add(profile);
             profile.PropertyChanged += (sender, e) =>
             {
-                OnPropertyChanged(nameof(profiles));
+                OnPropertyChanged(nameof(Profiles));
             };
-            OnPropertyChanged(nameof(profiles));
+            OnPropertyChanged(nameof(Profiles));
         }
 
         public void RemoveProfile(Profile profile)
         {
-            profiles.Remove(profile);
+            Profiles.Remove(profile);
             profile.Dispose();
-            OnPropertyChanged(nameof(profiles));
+            OnPropertyChanged(nameof(Profiles));
         }
 
         public void RemoveAllProfiles()
         {
-            foreach (var profile in profiles)
+            foreach (var profile in Profiles)
             {
                 profile.Dispose();
             }
-            profiles.Clear();
+            Profiles.Clear();
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue(nameof(Profiles), Profiles, typeof(List<Profile>));
+        }
+
+        public IEnumerator<Profile> GetEnumerator()
+        {
+            return ((IEnumerable<Profile>)Profiles).GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return ((IEnumerable)profiles).GetEnumerator();
+            return ((IEnumerable)Profiles).GetEnumerator();
         }
 
         private void OnPropertyChanged([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
-
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            info.AddValue(nameof(profiles), profiles, typeof(List<Profile>));
         }
     }
 }

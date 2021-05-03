@@ -63,6 +63,7 @@
     </Compile>
     <Compile Include="PlayerData\PlayerSave.cs" />
     <Compile Include="PlayerData\Profile.cs" />
+    <Compile Include="PlayerData\ProfileCollection.cs" />
     <Compile Include="PlayerData\SaveLoader.cs" />
     <Compile Include="Routing\RoutingHelper.cs" />
     <Page Include="MainWindow.xaml">
