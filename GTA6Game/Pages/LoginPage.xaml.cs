@@ -25,7 +25,7 @@ namespace GTA6Game.Pages
     public partial class LoginPage : PageBase
     {
         public int SelectedUserIndex = -1;
-        public Profile SelectedUserName;
+        public string SelectedUserName = "";
 
         public LoginPage()
         {
@@ -70,7 +70,7 @@ namespace GTA6Game.Pages
         private void UserIcon_Click(object sender, RoutedEventArgs e)
         {
             Button selectedUser = (Button)sender;
-            SelectedUserName = new Profile((string)selectedUser.Content);
+            SelectedUserName = (string)selectedUser.Content;
             SelectedUserIndex = WpUserIconContainer.Children.IndexOf(selectedUser);
             for (int i = 0; i < WpUserIconContainer.Children.Count; i++)
             {
@@ -89,8 +89,13 @@ namespace GTA6Game.Pages
         private void BtnRemoveUser_Click(object sender, RoutedEventArgs e)
         {
             //SaveLoader.Save.Profiles.RemoveAllProfiles();
+            Profile prof = null;
+            foreach (var i in SaveLoader.Save.Profiles.Where(x => x.Name == SelectedUserName))
+            {
+                prof = i;
+            }
 
-            SaveLoader.Save.Profiles.RemoveProfile(SelectedUserName);
+            SaveLoader.Save.Profiles.RemoveProfile(prof);
             RefreshUsersList();
         }
     }
