@@ -30,16 +30,38 @@ namespace GTA6Game
             InitializeComponent();
         }
 
-        private void Window_Initialized(object sender, EventArgs e)
+        private void Windows_Initialized(object sender, EventArgs e)
         {
             Router = new RoutingHelper(PageContainer);
             Router.CurrentPageChanged += OnCurrentPageChanged;
-            Router.ChangeCurrentPage(new StartingPage());
+            Router.ChangeCurrentPage(new LoginPage());
         }
 
         private void OnCurrentPageChanged()
         {
 
+        }
+
+        private void Windows_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            Windows.Title = $"{Windows.ActualHeight} * {Windows.ActualWidth} sz, m";
+        }
+
+        public void BtnSwitchPage_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            string pageName = btn.Name.Replace("Btn", "");
+            ChangePage(pageName);
+        }
+
+        private void ChangePage(string pageName)
+        {
+            Type pageType = Type.GetType($"{nameof(GTA6Game)}.{pageName}") ?? Type.GetType($"{nameof(GTA6Game)}.{nameof(Pages)}.{pageName}");
+            if (pageType != null)
+            {
+                PageBase page = (PageBase)Activator.CreateInstance(pageType);
+                Router.ChangeCurrentPage(page);
+            }
         }
     }
 }

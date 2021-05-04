@@ -51,12 +51,21 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif, Version=2.0.0.0, Culture=neutral, PublicKeyToken=9e7cd3b544a090dc, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.2.0.0\lib\net40\WpfAnimatedGif.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Pages\AddUser.xaml.cs">
+      <DependentUpon>AddUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PageBase.cs" />
     <Compile Include="Pages\StartingPage.xaml.cs">
       <DependentUpon>StartingPage.xaml</DependentUpon>
@@ -66,6 +75,9 @@
     <Compile Include="PlayerData\ProfileCollection.cs" />
     <Compile Include="PlayerData\SaveLoader.cs" />
     <Compile Include="Routing\RoutingHelper.cs" />
+    <Compile Include="UserControls\LoginTitle.xaml.cs">
+      <DependentUpon>LoginTitle.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -78,7 +90,23 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AddUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\StartingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\BasicResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\LoginTitle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -100,7 +128,22 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
+    <Resource Include="Assets\Fonts\SourceSansPro-Black.ttf" />
+    <Resource Include="Assets\Fonts\SourceSansPro-BlackItalic.ttf" />
+    <Resource Include="Assets\Fonts\SourceSansPro-Bold.ttf" />
+    <Resource Include="Assets\Fonts\SourceSansPro-BoldItalic.ttf" />
+    <Resource Include="Assets\Fonts\SourceSansPro-ExtraLight.ttf" />
+    <Resource Include="Assets\Fonts\SourceSansPro-ExtraLightItalic.ttf" />
+    <Resource Include="Assets\Fonts\SourceSansPro-Italic.ttf" />
+    <Resource Include="Assets\Fonts\SourceSansPro-Light.ttf" />
+    <Resource Include="Assets\Fonts\SourceSansPro-LightItalic.ttf" />
+    <Resource Include="Assets\Fonts\SourceSansPro-Regular.ttf" />
+    <Resource Include="Assets\Fonts\SourceSansPro-SemiBold.ttf" />
+    <Resource Include="Assets\Fonts\SourceSansPro-SemiBoldItalic.ttf" />
+    <Resource Include="Assets\Fonts\PricedownBl-SLY Regular.ttf" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -109,6 +152,24 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\AntiSocialClub.png" />
+  </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Assets\User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\BoxCover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Recaptcha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\LoadingSpinner.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\GtaLogo1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
