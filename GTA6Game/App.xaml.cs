@@ -16,6 +16,7 @@ namespace GTA6Game
     {
         private void Application_Startup(object sender, StartupEventArgs e)
         {
+            LanguageManager.PreferredLanguage = "en-US";
             LanguageManager.SetThreadCulture();
             SaveLoader.LoadSave();
         }
