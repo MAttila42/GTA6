@@ -104,6 +104,7 @@
     </Compile>
     <Page Include="Pages\StartingPage.xaml">
       <Generator>MSBuild:Compile</Generator>
+	  <Localizable>true</Localizable>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

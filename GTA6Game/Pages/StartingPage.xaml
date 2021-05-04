@@ -9,6 +9,6 @@
       Title="StartingPage">
 
     <Grid>
-        
+        <Label x:Uid="TestLabel">Text</Label>
     </Grid>
 </local:PageBase>
