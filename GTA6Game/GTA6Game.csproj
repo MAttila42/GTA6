@@ -81,6 +81,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Languages\LanguageManager.cs" />
     <Compile Include="Pages\PageBase.cs" />
     <Compile Include="Pages\StartingPage.xaml.cs">
       <DependentUpon>StartingPage.xaml</DependentUpon>
@@ -104,7 +105,6 @@
     </Compile>
     <Page Include="Pages\StartingPage.xaml">
       <Generator>MSBuild:Compile</Generator>
-	  <Localizable>true</Localizable>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
@@ -127,7 +127,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>

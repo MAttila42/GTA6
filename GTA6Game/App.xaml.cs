@@ -7,6 +7,8 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Globalization;
+using GTA6Game.Languages;
 
 namespace GTA6Game
 {
@@ -14,7 +16,7 @@ namespace GTA6Game
     {
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            
+            LanguageManager.SetThreadCulture();
             SaveLoader.LoadSave();
         }
     }
