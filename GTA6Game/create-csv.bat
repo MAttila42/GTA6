@@ -1,1 +1,1 @@
-.\bin\Release\LocBaml.exe /parse .\bin\Release\en-US\GTA6Game.resources.dll /out:%1.csv   
+.\bin\Release\LocBaml.exe /parse .\bin\Release\hu-HU\GTA6Game.resources.dll /out:%1.csv   
