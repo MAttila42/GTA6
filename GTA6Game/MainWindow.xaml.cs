@@ -23,11 +23,12 @@ namespace GTA6Game
         /// <summary>
         /// The router of the application. 
         /// </summary>
-        private RoutingHelper Router;
+        public RoutingHelper Router;
 
         public MainWindow()
         {
             InitializeComponent();
+            Router.StartGame = false;
         }
 
         private void Windows_Initialized(object sender, EventArgs e)
@@ -35,6 +36,7 @@ namespace GTA6Game
             Router = new RoutingHelper(PageContainer);
             Router.CurrentPageChanged += OnCurrentPageChanged;
             Router.ChangeCurrentPage(new LoginPage());
+
         }
 
         private void OnCurrentPageChanged()

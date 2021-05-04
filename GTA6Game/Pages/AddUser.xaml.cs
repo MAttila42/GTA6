@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GTA6Game.PlayerData;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,6 +29,14 @@ namespace GTA6Game.Pages
         private void BtnLoginPage_Click(object sender, RoutedEventArgs e)
         {
             Router.ChangeCurrentPage(new LoginPage());
+        }
+
+        private void BtnSignUp_Click(object sender, RoutedEventArgs e)
+        {
+            if (TboxUsername.Text != "")
+            {
+                SaveLoader.Save.Profiles.AddProfile(new Profile(TboxUsername.Text));
+            }
         }
     }
 }
