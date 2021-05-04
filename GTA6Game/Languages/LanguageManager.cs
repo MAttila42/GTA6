@@ -13,8 +13,8 @@ namespace GTA6Game.Languages
     {
         public static List<CultureInfo> AvailableCultures = new List<CultureInfo>()
         {
-            CultureInfo.GetCultureInfo("en-US"),
-            CultureInfo.GetCultureInfo("hu-HU")
+            CultureInfo.GetCultureInfo("hu-HU"),
+            CultureInfo.GetCultureInfo("en-US")
         };
 
         /// <summary>
