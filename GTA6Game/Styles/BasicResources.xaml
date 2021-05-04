@@ -4,7 +4,7 @@
 
     <Style x:Key="{x:Type TextBlock}" TargetType="TextBlock">
         <Setter Property="FontFamily" Value="/GTA6Game;component/Assets/Fonts/#Source Sans Pro"></Setter>
-        <Setter Property="FontSize" Value="15"></Setter>
+        
     </Style>
 
     <Style x:Key="LoginTitle" TargetType="TextBlock">

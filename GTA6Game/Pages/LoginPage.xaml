@@ -22,16 +22,13 @@
             <WrapPanel>
                 <StackPanel>
                     <TextBlock Margin="50,50,50,20" Style="{StaticResource LoginTitle}" TextAlignment="Left" Text="Bejelentkezés"/>
-                    <ScrollViewer Margin="50,30" Width="550" VerticalScrollBarVisibility="Auto">
-                        <WrapPanel>
-                            <StackPanel Margin="10">
-                                <Image Height="157" Width="157" Source="/Assets/User.png"/>
-                                <TextBlock Text="Admin" TextAlignment="Center" FontSize="20"></TextBlock>
-                            </StackPanel>
-                            <StackPanel Margin="10">
-                                <Image Height="157" Width="157" Source="/Assets/User.png"/>
-                                <TextBlock Text="Sziszi" TextAlignment="Center" FontSize="20"></TextBlock>
-                            </StackPanel>
+                    <ScrollViewer Margin="50,30" Width="560" VerticalScrollBarVisibility="Auto" Height="230">
+                        <WrapPanel x:Name="WpUserIconContainer">
+                            <usercontrols:UserIcon x:Name="UiAdmin" ImageSource="/Assets/User.png" Style="{StaticResource UserIconStyle}" Content="Admin" Click="UserIcon_Click"></usercontrols:UserIcon>
+                            <usercontrols:UserIcon x:Name="UiSziszi" ImageSource="/Assets/User.png" Style="{StaticResource UserIconStyle}" Content="Sziszi" Click="UserIcon_Click"></usercontrols:UserIcon>
+                            <usercontrols:UserIcon x:Name="UiKari" ImageSource="/Assets/User.png" Style="{StaticResource UserIconStyle}" Content="Kari" Click="UserIcon_Click"></usercontrols:UserIcon>
+                            <usercontrols:UserIcon x:Name="UiPista" ImageSource="/Assets/User.png" Style="{StaticResource UserIconStyle}" Content="Pista" Click="UserIcon_Click"></usercontrols:UserIcon>
+                            <usercontrols:UserIcon x:Name="UiMarci" ImageSource="/Assets/User.png" Style="{StaticResource UserIconStyle}" Content="Marci" Click="UserIcon_Click"></usercontrols:UserIcon>
                         </WrapPanel>
                     </ScrollViewer>
 
@@ -52,10 +49,10 @@
 
                         <CheckBox Content="Nem vagyok robot" Grid.Row="0" Grid.Column="0" Height="53" FontSize="15" VerticalContentAlignment="Center" DockPanel.Dock="Left"/>
                         <Image Height="64" Grid.Row="0" Grid.Column="1" RenderOptions.BitmapScalingMode="HighQuality" DockPanel.Dock="Right" HorizontalAlignment="Right" Width="70" Source="/Assets/Recaptcha.png"/>
-                        <Button x:Name="BtnLogIn" Content="Bejelentkezés"  Grid.Row="0" Grid.Column="2" Width="102" Height="36" Click="BtnLogIn_Click"/>
+                        <Button x:Name="BtnLogIn" Content="Bejelentkezés" FontSize="15" Grid.Row="0" Grid.Column="2" Width="102" Height="36" Click="BtnLogIn_Click"/>
                     </Grid>
 
-                    <Button x:Name="BtnAddUser" Content="Új felhasználó létrehozása" Margin="50,10,0,0" HorizontalAlignment="Left" Width="176" Height="26" Click="BtnAddUser_Click"/>
+                    <Button x:Name="BtnAddUser" Content="Új felhasználó létrehozása" FontSize="15" Margin="50,10,0,0" HorizontalAlignment="Left" Width="176" Height="26" Click="BtnAddUser_Click"/>
 
                 </StackPanel>
 

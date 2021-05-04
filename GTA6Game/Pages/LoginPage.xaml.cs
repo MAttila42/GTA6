@@ -1,5 +1,6 @@
 ﻿using GTA6Game.Routing;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,7 @@ namespace GTA6Game.Pages
     /// </summary>
     public partial class LoginPage : PageBase
     {
+        public int SelectedUserIndex = -1;
 
         public LoginPage()
         {
@@ -35,6 +37,24 @@ namespace GTA6Game.Pages
         private void BtnLogIn_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void UserIcon_Click(object sender, RoutedEventArgs e)
+        {
+            Button selectedUser = (Button)sender;
+            SelectedUserIndex = WpUserIconContainer.Children.IndexOf(selectedUser);
+            for (int i = 0; i < WpUserIconContainer.Children.Count; i++)
+            {
+                Button navButton = (Button)WpUserIconContainer.Children[i];
+                if (i != SelectedUserIndex)
+                {
+                    navButton.IsEnabled = true;
+                }
+                else
+                {
+                    navButton.IsEnabled = false;
+                }
+            }
         }
     }
 }
