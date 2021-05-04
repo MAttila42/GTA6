@@ -134,69 +134,6 @@ hr {
     width: auto;
     height: 100vh;
   }
-  
-  img {
-    display: none;
-  }
-
-  .img-container {
-    min-height: 720px;
-  }
-
-  img.phone {
-    display: block;
-  }
-
-  .background-img {
-    display: block;
-    min-height: 720px;
-  }
-
-  .cover td {
-    min-width: auto;
-  }
-
-  td.phone {
-    width: 100%;
-  }
-
-  .cover p {
-    font-size: 16px;
-    margin: 0;
-  }
-
-  .cover span {
-    font-size: 24px;
-  }
-
-  .cover-img {
-    height: 320px;
-    margin: 40px auto;
-  }
-
-  .button {
-    width: 80%;
-    padding: 16px;
-    font-size: 30px;
-    cursor: default;
-  }
-
-  .button:hover {
-    width: 80%;
-  }
-
-  .paragraph img {
-    width: 100%;
-    margin: 50px auto;
-  }
-
-  hr {
-    width: 100%;
-  }
-
-  .footer {
-    font-size: 14px;
-  }
 }
 
 img.phone {
