@@ -10,6 +10,5 @@
 
     <StackPanel>
         <Label x:Uid="TestLabel">Text</Label>
-        <Button Click="Button_Click">sdfsdfsfd</Button>
     </StackPanel>
 </local:PageBase>
