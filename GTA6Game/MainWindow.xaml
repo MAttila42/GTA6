@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GTA6Game"
         mc:Ignorable="d"
-        Title="Grand Theft Autó 6" Height="900" Width="1600" Initialized="Window_Initialized">
+        Title="Grand Theft Autó 6" Height="750" Width="1200" Initialized="Windows_Initialized" x:Name="Windows" SizeChanged="Windows_SizeChanged">
     <Grid>
         <Frame x:Name="PageContainer" NavigationUIVisibility="Hidden" DockPanel.Dock="Top"></Frame>
+        <!--<Button x:Name="BtnLoginPage" Content="BtnLoginPage" HorizontalAlignment="Left" Margin="1089,24,0,0" VerticalAlignment="Top" Width="75" Click="Btn_Click"/>
+        <Button x:Name="BtnAddUser" Content="BtnAddUser" HorizontalAlignment="Left" Margin="989,24,0,0" VerticalAlignment="Top" Width="75" Click="Btn_Click"/>-->
     </Grid>
 </Window>
