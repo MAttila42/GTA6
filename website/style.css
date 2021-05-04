@@ -112,6 +112,22 @@ body {
   font-size: 17px;
 }
 
+hr {
+  width: 80%;
+  margin: 60px auto;
+}
+
+.footer {
+  text-align: center;
+  color: #a4a9ad;
+  margin: 30px;
+}
+
+.footer span {
+  color: #d8d9da;
+  font-weight: bold;
+}
+
 @media screen and (orientation: portrait) {
   .background-img {
     width: auto;
