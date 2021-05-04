@@ -62,7 +62,7 @@ namespace GTA6Game.Pages
                 }
                 else
                 {
-                    MessageBox.Show("Helytelen jelszó!","Hiba", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
+                    MessageBox.Show("Helytelen jelszó!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
                 }
             }
         }

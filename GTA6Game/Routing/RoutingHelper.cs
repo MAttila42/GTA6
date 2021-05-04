@@ -63,7 +63,7 @@ namespace GTA6Game.Routing
         /// </summary>
         public void ReloadPage()
         {
-            if (CurrentPage ==null)
+            if (CurrentPage == null)
             {
                 return;
             }
