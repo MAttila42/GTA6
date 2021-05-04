@@ -12,6 +12,7 @@
         <StackPanel>
             <usercontrols:LoginTitle></usercontrols:LoginTitle>
 
+            
             <TextBlock TextAlignment="Center" Margin="30" Style="{StaticResource LoginTitle}" TextWrapping="Wrap" Text="Új felhasználó létrehozása"/>
 
             <Grid Width="500">
