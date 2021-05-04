@@ -27,6 +27,8 @@ namespace GTA6Game.Routing
         /// </summary>
         private Frame container;
 
+        public bool StartGame { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -35,6 +37,7 @@ namespace GTA6Game.Routing
         {
             container = frame;
             container.Navigated += OnFrameNavigation;
+            StartGame = false;
         }
 
         private void OnFrameNavigation(object sender, NavigationEventArgs e)

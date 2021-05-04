@@ -29,7 +29,7 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock Margin="50,20,10,20" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Text="Felhasználónév:" FontSize="15"></TextBlock>
-                <TextBox Width="256" Height="30" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" FontSize="15"></TextBox>
+                <TextBox x:Name="TboxUsername" Width="256" Height="30" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" FontSize="15"></TextBox>
 
                 <TextBlock Margin="50,20,10,20" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Text="Jelszó:" FontSize="15"></TextBlock>
                 <TextBox Width="256" Height="30" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" FontSize="15"></TextBox>
@@ -47,7 +47,7 @@
                 </StackPanel>
 
                 <Button x:Name="BtnLoginPage" Grid.Column="0" Grid.Row="5" Height="30" Content="Vissza a kezdőlapra" FontSize="15" Width="130" Margin="0,20,0,20" Click="BtnLoginPage_Click"></Button>
-                <Button x:Name="BtnSignUp" Grid.Column="1" Grid.Row="5" Height="30" Content="Regisztrálás" Width="100" FontSize="15" Margin="0,20,0,20" HorizontalAlignment="Left"></Button>
+                <Button x:Name="BtnSignUp" Grid.Column="1" Grid.Row="5" Height="30" Content="Regisztrálás" Width="100" FontSize="15" Margin="0,20,0,20" HorizontalAlignment="Left" Click="BtnSignUp_Click"></Button>
 
             </Grid>
 
