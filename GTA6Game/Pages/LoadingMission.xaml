@@ -3,12 +3,18 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:gif="http://wpfanimatedgif.codeplex.com"
       xmlns:local="clr-namespace:GTA6Game.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="710" d:DesignWidth="1200"
-      Title="LoadingMission" Background="White">
+      Title="LoadingMission" Background="Black" x:Name="Windows" Loaded="Windows_Loaded">
 
-    <Grid>
 
-    </Grid>
+    <Canvas>
+        <Image x:Name="ImgBackground" Height="604" Source="../Assets/Backgrounds/Bg1.png" Canvas.Top="71" Width="1116" Canvas.Left="1230"/>
+        <Image x:Name="ImgScprite" Height="551" Canvas.Left="1749" Source="C:/Users/Sziszi/Documents/Iskola/Informatika/GTA6-master/LoadingScreens/Sp8.png" VerticalAlignment="Bottom" Canvas.Top="173" Width="500"/>
+        <Button x:Name="Btn" Click="Btn_Click" Content="Button" Canvas.Left="621" Canvas.Top="417" Width="75"/>
+        <Image RenderOptions.BitmapScalingMode="HighQuality" gif:ImageBehavior.AnimatedSource="/Assets/LoadingSpinner.gif" Stretch="Fill" Height="34" Width="34" Canvas.Left="1139" Canvas.Top="665"/>
+        <Image Grid.Row="0" Grid.Column="2" Height="85" Width="129" Source="/Assets/GtaLogo1.png" Canvas.Top="608" Canvas.Left="19"/>
+    </Canvas>
 </local:PageBase>

@@ -31,6 +31,7 @@ namespace GTA6Game.Pages
         {
             InitializeComponent();
             RefreshUsersList();
+            
         }
 
         private void BtnAddUser_Click(object sender, RoutedEventArgs e)
