@@ -13,16 +13,25 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GTA6Game.Pages
+namespace GTA6Game.Pages.HaircutMinigame
 {
     /// <summary>
     /// Interaction logic for HaircutMinigamePage.xaml
     /// </summary>
     public partial class HaircutMinigamePage : PageBase
     {
+        private HaircutMinigameVM ViewModel;
+
+        private byte x = 0;
+
         public HaircutMinigamePage()
         {
+            ViewModel = new HaircutMinigameVM();
+            DataContext = ViewModel;
             InitializeComponent();
+            
         }
+
+      
     }
 }
