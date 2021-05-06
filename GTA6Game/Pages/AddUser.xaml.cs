@@ -33,9 +33,16 @@ namespace GTA6Game.Pages
 
         private void BtnSignUp_Click(object sender, RoutedEventArgs e)
         {
-            if (TboxUsername.Text != "")
+            var ifContains = SaveLoader.Save.Profiles.Where(x => x.Name.Contains(TboxUsername.Text));
+
+            if (TboxUsername.Text != "" && TboxPassword.Text == TboxPasswordCheck.Text && ifContains.Count() == 0)
             {
-                SaveLoader.Save.Profiles.AddProfile(new Profile(TboxUsername.Text));
+                SaveLoader.Save.Profiles.AddProfile(new Profile(TboxUsername.Text, TboxPassword.Text));
+                Router.ChangeCurrentPage(new LoginPage());
+            }
+            else
+            {
+                MessageBox.Show("Sajna-bajna, hibás a felhasználónév vagy a jelszavak nem egyeznek!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
             }
         }
     }

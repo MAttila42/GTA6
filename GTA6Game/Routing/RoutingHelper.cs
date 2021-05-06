@@ -1,4 +1,5 @@
 ﻿using GTA6Game.Pages;
+using GTA6Game.PlayerData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,7 @@ namespace GTA6Game.Routing
         private Frame container;
 
         public bool StartGame { get; set; }
+        public Profile SelectedUser { get; set; }
 
         /// <summary>
         /// 

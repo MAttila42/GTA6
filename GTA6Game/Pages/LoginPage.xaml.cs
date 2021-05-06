@@ -25,18 +25,13 @@ namespace GTA6Game.Pages
     public partial class LoginPage : PageBase
     {
         public int SelectedUserIndex = -1;
-        public string SelectedUserName = "";
 
         public LoginPage()
         {
             InitializeComponent();
             RefreshUsersList();
-            
-        }
-
-        private void BtnAddUser_Click(object sender, RoutedEventArgs e)
-        {
-            Router.ChangeCurrentPage(new AddUser());
+            BtnLogIn.IsEnabled = false;
+            BtnModifyUser.IsEnabled = false;
         }
 
         private void RefreshUsersList()
@@ -52,26 +47,18 @@ namespace GTA6Game.Pages
             }
         }
 
-        private void BtnLogIn_Click(object sender, RoutedEventArgs e)
-        {
-            if (SelectedUserIndex == 1)
-            {
-                if (TboxPassword.Text == "admin123")
-                {
-                    Router.StartGame = true;
-                    Router.ChangeCurrentPage(new LoadingPage());
-                }
-                else
-                {
-                    MessageBox.Show("Helytelen jelszó!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
-                }
-            }
-        }
-
         private void UserIcon_Click(object sender, RoutedEventArgs e)
         {
+            BtnLogIn.IsEnabled = true;
+            BtnModifyUser.IsEnabled = true;
             Button selectedUser = (Button)sender;
-            SelectedUserName = (string)selectedUser.Content;
+
+            foreach (var i in SaveLoader.Save.Profiles.Where(x => x.Name == (string)selectedUser.Content))
+            {
+                Router.SelectedUser = i;
+            }
+
+            Router.SelectedUser.Name = (string)selectedUser.Content;
             SelectedUserIndex = WpUserIconContainer.Children.IndexOf(selectedUser);
             for (int i = 0; i < WpUserIconContainer.Children.Count; i++)
             {
@@ -87,17 +74,35 @@ namespace GTA6Game.Pages
             }
         }
 
+        private void BtnLogIn_Click(object sender, RoutedEventArgs e)
+        {
+            if (TboxPassword.Text == Router.SelectedUser.Password && CbRobot.IsChecked == true)
+            {
+                Router.StartGame = true;
+                Router.ChangeCurrentPage(new LoadingPage());
+            }
+            else
+            {
+                MessageBox.Show("Helytelen jelszót adtál meg, vagy lehet, hogy robot vagy!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
+            }           
+        }
+
         private void BtnRemoveUser_Click(object sender, RoutedEventArgs e)
         {
-            //SaveLoader.Save.Profiles.RemoveAllProfiles();
-            Profile prof = null;
-            foreach (var i in SaveLoader.Save.Profiles.Where(x => x.Name == SelectedUserName))
+            if (TboxPassword.Text == Router.SelectedUser.Password)
             {
-                prof = i;
+                Router.ChangeCurrentPage(new ModifyUser());
             }
+            else
+            {
+                MessageBox.Show("Helytelen jelszó!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
+            }
+        }
 
-            SaveLoader.Save.Profiles.RemoveProfile(prof);
-            RefreshUsersList();
+        private void BtnAddUser_Click(object sender, RoutedEventArgs e)
+        {
+            Router.ChangeCurrentPage(new AddUser());
+
         }
     }
 }
