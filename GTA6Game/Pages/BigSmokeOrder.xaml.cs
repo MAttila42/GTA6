@@ -40,13 +40,13 @@ namespace GTA6Game.Pages
         {
             new Order("The Big Meal", 2990),
             new Order("The Huge Meal", 4490),
-            new Order("The Balls and Rings", 1490),
-            new Order("The Farmer's Surprise", 3990),
-            new Order("The Fowl Burger", 1590),
-            new Order("The Mighty Cluck", 3990),
-            new Order("The V. Eggy", 1190),
-            new Order("The Veggie Wings", 2390),
-            new Order("The Wing Piece", 1290)
+            new Order("The Balls and Rings Meal", 1490),
+            new Order("The Farmer's Surprise Meal", 3990),
+            new Order("The Fowl Burger Meal", 1590),
+            new Order("The Mighty Cluck Meal", 3990),
+            new Order("The V. Eggy Meal", 1190),
+            new Order("The Veggie Wings Meal", 2390),
+            new Order("The Wing Piece Meal", 1290)
         };
 
         static Order[] Foods =
@@ -105,6 +105,7 @@ namespace GTA6Game.Pages
         {
             btnStart.IsEnabled = false;
             Idle = false;
+            Orders.Clear();
             Random r = new Random();
             lbNote.Content = "";
             Orders.Add(Menus[r.Next(0, Menus.Length)]);
@@ -114,7 +115,7 @@ namespace GTA6Game.Pages
             {
                 var cr = r.Next(0, Foods.Length);
                 if (!a.Contains(cr))
-                    Orders.Add(Foods[cr]);
+                    Orders.Add(new Order(Foods[cr].Text, Foods[cr].Price));
                 a.Add(cr);
             }
 
@@ -144,7 +145,7 @@ namespace GTA6Game.Pages
             {
                 var cr = r.Next(0, Drinks.Length);
                 if (!a.Contains(cr))
-                    Orders.Add(Drinks[cr]);
+                    Orders.Add(new Order(Drinks[cr].Text, Drinks[cr].Price));
                 a.Add(cr);
             }
 
@@ -152,6 +153,7 @@ namespace GTA6Game.Pages
 
             lbOrder.Content = Orders[0].Text;
         }
+
         static int FullPrice = 0;
         private void tbInput_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -176,6 +178,11 @@ namespace GTA6Game.Pages
                     Idle = true;
                 }
             }
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            Router.ChangeCurrentPage(new MinigameSelectionPage());
         }
     }
 }
