@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -87,6 +87,9 @@
     <Compile Include="Pages\AddUser.xaml.cs">
       <DependentUpon>AddUser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\BigSmokeOrder.xaml.cs">
+      <DependentUpon>BigSmokeOrder.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\LoadingMission.xaml.cs">
       <DependentUpon>LoadingMission.xaml</DependentUpon>
     </Compile>
@@ -137,6 +140,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\AddUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\BigSmokeOrder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -315,6 +322,14 @@
   <ItemGroup>
     <Resource Include="Assets\ShootingRange.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\CluckinBell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\BigSmoke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Notepad.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-
 </Project>

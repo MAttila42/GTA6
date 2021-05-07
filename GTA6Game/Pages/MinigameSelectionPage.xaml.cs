@@ -47,5 +47,10 @@ namespace GTA6Game.Pages
                     break;
             }
         }
+
+        private void BtnBigSmokeOrder_Click(object sender, RoutedEventArgs e)
+        {
+            Router.ChangeCurrentPage(new BigSmokeOrder());
+        }
     }
 }
