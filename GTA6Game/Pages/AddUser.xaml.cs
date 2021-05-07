@@ -35,9 +35,9 @@ namespace GTA6Game.Pages
         {
             var ifContains = SaveLoader.Save.Profiles.Where(x => x.Name.Contains(TboxUsername.Text));
 
-            if (TboxUsername.Text != "" && TboxPassword.Text == TboxPasswordCheck.Text && ifContains.Count() == 0)
+            if (TboxUsername.Text != "" && TboxPassword.Password == TboxPasswordCheck.Password && ifContains.Count() == 0)
             {
-                SaveLoader.Save.Profiles.AddProfile(new Profile(TboxUsername.Text, TboxPassword.Text));
+                SaveLoader.Save.Profiles.AddProfile(new Profile(TboxUsername.Text, TboxPassword.Password));
                 Router.ChangeCurrentPage(new LoginPage());
             }
             else

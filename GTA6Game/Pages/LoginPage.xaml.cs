@@ -60,6 +60,7 @@ namespace GTA6Game.Pages
             }
 
             Router.SelectedUser.Name = (string)selectedUser.Content;
+            
             SelectedUserIndex = WpUserIconContainer.Children.IndexOf(selectedUser);
             for (int i = 0; i < WpUserIconContainer.Children.Count; i++)
             {

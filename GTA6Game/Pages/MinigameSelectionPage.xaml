@@ -29,8 +29,10 @@
                         
                         <TextBlock HorizontalAlignment="Center" Margin="0,45,0,0" TextWrapping="Wrap" Foreground="#2B2C2E" Text="Lődd le Antonió Martinit!" TextAlignment="Center" FontSize="24" FontWeight="SemiBold" FontFamily="SourceSans" VerticalAlignment="Top" Width="276" Height="60"/>
 
-                        <TextBlock HorizontalAlignment="Center" Margin="0,30,0,0" TextWrapping="Wrap" Foreground="#FFEB2145" Text="Segíts Big Smoke-nak kiírtani mindenkit, aki ellenség. Használd a legkirályabb fegyvereket  a storeból!" TextAlignment="Center" FontSize="18" FontWeight="SemiBold" FontFamily="SourceSans" VerticalAlignment="Top" Width="216" RenderTransformOrigin="0.105,0.053" Height="140"/>
-                        <Button x:Name="BtnShootingMission" Content="Nyomassad!" HorizontalAlignment="Center" VerticalAlignment="Top" Width="69" Height="31" Margin="138,0,143.4,0" Click="BtnShootingMission_Click"/>
+                        <ScrollViewer Height="170" Width="272">
+                            <TextBlock HorizontalAlignment="Center" Margin="0,30,0,0" TextWrapping="Wrap" Foreground="#FFEB2145" Text="Segíts Big Smoke-nak kiírtani mindenkit, aki ellenség. Használd a legkirályabb fegyvereket  a storeból! Kattints a megjelenő piros célpontokra, hogy pénzhez juss. De vigyázz, minden egyes elhibázott találat után 500Ft-ot levonunk!" TextAlignment="Center" FontSize="18" FontWeight="SemiBold" FontFamily="SourceSans" VerticalAlignment="Top" Width="216" RenderTransformOrigin="0.105,0.053"/>
+                        </ScrollViewer>
+                        <Button x:Name="BtnShootingMission" Style="{StaticResource OrangeButton}" Content="Start!" HorizontalAlignment="Center" VerticalAlignment="Top" Width="69" Height="31" Margin="138,0,143.4,0" Click="BtnShootingMission_Click"/>
                     </StackPanel>
 
                     <Image Source="/Assets/Weapon.png" Height="69" Width="69" Margin="55,247,0,0"/>
@@ -44,7 +46,7 @@
                         <TextBlock HorizontalAlignment="Center" Margin="0,45,0,0" TextWrapping="Wrap" Foreground="#2B2C2E" Text="Lődd le Antoit!" TextAlignment="Center" FontSize="24" FontWeight="SemiBold" FontFamily="SourceSans" VerticalAlignment="Center" Width="276" Height="60"/>
 
                         <TextBlock HorizontalAlignment="Center" Margin="0,30,0,0" TextWrapping="Wrap" Foreground="#FFEB2145" Text="Segíts Big Smoke-nak kiírtani mindenkit, aki ellenség. Használd a legkirályabb fegyvereket  a storeból!" TextAlignment="Center" FontSize="18" FontWeight="SemiBold" FontFamily="SourceSans" VerticalAlignment="Top" Width="216" RenderTransformOrigin="0.105,0.053" Height="140"/>
-                        <Button Content="Nyomassad!" HorizontalAlignment="Center" VerticalAlignment="Top" Width="69" Height="31" Margin="138,0,143.4,0"/>
+                        <Button Style="{StaticResource OrangeButton}" Content="Start!" HorizontalAlignment="Center" VerticalAlignment="Top" Width="69" Height="31" Margin="138,0,143.4,0"/>
                     </StackPanel>
 
                     <Image HorizontalAlignment="Left" Source="/Assets/Target.png" Height="69" VerticalAlignment="Top" Width="69" Margin="55,247,0,0"/>
@@ -58,7 +60,7 @@
                         <TextBlock HorizontalAlignment="Center" Margin="0,45,0,0" TextWrapping="Wrap" Foreground="#2B2C2E" Text="Lődd le Antonió Martinit!" TextAlignment="Center" FontSize="24" FontWeight="SemiBold" FontFamily="SourceSans" VerticalAlignment="Top" Width="276" Height="60"/>
 
                         <TextBlock HorizontalAlignment="Center" Margin="0,30,0,0" TextWrapping="Wrap" Foreground="#FFEB2145" Text="Segíts Big Smoke-nak kiírtani mindenkit, aki ellenség. Használd a legkirályabb fegyvereket  a storeból!" TextAlignment="Center" FontSize="18" FontWeight="SemiBold" FontFamily="SourceSans" VerticalAlignment="Top" Width="216" RenderTransformOrigin="0.105,0.053" Height="140"/>
-                        <Button Content="Nyomassad!" HorizontalAlignment="Center" VerticalAlignment="Top" Width="69" Height="31" Margin="138,0,143.4,0"/>
+                        <Button Style="{StaticResource OrangeButton}" Content="Start!" HorizontalAlignment="Center" VerticalAlignment="Top" Width="69" Height="31" Margin="138,0,143.4,0"/>
                     </StackPanel>
 
                     <Image HorizontalAlignment="Left" Source="/Assets/Weapon.png" Height="69" VerticalAlignment="Top" Width="69" Margin="55,247,0,0"/>
@@ -71,7 +73,7 @@
                         <TextBlock HorizontalAlignment="Center" Margin="0,45,0,0" TextWrapping="Wrap" Foreground="#2B2C2E" Text="Lődd le Antonió Martinit!" TextAlignment="Center" FontSize="24" FontWeight="SemiBold" FontFamily="SourceSans" VerticalAlignment="Top" Width="276" Height="60"/>
 
                         <TextBlock HorizontalAlignment="Center" Margin="0,30,0,0" TextWrapping="Wrap" Foreground="#FFEB2145" Text="Segíts Big Smoke-nak kiírtani mindenkit, aki ellenség. Használd a legkirályabb fegyvereket  a storeból!" TextAlignment="Center" FontSize="18" FontWeight="SemiBold" FontFamily="SourceSans" VerticalAlignment="Top" Width="216" RenderTransformOrigin="0.105,0.053" Height="140"/>
-                        <Button Content="Nyomassad!" HorizontalAlignment="Center" VerticalAlignment="Top" Width="69" Height="31" Margin="138,0,143.4,0"/>
+                        <Button Style="{StaticResource OrangeButton}" Content="Start!" HorizontalAlignment="Center" VerticalAlignment="Top" Width="69" Height="31" Margin="138,0,143.4,0"/>
                     </StackPanel>
 
                     <Image HorizontalAlignment="Left" Source="/Assets/Weapon.png" Height="69" VerticalAlignment="Top" Width="69" Margin="55,247,0,0"/>

@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace GTA6Game.Pages
 {
@@ -24,11 +25,30 @@ namespace GTA6Game.Pages
     /// </summary>
     public partial class ShootingMission : PageBase
     {
-        int Score = 0;
+        private int score = 500;
+
+        private int Score
+        {
+            get
+            {
+                return score;
+            }
+            set
+            {
+                score = value;
+                if (Score == 0)
+                {
+
+                    GameOver();
+                }
+            }
+        }
         Random R = new Random();
         int LoopNumber = 0;
         int WeaponNum = 0;
         int TargetCount = 0;
+        DispatcherTimer _timer;
+        TimeSpan _time;
 
         public ShootingMission()
         {
@@ -37,22 +57,38 @@ namespace GTA6Game.Pages
             TbLoops.Text = $"{LoopNumber}";
         }
 
-        private async void BtnStart_Click(object sender, RoutedEventArgs e)
+        private void GameOver()
+        {
+            Playground.Children.Clear();
+            LoopNumber = 0;
+            TbMoney.Text = "0 Ft";
+            MessageBoxResult result = MessageBox.Show("Elvesztetted a játékot!", "Game Over", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.No);
+            switch (result)
+            {
+                case MessageBoxResult.OK:
+                    Router.ChangeCurrentPage(new MinigameSelectionPage());
+                    break;
+            }
+        }
+
+        private async void Start()
         {
             int delay = 0;
             for (int i = 0; i < LoopNumber; i++)
             {
                 _ = AddTarget();
                 delay = R.Next(10, 1000);
-                BtnStart.Content = delay;
                 await Task.Delay(delay);
             }
             while (TargetCount != 0)
             {
                 await Task.Delay(delay);
             }
-            MessageBox.Show("A szint teljesítve. Vissza a kezdőképernyőre", "Kész", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
-            Router.ChangeCurrentPage(new MinigameSelectionPage());
+            if (TbMoney.Text != "0 Ft")
+            {
+                MessageBox.Show("A szint teljesítve. Vissza a kezdőképernyőre", "Kész", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                Router.ChangeCurrentPage(new MinigameSelectionPage());
+            }
         }
 
         private void Windows_Loaded(object sender, RoutedEventArgs e)
@@ -63,6 +99,25 @@ namespace GTA6Game.Pages
             Score = Router.SelectedUser.Money;
             WeaponNum = Router.SelectedUser.Weapon;
             TbMoney.Text = $"{Score} Ft";
+            Countdown();
+        }
+
+        private void Countdown()
+        {
+            _time = TimeSpan.FromSeconds(5);
+
+            _timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, async delegate
+            {
+                TbTime.Text = _time.ToString("ss").TrimStart(new Char[] { '0' });
+                if (_time == TimeSpan.Zero)
+                {
+                    _timer.Stop();
+                    await Task.Delay(1000);
+                    Start();
+                }; 
+                _time = _time.Add(TimeSpan.FromSeconds(-1));
+            }, Application.Current.Dispatcher);
+            _timer.Start();
         }
 
         private async Task AddTarget()
@@ -81,7 +136,14 @@ namespace GTA6Game.Pages
             target.Click += (source, e) =>
             {
                 Score += 1000;
-                TbMoney.Text = $"{Score} Ft";
+                if (Score > 0)
+                {
+                    TbMoney.Text = $"{Score} Ft";
+                }
+                else
+                {
+                    TbMoney.Text = "0 Ft";
+                }
                 Playground.Children.Remove(target);
                 TargetCount--;
                 removed = true;
@@ -89,10 +151,13 @@ namespace GTA6Game.Pages
             await Task.Delay(disappearTime);
             if (removed == false)
             {
-                Score -= 500;
-                TbMoney.Text = $"{Score} Ft";
-                Playground.Children.Remove(target);
-                TargetCount--;
+                if (Score > 0)
+                {
+                    Score -= 500;
+                    TbMoney.Text = $"{Score} Ft";
+                    Playground.Children.Remove(target);
+                    TargetCount--;
+                }
             }
         }
     }
