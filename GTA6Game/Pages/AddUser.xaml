@@ -1,4 +1,3 @@
-<<<<<<< Sziszi
 ﻿<local:PageBase x:Class="GTA6Game.Pages.AddUser"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -48,8 +47,6 @@
                     <ComboBoxItem Content="Magyar/Hungarian" FontSize="15"></ComboBoxItem>
                     <ComboBoxItem Content="Angol/English" FontSize="15"></ComboBoxItem>
                 </ComboBox>
-
-
                 <TextBlock Margin="50,20,10,20" Grid.Column="0" Grid.Row="5" TextWrapping="Wrap"  HorizontalAlignment="Left" Text="ÁSZF:" FontSize="15"></TextBlock>
                 <StackPanel Grid.Column="1" Grid.Row="5" Height="40" Orientation="Horizontal">
                     <CheckBox VerticalAlignment="Center" Margin="10,0"></CheckBox>
@@ -67,62 +64,4 @@
         <ComboBox HorizontalAlignment="Left" Height="30" Width="65" FontSize="15" Margin="785,499,0,181.4"></ComboBox>
     </Grid>
 </local:PageBase>
-=======
-﻿<local:PageBase x:Class="GTA6Game.Pages.AddUser"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:GTA6Game.Pages" xmlns:usercontrols="clr-namespace:GTA6Game.UserControls"
-      mc:Ignorable="d" 
-      d:DesignHeight="710" d:DesignWidth="1200"
-      Title="AddUser" Background="White">
 
-    <Grid>
-        <StackPanel>
-            <usercontrols:LoginTitle></usercontrols:LoginTitle>
-
-            
-            <TextBlock TextAlignment="Center" Margin="30" Style="{StaticResource LoginTitle}" TextWrapping="Wrap" Text="Új felhasználó létrehozása"/>
-
-            <Grid Width="500">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.5*" />
-                    <ColumnDefinition Width="1*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                </Grid.RowDefinitions>
-
-                <TextBlock Margin="50,20,10,20" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Text="Felhasználónév:" FontSize="15"></TextBlock>
-                <TextBox x:Name="TboxUsername" Width="256" Height="30" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" FontSize="15"></TextBox>
-
-                <TextBlock Margin="50,20,10,20" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Text="Jelszó:" FontSize="15"></TextBlock>
-                <TextBox Width="256" Height="30" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" FontSize="15"></TextBox>
-
-                <TextBlock Margin="50,20,10,20" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" Text="Jelszó újra:" FontSize="15"></TextBlock>
-                <TextBox Width="256" Height="30" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" FontSize="15"></TextBox>
-
-                <TextBlock Margin="50,20,10,20" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" Text="Születési idő:" FontSize="15"></TextBlock>
-                <DatePicker Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Height="30"/>
-
-                <TextBlock Margin="50,20,10,20" Grid.Column="0" Grid.Row="4" TextWrapping="Wrap"  HorizontalAlignment="Left" Text="ÁSZF:" FontSize="15"></TextBlock>
-                <StackPanel Grid.Column="1" Grid.Row="4" Height="40" Orientation="Horizontal">
-                    <CheckBox VerticalAlignment="Center" Margin="10,0"></CheckBox>
-                    <TextBlock Text="Elfogadom az Adatvédelmi nyilatkozat §12.4/B1, ill. annak származtatott pontjait!" FontSize="15" TextWrapping="Wrap" Width="293"/>
-                </StackPanel>
-
-                <Button x:Name="BtnLoginPage" Grid.Column="0" Grid.Row="5" Height="30" Content="Vissza a kezdőlapra" FontSize="15" Width="130" Margin="0,20,0,20" Click="BtnLoginPage_Click"></Button>
-                <Button x:Name="BtnSignUp" Grid.Column="1" Grid.Row="5" Height="30" Content="Regisztrálás" Width="100" FontSize="15" Margin="0,20,0,20" HorizontalAlignment="Left" Click="BtnSignUp_Click"></Button>
-
-            </Grid>
-
-        </StackPanel>
-    </Grid>
-</local:PageBase>
->>>>>>> master
