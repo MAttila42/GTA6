@@ -34,7 +34,7 @@ namespace GTA6Game.Pages
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
-            SaveLoader.Save.Profiles.RemoveProfile(Router.SelectedUser);
+            SaveLoader.Save.Profiles.RemoveProfile(SaveLoader.Save.SelectedProfile);
             Router.ChangeCurrentPage(new LoginPage());
         }
 

@@ -57,11 +57,11 @@ namespace GTA6Game.Pages
 
         private void Windows_Loaded(object sender, RoutedEventArgs e)
         {
-            Router.SelectedUser = SaveLoader.Save.Profiles.First();
-            Router.SelectedUser.Money = 500;
-            Router.SelectedUser.Weapon = 4;
-            Score = Router.SelectedUser.Money;
-            WeaponNum = Router.SelectedUser.Weapon;
+            SaveLoader.Save.SelectedProfile = SaveLoader.Save.Profiles.First();
+            SaveLoader.Save.SelectedProfile.Money = 500;
+            SaveLoader.Save.SelectedProfile.Weapon = 4;
+            Score = SaveLoader.Save.SelectedProfile.Money;
+            WeaponNum = SaveLoader.Save.SelectedProfile.Weapon;
             TbMoney.Text = $"{Score} Ft";
         }
 

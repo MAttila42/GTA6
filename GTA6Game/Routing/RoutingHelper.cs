@@ -29,7 +29,6 @@ namespace GTA6Game.Routing
         private Frame container;
 
         public bool StartGame { get; set; }
-        public Profile SelectedUser { get; set; }
 
         /// <summary>
         /// 
