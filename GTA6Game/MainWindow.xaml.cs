@@ -1,4 +1,5 @@
 ﻿using GTA6Game.Pages;
+using GTA6Game.Pages.HaircutMinigame;
 using GTA6Game.PlayerData;
 using GTA6Game.Routing;
 using System;
@@ -34,7 +35,7 @@ namespace GTA6Game
         {
             Router = new RoutingHelper(PageContainer);
             Router.CurrentPageChanged += OnCurrentPageChanged;
-            Router.ChangeCurrentPage(new LoginPage());
+            Router.ChangeCurrentPage(new HaircutMinigamePage());
         }
 
         private void OnCurrentPageChanged()

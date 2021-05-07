@@ -8,7 +8,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F92D7D18-25AB-404A-AC42-D87759DFA33E}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>GTA6Game</RootNamespace>
     <AssemblyName>GTA6Game</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -42,6 +42,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -51,6 +52,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
@@ -58,11 +60,20 @@
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -87,22 +98,29 @@
     <Compile Include="Pages\AddUser.xaml.cs">
       <DependentUpon>AddUser.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\HaircutMinigamePage.xaml.cs">
+    <Compile Include="Pages\HaircutMinigame\CameraOrientation.cs" />
+    <Compile Include="Pages\HaircutMinigame\Direction.cs" />
+    <Compile Include="Pages\HaircutMinigame\HaircutMinigamePage.xaml.cs">
       <DependentUpon>HaircutMinigamePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\HaircutMinigame\HaircutMinigameVM.cs" />
+    <Compile Include="Pages\HaircutMinigame\Haircut.cs" />
+    <Compile Include="Pages\HaircutMinigame\HaircutState.cs" />
+    <Compile Include="Pages\HaircutMinigame\Orientation.cs" />
+    <Compile Include="Pages\HaircutMinigame\EditableImage.cs" />
     <Compile Include="Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Languages\LanguageManager.cs" />
     <Compile Include="Pages\PageBase.cs" />
-    <Compile Include="Pages\StartingPage.xaml.cs">
-      <DependentUpon>StartingPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="PlayerData\PlayerSave.cs" />
     <Compile Include="PlayerData\Profile.cs" />
     <Compile Include="PlayerData\ProfileCollection.cs" />
     <Compile Include="PlayerData\SaveLoader.cs" />
     <Compile Include="Routing\RoutingHelper.cs" />
+    <Compile Include="UserControls\CameraMovementPanel.xaml.cs">
+      <DependentUpon>CameraMovementPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\LoginTitle.xaml.cs">
       <DependentUpon>LoginTitle.xaml</DependentUpon>
     </Compile>
@@ -123,7 +141,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\HaircutMinigamePage.xaml">
+    <Page Include="Pages\HaircutMinigame\HaircutMinigamePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -131,15 +149,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\StartingPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Styles\BasicResources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\HaircutMinigame\CameraMovementResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\UserIconResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CameraMovementPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -195,7 +217,9 @@
   <ItemGroup>
     <Resource Include="Assets\AntiSocialClub.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Assets\HaircutMinigame\arrow.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\User.png" />
   </ItemGroup>
@@ -220,6 +244,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\HaircutMinigame\background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\HaircutMinigame\Untitled.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
