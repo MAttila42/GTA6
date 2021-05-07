@@ -56,10 +56,10 @@ namespace GTA6Game.Pages
 
             foreach (var i in SaveLoader.Save.Profiles.Where(x => x.Name == (string)selectedUser.Content))
             {
-                Router.SelectedUser = i;
+                SaveLoader.Save.SelectedProfile = i;
             }
 
-            Router.SelectedUser.Name = (string)selectedUser.Content;
+            SaveLoader.Save.SelectedProfile.Name = (string)selectedUser.Content;
             SelectedUserIndex = WpUserIconContainer.Children.IndexOf(selectedUser);
             for (int i = 0; i < WpUserIconContainer.Children.Count; i++)
             {
@@ -77,7 +77,7 @@ namespace GTA6Game.Pages
 
         private void BtnLogIn_Click(object sender, RoutedEventArgs e)
         {
-            if (TboxPassword.Text == Router.SelectedUser.Password && CbRobot.IsChecked == true)
+            if (TboxPassword.Text == SaveLoader.Save.SelectedProfile.Password && CbRobot.IsChecked == true)
             {
                 Router.StartGame = true;
                 Router.ChangeCurrentPage(new LoadingPage());
@@ -90,7 +90,7 @@ namespace GTA6Game.Pages
 
         private void BtnRemoveUser_Click(object sender, RoutedEventArgs e)
         {
-            if (TboxPassword.Text == Router.SelectedUser.Password)
+            if (TboxPassword.Text == SaveLoader.Save.SelectedProfile.Password)
             {
                 Router.ChangeCurrentPage(new ModifyUser());
             }

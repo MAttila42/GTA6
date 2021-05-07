@@ -1,3 +1,4 @@
+using GTA6Game.Languages;
 using GTA6Game.PlayerData;
 using System;
 using System.Collections.Generic;
@@ -42,7 +43,21 @@ namespace GTA6Game.Pages
             }
             else
             {
-                MessageBox.Show("Sajna-bajna, hibás a felhasználónév vagy a jelszavak nem egyeznek!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
+                string msgboxTitle;
+                string msgboxText;
+
+                if (LanguageManager.CurrentCulture.IetfLanguageTag == "hu-HU" )// angolnál en-US
+                {
+                    msgboxTitle = "Hiba";
+                    msgboxText = "Sajna-bajna, hibás a felhasználónév vagy a jelszavak nem egyeznek!";
+                }
+                else
+                {
+                    msgboxTitle = "english";
+                    msgboxText = "english";
+                }
+
+                MessageBox.Show(msgboxText, msgboxTitle, MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
             }
         }
     }
