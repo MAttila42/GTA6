@@ -83,12 +83,12 @@ namespace GTA6Game.PlayerData
             }
         }
 
-        public Profile(string name, string password, int avatarId, string dateOfBirth)
+        public Profile(string name, string password/* ,int avatarId, string dateOfBirth*/)
         {
             Name = name;
-            Password = password;
+            Password = password;/*
             AvatarId = avatarId;
-            DateOfBirth = dateOfBirth;
+            DateOfBirth = dateOfBirth;*/
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
