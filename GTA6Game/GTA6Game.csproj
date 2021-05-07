@@ -8,7 +8,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F92D7D18-25AB-404A-AC42-D87759DFA33E}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>GTA6Game</RootNamespace>
     <AssemblyName>GTA6Game</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -95,6 +95,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helpers\NestedPropertyChangedEventArgs.cs" />
+    <Compile Include="Helpers\PropertyChangeNotifier.cs" />
     <Compile Include="Pages\AddUser.xaml.cs">
       <DependentUpon>AddUser.xaml</DependentUpon>
     </Compile>
@@ -249,7 +251,18 @@
     <Resource Include="Assets\HaircutMinigame\background.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\HaircutMinigame\Untitled.png" />
+    <Resource Include="Assets\HaircutMinigame\HairTop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\HaircutMinigame\HairFront.png" />
+    <Resource Include="Assets\HaircutMinigame\HairLeft.png" />
+    <Resource Include="Assets\HaircutMinigame\HairRear.png" />
+    <Resource Include="Assets\HaircutMinigame\HairRight.png" />
+    <Resource Include="Assets\HaircutMinigame\HeadFront.png" />
+    <Resource Include="Assets\HaircutMinigame\HeadLeft.png" />
+    <Resource Include="Assets\HaircutMinigame\HeadRear.png" />
+    <Resource Include="Assets\HaircutMinigame\HeadRight.png" />
+    <Resource Include="Assets\HaircutMinigame\HeadTop.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

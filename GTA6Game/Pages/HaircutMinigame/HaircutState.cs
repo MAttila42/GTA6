@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using GTA6Game.Helpers;
 
 namespace GTA6Game.Pages.HaircutMinigame
 {
-    public class HaircutState : INotifyPropertyChanged, IDisposable
+    public class HaircutState : PropertyChangeNotifier, IDisposable
     {
         public Haircut Top { get; }
 
@@ -19,8 +20,6 @@ namespace GTA6Game.Pages.HaircutMinigame
         public Haircut Rear { get; }
 
         public Haircut Right { get; }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public HaircutState()
         {
@@ -42,7 +41,7 @@ namespace GTA6Game.Pages.HaircutMinigame
 
         public void Dispose()
         {
-            PropertyChanged = null;
+            DisposePropertyChangedEvent();
             Top.Dispose();
             Front.Dispose();
             Left.Dispose();
@@ -50,14 +49,9 @@ namespace GTA6Game.Pages.HaircutMinigame
             Right.Dispose();
         }
 
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         private void OnTopChanged(object sender, PropertyChangedEventArgs e)
         {
-            OnPropertyChanged(nameof(Top)+"."+e.PropertyName);
+            OnPropertyChanged(nameof(Top) + "." + e.PropertyName);
         }
 
         private void OnFrontChanged(object sender, PropertyChangedEventArgs e)

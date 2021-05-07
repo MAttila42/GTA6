@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using GTA6Game.Helpers;
 
 namespace GTA6Game.PlayerData
 {
@@ -13,13 +14,8 @@ namespace GTA6Game.PlayerData
     /// The player's saved data
     /// </summary>
     [Serializable]
-    public class PlayerSave : INotifyPropertyChanged, ISerializable
+    public class PlayerSave : PropertyChangeNotifier, ISerializable
     {
-        /// <summary>
-        /// Event that gets invoked whenever a property of this object changes
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
         /// <summary>
         /// The user's profiles
         /// </summary>
@@ -47,11 +43,5 @@ namespace GTA6Game.PlayerData
         {
             info.AddValue(nameof(Profiles), Profiles, typeof(ProfileCollection));
         }
-
-        private void OnPropertyChanged([CallerMemberName] string name = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
-
     }
 }

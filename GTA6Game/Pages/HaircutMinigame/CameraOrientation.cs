@@ -5,10 +5,11 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using GTA6Game.Helpers;
 
 namespace GTA6Game.Pages.HaircutMinigame
 {
-    public class CameraOrientation : INotifyPropertyChanged, IDisposable
+    public class CameraOrientation : PropertyChangeNotifier, IDisposable
     {
         private static List<Orientation> HorizontalOrientations = new List<Orientation>
         {
@@ -133,8 +134,6 @@ namespace GTA6Game.Pages.HaircutMinigame
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
         public CameraOrientation(Orientation initialOrientation)
         {
             IsUpEnabled = false;
@@ -169,7 +168,7 @@ namespace GTA6Game.Pages.HaircutMinigame
 
         public void Dispose()
         {
-            PropertyChanged = null;
+            DisposePropertyChangedEvent();
         }
 
         private void PerformVerticalMovement(Direction direction)
@@ -204,11 +203,5 @@ namespace GTA6Game.Pages.HaircutMinigame
 
             CurrentOrientation = HorizontalOrientations[i];
         }
-
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
     }
 }

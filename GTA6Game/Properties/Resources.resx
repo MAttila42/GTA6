@@ -118,7 +118,34 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="HairOverlay" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\haircutminigame\untitled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="HairFront" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\haircutminigame\hairfront.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HairLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\haircutminigame\hairleft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HairRear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\haircutminigame\hairrear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HairRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\haircutminigame\hairright.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HairTop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\haircutminigame\hairtop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HeadFront" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\haircutminigame\headfront.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HeadLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\haircutminigame\headleft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HeadRear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\haircutminigame\headrear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HeadRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\haircutminigame\headright.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HeadTop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\haircutminigame\headtop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
