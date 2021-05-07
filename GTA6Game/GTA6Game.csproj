@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -97,7 +97,19 @@
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Languages\LanguageManager.cs" />
+    <Compile Include="Pages\MinigameSelectionPage.xaml.cs">
+      <DependentUpon>MinigameSelectionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ModifyUser.xaml.cs">
+      <DependentUpon>ModifyUser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PageBase.cs" />
+    <Compile Include="Pages\ShootingMission.xaml.cs">
+      <DependentUpon>ShootingMission.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ShopPage.xaml.cs">
+      <DependentUpon>ShopPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\StartingPage.xaml.cs">
       <DependentUpon>StartingPage.xaml</DependentUpon>
     </Compile>
@@ -106,9 +118,11 @@
     <Compile Include="PlayerData\ProfileCollection.cs" />
     <Compile Include="PlayerData\SaveLoader.cs" />
     <Compile Include="Routing\RoutingHelper.cs" />
+    <Compile Include="UserControls\ImageMovement.cs" />
     <Compile Include="UserControls\LoginTitle.xaml.cs">
       <DependentUpon>LoginTitle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\OutlinedTextBlock.cs" />
     <Compile Include="UserControls\UserIcon.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -135,6 +149,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MinigameSelectionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ModifyUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ShootingMission.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ShopPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -187,6 +217,7 @@
     <Resource Include="Assets\Fonts\SourceSansPro-SemiBold.ttf" />
     <Resource Include="Assets\Fonts\SourceSansPro-SemiBoldItalic.ttf" />
     <Resource Include="Assets\Fonts\PricedownBl-SLY Regular.ttf" />
+    <Resource Include="Assets\Fonts\Pricedown Bl.ttf" />
     <None Include="packages.config" />
     <None Include="create-csv.bat" />
     <None Include="generate-localized-resource.bat" />
@@ -202,7 +233,10 @@
   <ItemGroup>
     <Resource Include="Assets\AntiSocialClub.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Assets\Backgrounds\Bg2.png" />
+    <Resource Include="Assets\Backgrounds\Bg3.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\User.png" />
   </ItemGroup>
@@ -228,5 +262,59 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Backgrounds\Sp2.png" />
+    <Resource Include="Assets\Backgrounds\Sp3.png" />
+    <Resource Include="Assets\Backgrounds\Sp4.png" />
+    <Resource Include="Assets\Backgrounds\Sp5.png" />
+    <Resource Include="Assets\Backgrounds\Sp6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Backgrounds\Bg1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Backgrounds\Sp1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Backgrounds\Bg10.png" />
+    <Resource Include="Assets\Backgrounds\Bg4.png" />
+    <Resource Include="Assets\Backgrounds\Bg5.png" />
+    <Resource Include="Assets\Backgrounds\Bg6.png" />
+    <Resource Include="Assets\Backgrounds\Bg7.png" />
+    <Resource Include="Assets\Backgrounds\Bg8.png" />
+    <Resource Include="Assets\Backgrounds\Bg9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Backgrounds\Sp10.png" />
+    <Resource Include="Assets\Backgrounds\Sp7.png" />
+    <Resource Include="Assets\Backgrounds\Sp8.png" />
+    <Resource Include="Assets\Backgrounds\Sp9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\StickyNote.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\AmmuNation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Target.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Weapon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Exit.png" />
+    <Resource Include="Assets\Shop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\PistolHand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\ShootingRange.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
 </Project>
