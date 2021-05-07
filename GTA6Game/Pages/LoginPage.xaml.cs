@@ -42,6 +42,7 @@ namespace GTA6Game.Pages
                 UserIcon newUser = new UserIcon();
                 newUser.Content = i.Name;
                 newUser.Style = this.FindResource("UserIconStyle") as Style;
+                newUser.ImageSource = new BitmapImage(new Uri("/Assets/User.png", UriKind.Relative));
                 newUser.Click += new RoutedEventHandler(UserIcon_Click);
                 WpUserIconContainer.Children.Add(newUser);
             }

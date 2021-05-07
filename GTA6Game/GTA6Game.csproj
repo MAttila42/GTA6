@@ -104,6 +104,12 @@
       <DependentUpon>ModifyUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PageBase.cs" />
+    <Compile Include="Pages\ShootingMission.xaml.cs">
+      <DependentUpon>ShootingMission.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ShopPage.xaml.cs">
+      <DependentUpon>ShopPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\StartingPage.xaml.cs">
       <DependentUpon>StartingPage.xaml</DependentUpon>
     </Compile>
@@ -116,6 +122,7 @@
     <Compile Include="UserControls\LoginTitle.xaml.cs">
       <DependentUpon>LoginTitle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\OutlinedTextBlock.cs" />
     <Compile Include="UserControls\UserIcon.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -150,6 +157,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\ModifyUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ShootingMission.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ShopPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -202,6 +217,7 @@
     <Resource Include="Assets\Fonts\SourceSansPro-SemiBold.ttf" />
     <Resource Include="Assets\Fonts\SourceSansPro-SemiBoldItalic.ttf" />
     <Resource Include="Assets\Fonts\PricedownBl-SLY Regular.ttf" />
+    <Resource Include="Assets\Fonts\Pricedown Bl.ttf" />
     <None Include="packages.config" />
     <None Include="create-csv.bat" />
     <None Include="generate-localized-resource.bat" />
@@ -273,6 +289,31 @@
     <Resource Include="Assets\Backgrounds\Sp7.png" />
     <Resource Include="Assets\Backgrounds\Sp8.png" />
     <Resource Include="Assets\Backgrounds\Sp9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\StickyNote.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\AmmuNation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Target.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Weapon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Exit.png" />
+    <Resource Include="Assets\Shop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\PistolHand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\ShootingRange.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

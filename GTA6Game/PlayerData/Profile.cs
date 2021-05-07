@@ -47,6 +47,18 @@ namespace GTA6Game.PlayerData
             }
         }
 
+        private int weapon;
+
+        public int Weapon
+        {
+            get { return weapon; }
+            set
+            {
+                weapon = value;
+                OnPropertyChanged();
+            }
+        }
+
         public Profile(string name, string password)
         {
             Name = name;

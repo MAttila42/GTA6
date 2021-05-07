@@ -20,10 +20,7 @@
                     <ScrollViewer Margin="50,30" Width="560" VerticalScrollBarVisibility="Auto" Height="230">
                         <WrapPanel x:Name="WpUserIconContainer">
                             <!--<usercontrols:UserIcon x:Name="UiAdmin" Style="{StaticResource UserIconStyle}" Content="Admin" Click="UserIcon_Click"></usercontrols:UserIcon>
-                            <usercontrols:UserIcon x:Name="UiSziszi" Style="{StaticResource UserIconStyle}" Content="Sziszi" Click="UserIcon_Click"></usercontrols:UserIcon>
-                            <usercontrols:UserIcon x:Name="UiKari" Style="{StaticResource UserIconStyle}" Content="Kari" Click="UserIcon_Click"></usercontrols:UserIcon>
-                            <usercontrols:UserIcon x:Name="UiPista" Style="{StaticResource UserIconStyle}" Content="Pista" Click="UserIcon_Click"></usercontrols:UserIcon>
-                            <usercontrols:UserIcon x:Name="UiMarci" Style="{StaticResource UserIconStyle}" Content="Marci" Click="UserIcon_Click"></usercontrols:UserIcon>-->
+                            <usercontrols:UserIcon x:Name="UiTest" Style="{StaticResource UserIconStyle}" Content="Teszt" Click="UserIcon_Click"></usercontrols:UserIcon>-->
                         </WrapPanel>
                     </ScrollViewer>
 
@@ -48,7 +45,7 @@
                         <Button x:Name="BtnLogIn" Content="Bejelentkezés" FontSize="15" Grid.Row="0" Grid.Column="2" Width="102" Height="36" Click="BtnLogIn_Click" Margin="61,14,1.867,14"/>
                     </Grid>
 
-                    <Button x:Name="BtnAddUser" Content="Új felhasználó létrehozása" FontSize="15" Margin="50,0,0,0" HorizontalAlignment="Left" Width="176" Height="26" Click="BtnAddUser_Click"/>
+                    <Button x:Name="BtnAddUser" Content="Új felhasználó létrehozása" FontSize="15" Margin="50,0,0,0" HorizontalAlignment="Left" Width="186" Height="26" Click="BtnAddUser_Click"/>
 
                 </StackPanel>
 
@@ -59,7 +56,7 @@
             </WrapPanel>
 
         </StackPanel>
-        <Button x:Name="BtnModifyUser" Content="Szerkesztés" HorizontalAlignment="Left" Margin="449,582,0,0" VerticalAlignment="Top" Width="126" Height="37" Click="BtnRemoveUser_Click"/>
+        <Button x:Name="BtnModifyUser" Content="Szerkesztés" HorizontalAlignment="Left" FontSize="15" Margin="449,582,0,0" VerticalAlignment="Top" Width="126" Height="37" Click="BtnRemoveUser_Click"/>
 
     </Grid>
 </local:PageBase>

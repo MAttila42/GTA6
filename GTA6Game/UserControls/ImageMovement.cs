@@ -24,14 +24,9 @@ namespace GTA6Game.UserControls
 {
     public class ImageMovement
     {
-        public bool lefutott = false;
-
-        MediaPlayer player = new MediaPlayer();
 
         public void Move(Image bg, double pos1, double pos2, double pos3, int loopCount, List<string> képekNeve, RoutingHelper router)
         {
-            player.Open(new Uri("C:/Users/Sziszi/Documents/Iskola/Informatika/GTA6-master/LoadingMusic.wav"));
-            player.Play();
 
             TranslateTransform animatedTranslateTransform = new TranslateTransform();
             bg.RenderTransform = animatedTranslateTransform;
@@ -63,7 +58,6 @@ namespace GTA6Game.UserControls
                 }
                 else
                 {
-                    player.Position = new TimeSpan(0, 0, 4, 52);
                     router.ChangeCurrentPage(new MinigameSelectionPage());
                 }
             };

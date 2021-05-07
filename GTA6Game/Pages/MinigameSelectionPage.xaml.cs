@@ -24,5 +24,28 @@ namespace GTA6Game.Pages
         {
             InitializeComponent();
         }
+
+        private void UiShop_Click(object sender, RoutedEventArgs e)
+        {
+            Router.ChangeCurrentPage(new ShopPage());
+        }
+
+        private void BtnShootingMission_Click(object sender, RoutedEventArgs e)
+        {
+            Router.ChangeCurrentPage(new ShootingMission());
+        }
+
+        private void UiExit_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Biztosan ki akar lépni?", "Bezárás", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    Application.Current.Shutdown();
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }
+        }
     }
 }
