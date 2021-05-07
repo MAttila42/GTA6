@@ -57,7 +57,7 @@ namespace GTA6Game.Pages
                     msgboxText = "english";
                 }
 
-                MessageBox.Show(msgboxTitle, msgboxTitle, MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
+                MessageBox.Show(msgboxText, msgboxTitle, MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
             }
         }
     }
