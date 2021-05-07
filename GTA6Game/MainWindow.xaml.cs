@@ -64,7 +64,5 @@ namespace GTA6Game
                 Router.ChangeCurrentPage(page);
             }
         }
-
-
     }
 }
