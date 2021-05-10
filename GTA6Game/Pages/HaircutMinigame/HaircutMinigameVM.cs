@@ -81,7 +81,10 @@ namespace GTA6Game.Pages.HaircutMinigame
             if (e.PropertyName == nameof(CameraOrientation.CurrentOrientation))
             {
                 OnPropertyChanged(nameof(CurrentSide));
+
                 LastSide.PropertyChanged -= OnCurrentSideChanged;
+                LastSide.Hair.DetachCanvas();
+
                 CurrentSide.PropertyChanged += OnCurrentSideChanged;
                 LastSide = CurrentSide;
             }

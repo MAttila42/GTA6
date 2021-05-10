@@ -13,14 +13,14 @@ namespace GTA6Game.Pages.HaircutMinigame
 {
     public class EditableImage : IDisposable
     {
-        public delegate void ModifyImageCallback(int x, int y, Color color);
+        public delegate void ModifyImageCallback(System.Drawing.Point point, Color color);
 
         [System.Runtime.InteropServices.DllImport("gdi32.dll")]
         private static extern bool DeleteObject(IntPtr hObject);
 
-        public System.Windows.Controls.Image Canvas;
+        private System.Windows.Controls.Image Canvas;
 
-        private Bitmap Bmp;
+        public Bitmap Bmp { get; }
 
         public EditableImage(Bitmap img)
         {
@@ -34,9 +34,13 @@ namespace GTA6Game.Pages.HaircutMinigame
                 Rectangle lockRegion = new Rectangle(0, 0, 640, 480);
                 BitmapData data = Bmp.LockBits(lockRegion, ImageLockMode.ReadWrite, PixelFormat.Format32bppArgb);
 
-                ModifyImageCallback cb = (x, y, color) =>
+                ModifyImageCallback cb = (point, color) =>
                 {
-                    int i = x * 4 + y * Bmp.Width * 4;
+                    if (point.X >= Bmp.Width || point.Y >= Bmp.Height)
+                    {
+                        return;
+                    }
+                    int i = point.X * 4 + point.Y * Bmp.Width * 4;
                     byte* pointer = (byte*)data.Scan0;
                     pointer[i] = color.B;
                     pointer[i + 1] = color.G;
@@ -48,20 +52,40 @@ namespace GTA6Game.Pages.HaircutMinigame
                 action(cb);
 
                 Bmp.UnlockBits(data);
-                IntPtr hBmp;
-                hBmp = Bmp.GetHbitmap();
-                if (Canvas != null)
-                {
-                    Canvas.Source = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(hBmp, IntPtr.Zero, Int32Rect.Empty, System.Windows.Media.Imaging.BitmapSizeOptions.FromEmptyOptions());
-                    Canvas.Source.Freeze();
-                }
-                DeleteObject(hBmp);
+
+                RenderImage();
             }
+        }
+
+        public void SetCanvas(System.Windows.Controls.Image canvas)
+        {
+            Canvas = canvas;
+            RenderImage();
+        }
+
+        public void DetachCanvas()
+        {
+            Canvas = null;
         }
 
         public void Dispose()
         {
             Bmp.Dispose();
+        }
+
+        private void RenderImage()
+        {
+            if (Canvas == null)
+            {
+                return;
+            }
+
+            IntPtr hBmp = Bmp.GetHbitmap();
+
+            Canvas.Source = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(hBmp, IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+            Canvas.Source.Freeze();
+
+            DeleteObject(hBmp);
         }
     }
 

@@ -123,6 +123,9 @@
     <Compile Include="UserControls\CameraMovementPanel.xaml.cs">
       <DependentUpon>CameraMovementPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\FranklinDisplay.xaml.cs">
+      <DependentUpon>FranklinDisplay.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\LoginTitle.xaml.cs">
       <DependentUpon>LoginTitle.xaml</DependentUpon>
     </Compile>
@@ -164,6 +167,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\CameraMovementPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\FranklinDisplay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -251,18 +258,18 @@
     <Resource Include="Assets\HaircutMinigame\background.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\HaircutMinigame\HairTop.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\HairTop.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\HaircutMinigame\HairFront.png" />
-    <Resource Include="Assets\HaircutMinigame\HairLeft.png" />
-    <Resource Include="Assets\HaircutMinigame\HairRear.png" />
-    <Resource Include="Assets\HaircutMinigame\HairRight.png" />
-    <Resource Include="Assets\HaircutMinigame\HeadFront.png" />
-    <Resource Include="Assets\HaircutMinigame\HeadLeft.png" />
-    <Resource Include="Assets\HaircutMinigame\HeadRear.png" />
-    <Resource Include="Assets\HaircutMinigame\HeadRight.png" />
-    <Resource Include="Assets\HaircutMinigame\HeadTop.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\HairFront.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\HairLeft.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\HairRear.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\HairRight.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\HeadFront.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\HeadLeft.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\HeadRear.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\HeadRight.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\HeadTop.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
