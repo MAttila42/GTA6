@@ -45,12 +45,16 @@ namespace GTA6Game.Pages.HaircutMinigame
 
         private Haircut LastSide;
 
+        public DesiredShape Shape { get; }
+
         public HaircutMinigameVM()
         {
+            Shape = GetRandomShape();
+
             CameraOrientation = new CameraOrientation(Orientation.Top);
             CameraOrientation.PropertyChanged += OnCameraOrientationChanged;
 
-            HaircutState = new HaircutState();
+            HaircutState = new HaircutState(Shape);
             HaircutState.PropertyChanged += OnHaircutStateChanged;
 
             CurrentSide.PropertyChanged += OnCurrentSideChanged;
@@ -90,5 +94,10 @@ namespace GTA6Game.Pages.HaircutMinigame
             }
         }
 
+        private DesiredShape GetRandomShape()
+        {
+            int rnd = new Random().Next(0, DesiredShape.Shapes.Count);
+            return DesiredShape.Shapes.ToList()[rnd].Value;
+        }
     }
 }

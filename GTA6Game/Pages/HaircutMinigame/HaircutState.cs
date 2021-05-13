@@ -21,21 +21,21 @@ namespace GTA6Game.Pages.HaircutMinigame
 
         public Haircut Right { get; }
 
-        public HaircutState()
+        public HaircutState(DesiredShape shape)
         {
-            Top = new Haircut(Orientation.Top);
+            Top = new Haircut(Orientation.Top, shape.Top);
             Top.PropertyChanged += OnTopChanged;
 
-            Front = new Haircut(Orientation.Front);
+            Front = new Haircut(Orientation.Front, shape.Front);
             Front.PropertyChanged += OnFrontChanged;
 
-            Left = new Haircut(Orientation.Left);
+            Left = new Haircut(Orientation.Left, shape.Left);
             Left.PropertyChanged += OnLeftChanged;
 
-            Rear = new Haircut(Orientation.Rear);
+            Rear = new Haircut(Orientation.Rear, shape.Rear);
             Rear.PropertyChanged += OnRearChanged;
 
-            Right = new Haircut(Orientation.Right);
+            Right = new Haircut(Orientation.Right, shape.Right);
             Right.PropertyChanged += OnRightChanged;
         }
 

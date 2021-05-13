@@ -101,6 +101,7 @@
       <DependentUpon>AddUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\HaircutMinigame\CameraOrientation.cs" />
+    <Compile Include="Pages\HaircutMinigame\DesiredShape.cs" />
     <Compile Include="Pages\HaircutMinigame\Direction.cs" />
     <Compile Include="Pages\HaircutMinigame\HaircutMinigamePage.xaml.cs">
       <DependentUpon>HaircutMinigamePage.xaml</DependentUpon>
@@ -211,6 +212,7 @@
     <Resource Include="Assets\Fonts\SourceSansPro-SemiBold.ttf" />
     <Resource Include="Assets\Fonts\SourceSansPro-SemiBoldItalic.ttf" />
     <Resource Include="Assets\Fonts\PricedownBl-SLY Regular.ttf" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\test\Meta" />
     <None Include="packages.config" />
     <None Include="create-csv.bat" />
     <None Include="generate-localized-resource.bat" />
@@ -258,18 +260,25 @@
     <Resource Include="Assets\HaircutMinigame\background.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Assets\HaircutMinigame\HairTop.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\Head\Front.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\Head\Left.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\Head\Rear.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\Head\Right.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\Head\Top.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Assets\HaircutMinigame\HairFront.png" />
-    <EmbeddedResource Include="Assets\HaircutMinigame\HairLeft.png" />
-    <EmbeddedResource Include="Assets\HaircutMinigame\HairRear.png" />
-    <EmbeddedResource Include="Assets\HaircutMinigame\HairRight.png" />
-    <EmbeddedResource Include="Assets\HaircutMinigame\HeadFront.png" />
-    <EmbeddedResource Include="Assets\HaircutMinigame\HeadLeft.png" />
-    <EmbeddedResource Include="Assets\HaircutMinigame\HeadRear.png" />
-    <EmbeddedResource Include="Assets\HaircutMinigame\HeadRight.png" />
-    <EmbeddedResource Include="Assets\HaircutMinigame\HeadTop.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\Hair\Front.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\Hair\Left.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\Hair\Rear.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\Hair\Right.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\Hair\Top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\test\Front.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\test\Left.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\test\Rear.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\test\Right.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\test\Top.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

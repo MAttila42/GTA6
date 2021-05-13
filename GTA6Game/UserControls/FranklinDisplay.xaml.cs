@@ -25,7 +25,7 @@ namespace GTA6Game.UserControls
     {
         private bool IsCuttingInProgress = false;
 
-        private int Radius = 1;
+        private int Radius = 5;
 
         public FranklinDisplay()
         {
@@ -90,15 +90,9 @@ namespace GTA6Game.UserControls
                 int x = Math.Min((int)position.X, vm.CurrentSide.Hair.Bmp.Width - 1);
                 int y = Math.Min((int)position.Y, vm.CurrentSide.Hair.Bmp.Width - 1);
 
-                var points = GetPointsOfCircle(9, new System.Drawing.Point(x, y));
+                var points = GetPointsOfCircle(Radius, new System.Drawing.Point(x, y));
 
-                vm.CurrentSide.Hair.ModifyImage((cb) =>
-                {
-                    foreach (var p in points)
-                    {
-                        cb(p, Color.FromArgb(0, 100, 100, 100));
-                    }
-                });
+                vm.CurrentSide.Cut(points);
             }
         }
 
@@ -135,5 +129,7 @@ namespace GTA6Game.UserControls
 
             return points;
         }
+
+      
     }
 }

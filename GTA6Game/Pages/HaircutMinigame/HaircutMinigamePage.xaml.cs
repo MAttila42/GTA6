@@ -26,6 +26,7 @@ namespace GTA6Game.Pages.HaircutMinigame
 
         public HaircutMinigamePage()
         {
+            DesiredShape.LoadShapes();
             ViewModel = new HaircutMinigameVM();
             DataContext = ViewModel;
             InitializeComponent();

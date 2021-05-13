@@ -52,7 +52,6 @@ namespace GTA6Game.Pages.HaircutMinigame
                 action(cb);
 
                 Bmp.UnlockBits(data);
-
                 RenderImage();
             }
         }
@@ -66,6 +65,11 @@ namespace GTA6Game.Pages.HaircutMinigame
         public void DetachCanvas()
         {
             Canvas = null;
+        }
+
+        public Color GetPixel(System.Drawing.Point point)
+        {
+            return Bmp.GetPixel(point.X,point.Y);
         }
 
         public void Dispose()
