@@ -27,50 +27,44 @@ namespace GTA6Game.Pages
     /// </summary>
     public partial class LoadingMission : PageBase
     {
-        ImageMovement img = new ImageMovement();
-        ImageMovement img2 = new ImageMovement();
+        ImageMovement Img = new ImageMovement();
+        ImageMovement Img2 = new ImageMovement();
         List<string> BackPicturesName = new List<string>();
         HashSet<int> BackPicturesNameHash = new HashSet<int>();
 
         List<string> SpritePicturesName = new List<string>();
         HashSet<int> SpritePicturesNameHash = new HashSet<int>();
         Random MainR = new Random();
-        int loopCount = -1;
+        int LoopCount = -1;
 
         public LoadingMission()
         {
             InitializeComponent();
 
-            loopCount = MainR.Next(1, 11);
+            LoopCount = MainR.Next(1, 15);
 
-            Btn.Content = loopCount;
-
-            FeltöltKépekNeveHashSet();
-            FeltöltKépekNeveLista();
+            AddPicturesNameHashSet();
+            AddPicturesNameList();
             ImgBackground.Source = new BitmapImage(new Uri(BackPicturesName.First(), UriKind.Relative));
             ImgScprite.Source = new BitmapImage(new Uri(SpritePicturesName.First(), UriKind.Relative));
-
-            //ExecuteWithDelay(new Action(delegate {  }), TimeSpan.FromSeconds(1));
-            //ExecuteWithDelay(new Action(delegate {  }), TimeSpan.FromSeconds(1));
-
         }
 
-        public void FeltöltKépekNeveHashSet()
+        public void AddPicturesNameHashSet()
         {
             Random r = new Random();
-            while (BackPicturesNameHash.Count != loopCount)
+            while (BackPicturesNameHash.Count != LoopCount)
             {
-                int aktRandom = r.Next(1, 11);
+                int aktRandom = r.Next(1, 16);
                 BackPicturesNameHash.Add(aktRandom);
             }
-            while (SpritePicturesNameHash.Count != loopCount)
+            while (SpritePicturesNameHash.Count != LoopCount)
             {
-                int aktRandom = r.Next(1, 11);
+                int aktRandom = r.Next(1, 16);
                 SpritePicturesNameHash.Add(aktRandom);
             }
         }
 
-        public void FeltöltKépekNeveLista()
+        public void AddPicturesNameList()
         {
             foreach (var i in BackPicturesNameHash)
             {
@@ -82,33 +76,10 @@ namespace GTA6Game.Pages
             }
         }
 
-        public static void ExecuteWithDelay(Action action, TimeSpan delay)
-        {
-            DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = delay;
-            timer.Tag = action;
-            timer.Tick += new EventHandler(timer_Tick);
-            timer.Start();
-        }
-
-        static void timer_Tick(object sender, EventArgs e)
-        {
-            DispatcherTimer timer = (DispatcherTimer)sender;
-            Action action = (Action)timer.Tag;
-
-            action.Invoke();
-            timer.Stop();
-        }
-
-        private void Btn_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
         private void Windows_Loaded(object sender, RoutedEventArgs e)
         {
-            img.Move(ImgBackground, -1200, -1210, -2467, loopCount, BackPicturesName, Router);
-            img2.Move(ImgScprite, -1200, -1500, -2467, loopCount, SpritePicturesName, Router);
+            Img.Move(ImgBackground, -1200, -1210, -2467, LoopCount, BackPicturesName, Router);
+            Img2.Move(ImgScprite, -1200, -1500, -2467, LoopCount, SpritePicturesName, Router);
         }
     }
 }

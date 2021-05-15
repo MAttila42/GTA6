@@ -12,7 +12,6 @@
     <Canvas>
         <Image x:Name="ImgBackground" Height="604" Source="/Assets/Backgrounds/Bg1.png" Canvas.Top="71" Width="1116" Canvas.Left="1230"/>
         <Image x:Name="ImgScprite" Height="551" Canvas.Left="1749" Source="/Assets/Backgrounds/Sp1.png" VerticalAlignment="Bottom" Canvas.Top="173" Width="500"/>
-        <Button x:Name="Btn" Click="Btn_Click" Content="Button" Canvas.Left="1098" Canvas.Top="25" Width="75"/>
         <Image RenderOptions.BitmapScalingMode="HighQuality" gif:ImageBehavior.AnimatedSource="/Assets/LoadingSpinner.gif" Stretch="Fill" Height="34" Width="34" Canvas.Left="1139" Canvas.Top="665"/>
         <Image Grid.Row="0" Grid.Column="2" Height="85" Width="129" Source="/Assets/GtaLogo1.png" Canvas.Top="608" Canvas.Left="19"/>
     </Canvas>

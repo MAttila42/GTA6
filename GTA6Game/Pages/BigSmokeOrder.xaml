@@ -21,9 +21,9 @@
         <Frame Background="Black" Opacity="0.7" HorizontalAlignment="Left" Height="40" Margin="360,26,0,0" VerticalAlignment="Top" Width="145"/>
         <Label Content="Rendelés:" Foreground="White" FontSize="20" HorizontalAlignment="Left" Margin="25,81,0,0" VerticalAlignment="Top" Width="100"/>
         <Label x:Name="lbOrder" Foreground="White" Content="" FontSize="20" HorizontalAlignment="Left" Margin="130,81,0,0" VerticalAlignment="Top" Width="364"/>
-        <Button x:Name="btnBack" Content="Vissza" FontSize="20" HorizontalAlignment="Left" Margin="25,26,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="btnBack_Click"/>
-        <Button x:Name="btnStart" Content="Indítás" FontSize="20" HorizontalAlignment="Left" Margin="130,26,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="BtnStart_Click"/>
-        <TextBox x:Name="tbInput" Background="Black" Opacity="0.7" Foreground="White" FontSize="20" HorizontalAlignment="Left" Height="33" Margin="25,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="480" TextChanged="tbInput_TextChanged"/>
+        <Button x:Name="btnBack" Style="{StaticResource OrangeButton}" Content="Vissza" FontSize="20" HorizontalAlignment="Left" Margin="25,26,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="btnBack_Click"/>
+        <Button x:Name="btnStart" Style="{StaticResource PurpleButton}" Content="Indítás" FontSize="20" HorizontalAlignment="Left" Margin="130,26,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="BtnStart_Click"/>
+        <TextBox x:Name="tbInput" Style="{StaticResource NaturalTextBox}" Background="Black" Opacity="0.7" Foreground="White" FontSize="20" HorizontalAlignment="Left" Height="33" Margin="25,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="480" TextChanged="tbInput_TextChanged"/>
         <Label x:Name="lbNote" Content="" FontSize="20" HorizontalAlignment="Left" Margin="737,134,0,0" VerticalAlignment="Top" Height="528" Width="407"/>
         <Label Content="" Foreground="White" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="360,26,0,0" VerticalAlignment="Top" Height="40" Width="145"/>
     </Grid>

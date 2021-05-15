@@ -16,16 +16,14 @@
 
         <Image HorizontalAlignment="Left" Source="/Assets/PistolHand.png" Height="232" Margin="481,478,0,0" VerticalAlignment="Top" Width="280"/>
 
-
-        <usercontrols:OutlinedTextBlock x:Name="TbMoney" Text="12.563 Ft" TextAlignment="Right" FontFamily="/GTA6Game;component/Assets/Fonts/#Pricedown Bl"  FontSize="40pt" FontWeight="ExtraBold" TextWrapping="Wrap" StrokeThickness="3" Stroke="Black" Fill="#A8D08D" Canvas.Left="257" Canvas.Top="267" Margin="562,10,10,636.4" ></usercontrols:OutlinedTextBlock>
+        <usercontrols:OutlinedTextBlock x:Name="TbMoney" Text="12.563 Ft" TextAlignment="Right" FontFamily="/GTA6Game;component/Assets/Fonts/#Pricedown Bl" FontSize="40pt" FontWeight="ExtraBold" TextWrapping="Wrap" StrokeThickness="3" Stroke="Black" Fill="#A8D08D" Canvas.Left="257" Canvas.Top="267" Margin="562,10,10,636.4" ></usercontrols:OutlinedTextBlock>
+        <TextBlock x:Name="TbLoops" TextWrapping="Wrap" Text="TextBlock" Margin="1048,97,29,575.4" />
 
         <Canvas x:Name="Playground" Margin="65,74,41,46.4">
-            <Button x:Name="BtnStart" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="BtnStart_Click" Canvas.Left="9" Canvas.Top="-52"/>
-            <TextBlock x:Name="TbLoops" Canvas.Left="1085" TextWrapping="Wrap" Text="TextBlock" Canvas.Top="106"/>
-
-
 
         </Canvas>
+
+        <usercontrols:OutlinedTextBlock x:Name="TbTime" Text="5" TextAlignment="Center" FontFamily="Arial" FontSize="300" FontWeight="ExtraBold" TextWrapping="Wrap" StrokeThickness="5" Stroke="Black" Fill="White" Margin="353,179,331,164.4"/>
 
     </Grid>
 </local:PageBase>

@@ -1,4 +1,3 @@
-using GTA6Game.Languages;
 using GTA6Game.PlayerData;
 using System;
 using System.Collections.Generic;
@@ -36,28 +35,14 @@ namespace GTA6Game.Pages
         {
             var ifContains = SaveLoader.Save.Profiles.Where(x => x.Name.Contains(TboxUsername.Text));
 
-            if (TboxUsername.Text != "" && TboxPassword.Text == TboxPasswordCheck.Text && ifContains.Count() == 0)
+            if (TboxUsername.Text != "" && TboxPassword.Password == TboxPasswordCheck.Password && ifContains.Count() == 0)
             {
-                SaveLoader.Save.Profiles.AddProfile(new Profile(TboxUsername.Text, TboxPassword.Text));
+                SaveLoader.Save.Profiles.AddProfile(new Profile(TboxUsername.Text, TboxPassword.Password));
                 Router.ChangeCurrentPage(new LoginPage());
             }
             else
             {
-                string msgboxTitle;
-                string msgboxText;
-
-                if (LanguageManager.CurrentCulture.IetfLanguageTag == "hu-HU" )// angolnál en-US
-                {
-                    msgboxTitle = "Hiba";
-                    msgboxText = "Sajna-bajna, hibás a felhasználónév vagy a jelszavak nem egyeznek!";
-                }
-                else
-                {
-                    msgboxTitle = "english";
-                    msgboxText = "english";
-                }
-
-                MessageBox.Show(msgboxText, msgboxTitle, MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
+                MessageBox.Show("Sajna-bajna, hibás a felhasználónév vagy a jelszavak nem egyeznek!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
             }
         }
     }

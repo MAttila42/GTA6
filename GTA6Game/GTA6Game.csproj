@@ -183,6 +183,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\ButtonResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\DatePickerResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\InputResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\UserIconResources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -292,7 +304,6 @@
     <Resource Include="Assets\Backgrounds\Bg9.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Backgrounds\Sp10.png" />
     <Resource Include="Assets\Backgrounds\Sp7.png" />
     <Resource Include="Assets\Backgrounds\Sp8.png" />
     <Resource Include="Assets\Backgrounds\Sp9.png" />
@@ -330,6 +341,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Notepad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Backgrounds\Bg11.png" />
+    <Resource Include="Assets\Backgrounds\Bg12.png" />
+    <Resource Include="Assets\Backgrounds\Bg13.png" />
+    <Resource Include="Assets\Backgrounds\Bg14.png" />
+    <Resource Include="Assets\Backgrounds\Bg15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Backgrounds\Sp10.png" />
+    <Resource Include="Assets\Backgrounds\Sp11.png" />
+    <Resource Include="Assets\Backgrounds\Sp12.png" />
+    <Resource Include="Assets\Backgrounds\Sp13.png" />
+    <Resource Include="Assets\Backgrounds\Sp14.png" />
+    <Resource Include="Assets\Backgrounds\Sp15.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
