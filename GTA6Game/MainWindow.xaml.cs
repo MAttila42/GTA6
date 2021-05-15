@@ -35,18 +35,13 @@ namespace GTA6Game
         {
             Router = new RoutingHelper(PageContainer);
             Router.CurrentPageChanged += OnCurrentPageChanged;
-            Router.ChangeCurrentPage(new MinigameSelectionPage());
+            Router.ChangeCurrentPage(new LoadingPage());
 
         }
 
         private void OnCurrentPageChanged()
         {
 
-        }
-
-        private void Windows_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            Windows.Title = $"{Windows.ActualHeight} * {Windows.ActualWidth} sz, m";
         }
 
         public void BtnSwitchPage_Click(object sender, RoutedEventArgs e)
