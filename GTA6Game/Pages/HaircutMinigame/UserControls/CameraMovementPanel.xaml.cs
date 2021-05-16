@@ -1,5 +1,4 @@
-﻿using GTA6Game.Pages.HaircutMinigame;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GTA6Game.UserControls
+namespace GTA6Game.Pages.HaircutMinigame.UserControls
 {
     /// <summary>
     /// Interaction logic for CameraMovementPanel.xaml

@@ -8,51 +8,93 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using System.Windows.Threading;
+using Point = System.Drawing.Point;
 
 namespace GTA6Game.Pages.HaircutMinigame
 {
     public class EditableImage : IDisposable
     {
-        public delegate void ModifyImageCallback(System.Drawing.Point point, Color color);
-
         [System.Runtime.InteropServices.DllImport("gdi32.dll")]
         private static extern bool DeleteObject(IntPtr hObject);
 
+        public int Width { get; }
+
+        public int Height { get; }
+
+        private Bitmap Bmp { get; }
+
         private System.Windows.Controls.Image Canvas;
 
-        public Bitmap Bmp { get; }
+        private BitmapData BitmapData;
 
         public EditableImage(Bitmap img)
         {
             Bmp = img;
+            Width = img.Width;
+            Height = img.Height;
         }
 
-        public void ModifyImage(Action<ModifyImageCallback> action)
+        public void Lock()
         {
+            if (BitmapData == null)
+            {
+                BitmapData = Bmp.LockBits(new Rectangle(0, 0, Width, Height), ImageLockMode.ReadWrite, PixelFormat.Format32bppArgb);
+            }
+        }
+
+        public void Unlock()
+        {
+            if (BitmapData != null)
+            {
+                Bmp.UnlockBits(BitmapData);
+                BitmapData = null;
+            }
+        }
+
+        public int Count(Func<Color, Point, bool> cb)
+        {
+            int count = 0;
             unsafe
             {
-                Rectangle lockRegion = new Rectangle(0, 0, 640, 480);
-                BitmapData data = Bmp.LockBits(lockRegion, ImageLockMode.ReadWrite, PixelFormat.Format32bppArgb);
-
-                ModifyImageCallback cb = (point, color) =>
+                byte* pointer = (byte*)BitmapData.Scan0;
+                for (int i = 0; i < Width * Height * 4; i += 4)
                 {
-                    if (point.X >= Bmp.Width || point.Y >= Bmp.Height)
+                    byte b = pointer[i];
+                    byte g = pointer[i + 1];
+                    byte r = pointer[i + 2];
+                    byte a = pointer[i + 3];
+
+                    int pixelIndex = i / 4;
+                    int x = pixelIndex % Width;
+                    int y = pixelIndex / Width;
+
+                    var point = new Point(x, y);
+
+                    Color color = Color.FromArgb(a, r, g, b);
+                    if (cb(color,point))
                     {
-                        return;
+                        count++;
                     }
-                    int i = point.X * 4 + point.Y * Bmp.Width * 4;
-                    byte* pointer = (byte*)data.Scan0;
-                    pointer[i] = color.B;
-                    pointer[i + 1] = color.G;
-                    pointer[i + 2] = color.R;
-                    pointer[i + 3] = color.A;
+                }
+            }
+            return count;
+        }
 
-                };
-
-                action(cb);
-
-                Bmp.UnlockBits(data);
-                RenderImage();
+        public void ModifyImage(Point point, Color color)
+        {
+            if (point.X >= Width || point.Y >= Height)
+            {
+                return;
+            }
+            int i = point.X * 4 + point.Y * Width * 4;
+            unsafe
+            {
+                byte* pointer = (byte*)BitmapData.Scan0;
+                pointer[i] = color.B;
+                pointer[i + 1] = color.G;
+                pointer[i + 2] = color.R;
+                pointer[i + 3] = color.A;
             }
         }
 
@@ -67,9 +109,31 @@ namespace GTA6Game.Pages.HaircutMinigame
             Canvas = null;
         }
 
-        public Color GetPixel(System.Drawing.Point point)
+        public Color GetPixel(Point point)
         {
-            return Bmp.GetPixel(point.X,point.Y);
+            if (BitmapData == null)
+            {
+                return Bmp.GetPixel(point.X, point.Y);
+            }
+            else
+            {
+                byte b;
+                byte g;
+                byte r;
+                byte a;
+
+                int i = point.X * 4 + point.Y * Width * 4;
+                unsafe
+                {
+                    byte* pointer = (byte*)BitmapData.Scan0;
+                    b = pointer[i];
+                    g = pointer[i + 1];
+                    r = pointer[i + 2];
+                    a = pointer[i + 3];
+                }
+
+                return Color.FromArgb(a, r, g, b);
+            }
         }
 
         public void Dispose()
@@ -77,19 +141,23 @@ namespace GTA6Game.Pages.HaircutMinigame
             Bmp.Dispose();
         }
 
-        private void RenderImage()
+        public void RenderImage()
         {
             if (Canvas == null)
             {
                 return;
             }
 
-            IntPtr hBmp = Bmp.GetHbitmap();
+            void Render()
+            {
+                IntPtr hBmp = Bmp.GetHbitmap();
+                Canvas.Source = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(hBmp, IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+                Canvas.Source.Freeze();
+                DeleteObject(hBmp);
+            }
 
-            Canvas.Source = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(hBmp, IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
-            Canvas.Source.Freeze();
+            Canvas.Dispatcher.BeginInvoke(new Action(Render)).Wait();
 
-            DeleteObject(hBmp);
         }
     }
 

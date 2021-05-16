@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,7 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GTA6Game.UserControls
+namespace GTA6Game.Pages.HaircutMinigame.UserControls
 {
     /// <summary>
     /// Interaction logic for FranklinDisplay.xaml
@@ -36,7 +37,7 @@ namespace GTA6Game.UserControls
         {
             var vm = (HaircutMinigameVM)DataContext;
             vm.PropertyChanged += OnViewModelPropertyChanged;
-            AttachHairCanvas();
+            AttachCanvas();
         }
 
         private void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -52,14 +53,16 @@ namespace GTA6Game.UserControls
         {
             if (!(e is NestedPropertyChangedEventArgs))
             {
-                AttachHairCanvas();
+                AttachCanvas();
             }
         }
 
-        private void AttachHairCanvas()
+        private void AttachCanvas()
         {
             var vm = (HaircutMinigameVM)DataContext;
             vm.CurrentSide.Hair.SetCanvas(HairCanvas);
+            vm.CurrentSide.AreaToCut.SetCanvas(ShapeCanvas);
+            vm.CurrentSide.FailedCuts.SetCanvas(MistakesCanvas);
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
@@ -87,12 +90,12 @@ namespace GTA6Game.UserControls
                 var vm = (HaircutMinigameVM)DataContext;
 
                 var position = e.GetPosition(grid);
-                int x = Math.Min((int)position.X, vm.CurrentSide.Hair.Bmp.Width - 1);
-                int y = Math.Min((int)position.Y, vm.CurrentSide.Hair.Bmp.Width - 1);
-
+                int x = Math.Min((int)position.X, vm.CurrentSide.Hair.Width - 1);
+                int y = Math.Min((int)position.Y, vm.CurrentSide.Hair.Width - 1);
                 var points = GetPointsOfCircle(Radius, new System.Drawing.Point(x, y));
 
                 vm.CurrentSide.Cut(points);
+
             }
         }
 
@@ -130,6 +133,5 @@ namespace GTA6Game.UserControls
             return points;
         }
 
-      
     }
 }
