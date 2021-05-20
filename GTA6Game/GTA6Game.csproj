@@ -170,6 +170,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\MenuResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\UserIconResources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -220,6 +224,7 @@
     <Resource Include="Assets\Fonts\SourceSansPro-SemiBoldItalic.ttf" />
     <Resource Include="Assets\Fonts\PricedownBl-SLY Regular.ttf" />
     <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\test\Meta" />
+    <Resource Include="Assets\Fonts\Chalet.ttf" />
     <None Include="packages.config" />
     <None Include="create-csv.bat" />
     <None Include="generate-localized-resource.bat" />
@@ -286,6 +291,9 @@
     <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\test\Rear.png" />
     <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\test\Right.png" />
     <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\test\Top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\HaircutMinigame\BarberShopLogo.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -16,19 +16,13 @@ using System.Windows.Shapes;
 namespace GTA6Game.Pages.HaircutMinigame.UserControls
 {
     /// <summary>
-    /// Interaction logic for Scoreboard.xaml
+    /// Interaction logic for GameEndPanel.xaml
     /// </summary>
-    public partial class Scoreboard : UserControl
+    public partial class GameEndPanel : UserControl
     {
-        public Scoreboard()
+        public GameEndPanel()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var vm = (HaircutMinigameVM)DataContext;
-            vm.EndRound();
         }
     }
 }

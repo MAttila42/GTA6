@@ -47,6 +47,8 @@ namespace GTA6Game.Pages.HaircutMinigame
 
         public DesiredShape Shape { get; }
 
+        private bool IsRoundEnded = false;
+
         public HaircutMinigameVM()
         {
             Shape = GetRandomShape();
@@ -68,6 +70,16 @@ namespace GTA6Game.Pages.HaircutMinigame
             HaircutState.Dispose();
         }
 
+        public void EndRound()
+        {
+            if (!IsRoundEnded)
+            {
+
+            }
+            IsRoundEnded = true;
+            
+        }
+
         private void OnCurrentSideChanged(object sender, PropertyChangedEventArgs e)
         {
             OnPropertyChanged(nameof(CurrentSide), GetNestedPropertyName(nameof(CurrentSide), e));
@@ -76,6 +88,30 @@ namespace GTA6Game.Pages.HaircutMinigame
         private void OnHaircutStateChanged(object sender, PropertyChangedEventArgs e)
         {
             OnPropertyChanged(nameof(HaircutState), GetNestedPropertyName(nameof(HaircutState), e));
+            if (e.PropertyName == "CompletePercent")
+            {
+                OnCompletePercentChanged();
+            }
+            if (e.PropertyName == "FailPercent")
+            {
+                OnFailPercentChanged();
+            }
+        }
+
+        private void OnCompletePercentChanged()
+        {
+            if (HaircutState.CompletePercent >= 98)
+            {
+                EndRound();
+            }
+        }
+
+        private void OnFailPercentChanged()
+        {
+            if (HaircutState.FailPercent >= 40)
+            {
+                EndRound();
+            }
         }
 
         private void OnCameraOrientationChanged(object sender, PropertyChangedEventArgs e)

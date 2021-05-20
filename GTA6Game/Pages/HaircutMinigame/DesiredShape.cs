@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GTA6Game.Languages;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -43,8 +44,8 @@ namespace GTA6Game.Pages.HaircutMinigame
                 string[] metaLines = metaContent.Split('\n');
                 Dictionary<string, string> name = new Dictionary<string, string>
                 {
-                    { "hu", metaLines[0] },
-                    { "en", metaLines[1] }
+                    { LanguageManager.AvailableCultures[0].IetfLanguageTag, metaLines[0] },
+                    { LanguageManager.AvailableCultures[1].IetfLanguageTag, metaLines[1] }
                 };
 
                 string topFileName = shapeData.Value.Where(fn => fn.Split('.')[5] == "Top").FirstOrDefault();
@@ -66,7 +67,9 @@ namespace GTA6Game.Pages.HaircutMinigame
             }
         }
 
-        public Dictionary<string, string> Name { get; }
+        public Dictionary<string, string> LocalizedNames { get; }
+
+        public string Name => LocalizedNames[LanguageManager.PreferredLanguage];
 
         public Bitmap Top { get; }
 
@@ -78,14 +81,14 @@ namespace GTA6Game.Pages.HaircutMinigame
 
         public Bitmap Right { get; }
 
-        public DesiredShape(Bitmap top, Bitmap front, Bitmap left, Bitmap rear, Bitmap right, Dictionary<string, string> name)
+        public DesiredShape(Bitmap top, Bitmap front, Bitmap left, Bitmap rear, Bitmap right, Dictionary<string, string> localizedNames)
         {
             Top = top;
             Front = front;
             Left = left;
             Rear = rear;
             Right = right;
-            Name = name;
+            LocalizedNames = localizedNames;
         }
     }
 }
