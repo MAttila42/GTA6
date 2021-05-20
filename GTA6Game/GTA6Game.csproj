@@ -100,6 +100,9 @@
     <Compile Include="Pages\AddUser.xaml.cs">
       <DependentUpon>AddUser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\BigSmokeOrder.xaml.cs">
+      <DependentUpon>BigSmokeOrder.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\HaircutMinigame\CameraOrientation.cs" />
     <Compile Include="Pages\HaircutMinigame\DesiredShape.cs" />
     <Compile Include="Pages\HaircutMinigame\Direction.cs" />
@@ -111,17 +114,41 @@
     <Compile Include="Pages\HaircutMinigame\HaircutState.cs" />
     <Compile Include="Pages\HaircutMinigame\Orientation.cs" />
     <Compile Include="Pages\HaircutMinigame\EditableImage.cs" />
-    <Compile Include="Pages\HaircutMinigame\UserControls\GameEndPanel.xaml.cs">
-      <DependentUpon>GameEndPanel.xaml</DependentUpon>
+    <Compile Include="Pages\HaircutMinigame\UserControls\CameraMovementPanel.xaml.cs">
+      <DependentUpon>CameraMovementPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\HaircutMinigame\UserControls\FranklinDisplay.xaml.cs">
+      <DependentUpon>FranklinDisplay.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\HaircutMinigame\UserControls\Scoreboard.xaml.cs">
       <DependentUpon>Scoreboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LoadingMission.xaml.cs">
+      <DependentUpon>LoadingMission.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LoadingPage.xaml.cs">
+      <DependentUpon>LoadingPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Languages\LanguageManager.cs" />
+    <Compile Include="Pages\MinigameSelectionPage.xaml.cs">
+      <DependentUpon>MinigameSelectionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ModifyUser.xaml.cs">
+      <DependentUpon>ModifyUser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PageBase.cs" />
+    <Compile Include="Pages\ShootingMission.xaml.cs">
+      <DependentUpon>ShootingMission.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ShopPage.xaml.cs">
+      <DependentUpon>ShopPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StartingPage.xaml.cs">
+      <DependentUpon>StartingPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PlayerData\PlayerSave.cs" />
     <Compile Include="PlayerData\Profile.cs" />
     <Compile Include="PlayerData\ProfileCollection.cs" />
@@ -152,6 +179,10 @@
     <Page Include="Pages\BigSmokeOrder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\HaircutMinigame\HaircutMinigamePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\LoadingMission.xaml">
       <SubType>Designer</SubType>

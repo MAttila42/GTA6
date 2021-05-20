@@ -21,6 +21,8 @@ namespace GTA6Game.PlayerData
         /// </summary>
         public ProfileCollection Profiles { get; }
 
+        public Profile SelectedProfile { get; set; }
+
         public PlayerSave()
         {
             Profiles = new ProfileCollection();
