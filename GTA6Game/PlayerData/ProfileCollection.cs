@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,11 +7,12 @@ using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using GTA6Game.Helpers;
 
 namespace GTA6Game.PlayerData
 {
     [Serializable]
-    public class ProfileCollection : IEnumerable<Profile>, INotifyPropertyChanged, ISerializable
+    public class ProfileCollection : PropertyChangeNotifier,IEnumerable<Profile>, ISerializable
     {
         public int NumberOfProfiles => Profiles.Count;
 
@@ -22,8 +23,6 @@ namespace GTA6Game.PlayerData
                 return Profiles[i];
             }
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         private List<Profile> Profiles;
 
@@ -83,11 +82,6 @@ namespace GTA6Game.PlayerData
         IEnumerator IEnumerable.GetEnumerator()
         {
             return ((IEnumerable)Profiles).GetEnumerator();
-        }
-
-        private void OnPropertyChanged([CallerMemberName] string name = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
     }
 }

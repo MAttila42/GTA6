@@ -1,4 +1,5 @@
 ﻿using GTA6Game.Pages;
+using GTA6Game.Pages.HaircutMinigame;
 using GTA6Game.PlayerData;
 using GTA6Game.Routing;
 using System;

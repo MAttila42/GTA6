@@ -1,4 +1,4 @@
-﻿using GTA6Game.PlayerData;
+using GTA6Game.PlayerData;
 using GTA6Game.UserControls;
 using System;
 using System.Threading.Tasks;

@@ -42,6 +42,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -51,6 +52,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
@@ -58,11 +60,20 @@
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -84,11 +95,33 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helpers\NestedPropertyChangedEventArgs.cs" />
+    <Compile Include="Helpers\PropertyChangeNotifier.cs" />
     <Compile Include="Pages\AddUser.xaml.cs">
       <DependentUpon>AddUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\BigSmokeOrder.xaml.cs">
       <DependentUpon>BigSmokeOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\HaircutMinigame\CameraOrientation.cs" />
+    <Compile Include="Pages\HaircutMinigame\DesiredShape.cs" />
+    <Compile Include="Pages\HaircutMinigame\Direction.cs" />
+    <Compile Include="Pages\HaircutMinigame\HaircutMinigamePage.xaml.cs">
+      <DependentUpon>HaircutMinigamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\HaircutMinigame\HaircutMinigameVM.cs" />
+    <Compile Include="Pages\HaircutMinigame\Haircut.cs" />
+    <Compile Include="Pages\HaircutMinigame\HaircutState.cs" />
+    <Compile Include="Pages\HaircutMinigame\Orientation.cs" />
+    <Compile Include="Pages\HaircutMinigame\EditableImage.cs" />
+    <Compile Include="Pages\HaircutMinigame\UserControls\CameraMovementPanel.xaml.cs">
+      <DependentUpon>CameraMovementPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\HaircutMinigame\UserControls\FranklinDisplay.xaml.cs">
+      <DependentUpon>FranklinDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\HaircutMinigame\UserControls\Scoreboard.xaml.cs">
+      <DependentUpon>Scoreboard.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\LoadingMission.xaml.cs">
       <DependentUpon>LoadingMission.xaml</DependentUpon>
@@ -144,15 +177,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\HaircutMinigame\HaircutMinigamePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Pages\LoadingMission.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\LoadingPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -181,6 +214,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\DatePickerResources.xaml">
+		<SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\HaircutMinigame\UserControls\Scoreboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -188,7 +229,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\HaircutMinigame\CameraMovementResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\MenuResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\UserIconResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\HaircutMinigame\UserControls\CameraMovementPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\HaircutMinigame\UserControls\FranklinDisplay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -229,6 +286,8 @@
     <Resource Include="Assets\Fonts\SourceSansPro-SemiBold.ttf" />
     <Resource Include="Assets\Fonts\SourceSansPro-SemiBoldItalic.ttf" />
     <Resource Include="Assets\Fonts\PricedownBl-SLY Regular.ttf" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\test\Meta" />
+    <Resource Include="Assets\Fonts\Chalet.ttf" />
     <Resource Include="Assets\Fonts\Pricedown Bl.ttf" />
     <None Include="packages.config" />
     <None Include="create-csv.bat" />
@@ -246,6 +305,7 @@
     <Resource Include="Assets\AntiSocialClub.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\HaircutMinigame\arrow.png" />
     <Resource Include="Assets\Backgrounds\Bg2.png" />
     <Resource Include="Assets\Backgrounds\Bg3.png" />
   </ItemGroup>
@@ -275,6 +335,31 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\HaircutMinigame\background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\HaircutMinigame\Head\Front.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\Head\Left.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\Head\Rear.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\Head\Right.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\Head\Top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\HaircutMinigame\Hair\Front.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\Hair\Left.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\Hair\Rear.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\Hair\Right.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\Hair\Top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\test\Front.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\test\Left.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\test\Rear.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\test\Right.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\test\Top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\HaircutMinigame\BarberShopLogo.PNG" />
     <Resource Include="Assets\Backgrounds\Sp2.png" />
     <Resource Include="Assets\Backgrounds\Sp3.png" />
     <Resource Include="Assets\Backgrounds\Sp4.png" />

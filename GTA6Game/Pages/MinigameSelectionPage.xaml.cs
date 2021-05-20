@@ -1,4 +1,4 @@
-﻿using GTA6Game.PlayerData;
+using GTA6Game.PlayerData;
 using System.Windows;
 
 namespace GTA6Game.Pages

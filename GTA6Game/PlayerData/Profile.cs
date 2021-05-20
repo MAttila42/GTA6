@@ -1,15 +1,16 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using GTA6Game.Helpers;
 
 namespace GTA6Game.PlayerData
 {
     [Serializable]
-    public class Profile : INotifyPropertyChanged, IDisposable
+    public class Profile : PropertyChangeNotifier, IDisposable
     {
         private string name;
 
@@ -79,16 +80,9 @@ namespace GTA6Game.PlayerData
             AvatarId = avatarId;*/
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged([CallerMemberName] string name = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
-
         public void Dispose()
         {
-            PropertyChanged = null;
+            DisposePropertyChangedEvent();
         }
     }
 }
