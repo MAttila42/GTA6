@@ -1,24 +1,12 @@
-﻿using GTA6Game.Pages;
+using GTA6Game.Pages;
 using GTA6Game.Routing;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Media;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Threading;
 
 namespace GTA6Game.UserControls
 {
@@ -42,8 +30,7 @@ namespace GTA6Game.UserControls
 
             translationAnimation.KeyFrames.Add(new DiscreteDoubleKeyFrame(0, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(8.55))));
 
-            Storyboard.SetTargetProperty(
-                translationAnimation, new PropertyPath(TranslateTransform.XProperty));
+            Storyboard.SetTargetProperty(translationAnimation, new PropertyPath(TranslateTransform.XProperty));
 
             Storyboard translationStoryboard = new Storyboard();
             translationStoryboard.Children.Add(translationAnimation);

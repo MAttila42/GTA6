@@ -9,9 +9,11 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Styles/BasicResources.xaml"/>
                 <ResourceDictionary Source="Styles/UserIconResources.xaml"/>
+                <ResourceDictionary Source="Styles/ButtonResources.xaml"/>
+                <ResourceDictionary Source="Styles/InputResources.xaml"/>
+                <ResourceDictionary Source="Styles/DatePickerResources.xaml"/>
                 <ResourceDictionary Source="Styles/HaircutMinigame/CameraMovementResources.xaml"/>
                 <ResourceDictionary Source="Styles/MenuResources.xaml"/>
-
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

@@ -1,19 +1,9 @@
-using GTA6Game.Routing;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using GTA6Game.PlayerData;
 using GTA6Game.UserControls;
 
@@ -41,7 +31,7 @@ namespace GTA6Game.Pages
             {
                 UserIcon newUser = new UserIcon();
                 newUser.Content = i.Name;
-                newUser.Style = this.FindResource("UserIconStyle") as Style;
+                newUser.Style = FindResource("UserIconStyle") as Style;
                 newUser.ImageSource = new BitmapImage(new Uri("/Assets/User.png", UriKind.Relative));
                 newUser.Click += new RoutedEventHandler(UserIcon_Click);
                 WpUserIconContainer.Children.Add(newUser);
@@ -59,25 +49,24 @@ namespace GTA6Game.Pages
                 SaveLoader.Save.SelectedProfile = i;
             }
 
-            SaveLoader.Save.SelectedProfile.Name = (string)selectedUser.Content;
             SelectedUserIndex = WpUserIconContainer.Children.IndexOf(selectedUser);
             for (int i = 0; i < WpUserIconContainer.Children.Count; i++)
             {
-                Button navButton = (Button)WpUserIconContainer.Children[i];
+                Button userIcon = (Button)WpUserIconContainer.Children[i];
                 if (i != SelectedUserIndex)
                 {
-                    navButton.IsEnabled = true;
+                    userIcon.IsEnabled = true;
                 }
                 else
                 {
-                    navButton.IsEnabled = false;
+                    userIcon.IsEnabled = false;
                 }
             }
         }
 
         private void BtnLogIn_Click(object sender, RoutedEventArgs e)
         {
-            if (TboxPassword.Text == SaveLoader.Save.SelectedProfile.Password && CbRobot.IsChecked == true)
+            if (TboxPassword.Password == SaveLoader.Save.SelectedProfile.Password && CbRobot.IsChecked == true)
             {
                 Router.StartGame = true;
                 Router.ChangeCurrentPage(new LoadingPage());
@@ -90,7 +79,7 @@ namespace GTA6Game.Pages
 
         private void BtnRemoveUser_Click(object sender, RoutedEventArgs e)
         {
-            if (TboxPassword.Text == SaveLoader.Save.SelectedProfile.Password)
+            if (TboxPassword.Password == SaveLoader.Save.SelectedProfile.Password)
             {
                 Router.ChangeCurrentPage(new ModifyUser());
             }
@@ -103,7 +92,6 @@ namespace GTA6Game.Pages
         private void BtnAddUser_Click(object sender, RoutedEventArgs e)
         {
             Router.ChangeCurrentPage(new AddUser());
-
         }
     }
 }

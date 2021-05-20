@@ -1,19 +1,7 @@
-using GTA6Game.Languages;
 using GTA6Game.PlayerData;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace GTA6Game.Pages
 {
@@ -27,6 +15,11 @@ namespace GTA6Game.Pages
             InitializeComponent();
         }
 
+        string[] ErrorMessages = new string[] { "a jelszavak nem egyeznek!", "ilyen felhasználónév már létezik!", "nem adtál meg minden adatot!", "18 éven aluliak nem használhatják a játékot!" };
+        enum ErrorType { password, username, datas, birth, none, check }
+
+        ErrorType CurrentError = ErrorType.datas;
+
         private void BtnLoginPage_Click(object sender, RoutedEventArgs e)
         {
             Router.ChangeCurrentPage(new LoginPage());
@@ -34,31 +27,98 @@ namespace GTA6Game.Pages
 
         private void BtnSignUp_Click(object sender, RoutedEventArgs e)
         {
-            var ifContains = SaveLoader.Save.Profiles.Where(x => x.Name.Contains(TboxUsername.Text));
-
-            if (TboxUsername.Text != "" && TboxPassword.Text == TboxPasswordCheck.Text && ifContains.Count() == 0)
+            ErrorIdentifier();
+            if (CurrentError == ErrorType.none)
             {
-                SaveLoader.Save.Profiles.AddProfile(new Profile(TboxUsername.Text, TboxPassword.Text));
-                Router.ChangeCurrentPage(new LoginPage());
-            }
-            else
-            {
-                string msgboxTitle;
-                string msgboxText;
-
-                if (LanguageManager.CurrentCulture.IetfLanguageTag == "hu-HU" )// angolnál en-US
+                if (CbEULA.IsChecked == true)
                 {
-                    msgboxTitle = "Hiba";
-                    msgboxText = "Sajna-bajna, hibás a felhasználónév vagy a jelszavak nem egyeznek!";
+                    SaveLoader.Save.Profiles.AddProfile(new Profile(TboxUsername.Text, TboxPassword.Password, DpBirth.Text));
+                    Router.ChangeCurrentPage(new LoginPage());
                 }
                 else
                 {
-                    msgboxTitle = "english";
-                    msgboxText = "english";
+                    MessageBox.Show($"Sajna-bajna, az ÁSZF elfogadása kötelező!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
                 }
-
-                MessageBox.Show(msgboxText, msgboxTitle, MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
+                
             }
+            else if(CurrentError != ErrorType.check)
+            {
+                MessageBox.Show($"Sajna-bajna, {ErrorWriter()}", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
+            }
+        }
+
+        private void ErrorIdentifier()
+        {
+            var limitDate = DateTime.Now.AddYears(-18).Date;
+
+            if (string.IsNullOrEmpty(TboxUsername.Text) || DpBirth.SelectedDate == null || CbLanguage.SelectedItem == null || CbAvatar.SelectedItem == null)
+            {
+                CurrentError = ErrorType.datas;
+            }
+            else
+            {
+                var ifContains = SaveLoader.Save.Profiles.Where(x => x.Name == TboxUsername.Text);
+                if (ifContains.Count() != 0)
+                {
+                    CurrentError = ErrorType.username;
+                }
+                else
+                {
+                    if (DpBirth.SelectedDate > limitDate)
+                    {
+                        CurrentError = ErrorType.birth;
+                    }
+                    else
+                    {
+                        if (TboxPassword.Password == TboxPasswordCheck.Password)
+                        {
+                            if (string.IsNullOrEmpty(TboxPassword.Password))
+                            {
+                                MessageBoxResult result = MessageBox.Show($"Nincs beállítva jelszó! Beállítasz egyet mégis?", "Jelszó kérdés", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.Yes);
+                                switch (result)
+                                {
+                                    case MessageBoxResult.Yes:
+                                        CurrentError = ErrorType.check;
+                                        break;
+                                    case MessageBoxResult.No:
+                                        CurrentError = ErrorType.none;
+                                        break;
+                                }
+                            }
+                            else
+                            {
+                                CurrentError = ErrorType.none;
+                            }
+                        }
+                        else
+                        {
+                            CurrentError = ErrorType.password;
+                        }
+                    }
+                }
+            }
+        }
+
+        private string ErrorWriter()
+        {
+            string errorResult = "";
+
+            switch (CurrentError)
+            {
+                case ErrorType.password:
+                    errorResult = ErrorMessages[0];
+                    break;
+                case ErrorType.username:
+                    errorResult = ErrorMessages[1];
+                    break;
+                case ErrorType.datas:
+                    errorResult = ErrorMessages[2];
+                    break;
+                case ErrorType.birth:
+                    errorResult = ErrorMessages[3];
+                    break;
+            }
+            return errorResult;
         }
     }
 }

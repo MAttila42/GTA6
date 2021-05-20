@@ -1,4 +1,4 @@
-﻿<local:PageBase x:Class="GTA6Game.Pages.ModifyUser"
+<local:PageBase x:Class="GTA6Game.Pages.ModifyUser"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,9 +6,9 @@
       xmlns:local="clr-namespace:GTA6Game.Pages" xmlns:usercontrols="clr-namespace:GTA6Game.UserControls"
       mc:Ignorable="d" 
       d:DesignHeight="710" d:DesignWidth="1200" Background="White"
-      Title="ModifyUser">
+      Title="ModifyUser" x:Name="Windows" Loaded="Windows_Loaded">
 
-    <Grid>
+    <Grid TextBlock.FontFamily="/GTA6Game;component/Assets/Fonts/#Source Sans Pro">
         <StackPanel>
             <usercontrols:LoginTitle></usercontrols:LoginTitle>
 
@@ -34,34 +34,42 @@
                 <TextBox x:Name="TboxUsername" Width="256" Height="30" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" FontSize="15"></TextBox>
 
                 <TextBlock Margin="50,20,10,20" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Text="Jelszó:" FontSize="15"></TextBlock>
-                <TextBox Width="256" Height="30" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" FontSize="15"></TextBox>
+                <PasswordBox x:Name="TboxPassword" Width="256" Height="30" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" FontSize="15"></PasswordBox>
 
                 <TextBlock Margin="50,20,10,20" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" Text="Jelszó újra:" FontSize="15"></TextBlock>
-                <TextBox Width="256" Height="30" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" FontSize="15"></TextBox>
+                <PasswordBox x:Name="TboxPasswordCheck" Width="256" Height="30" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" FontSize="15"></PasswordBox>
 
                 <TextBlock Margin="50,20,10,20" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" Text="Születési idő:" FontSize="15"></TextBlock>
-                <DatePicker Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Height="30"/>
+                <DatePicker x:Name="DpBirth" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Height="30" FontSize="15"/>
 
                 <TextBlock Margin="50,20,10,20" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" Text="Játéknyelv:" FontSize="15"></TextBlock>
-                <ComboBox Grid.Row="4" HorizontalAlignment="Left" Height="30" Width="171" FontSize="15" Grid.ColumnSpan="2" Margin="166,15,0,15.8">
+                <ComboBox x:Name="CbLanguage" Grid.Row="4" HorizontalAlignment="Left" Height="30" Width="171" FontSize="15" Grid.ColumnSpan="2" Margin="166,15,0,15.8">
                     <ComboBoxItem Content="Magyar/Hungarian" FontSize="15"></ComboBoxItem>
                     <ComboBoxItem Content="Angol/English" FontSize="15"></ComboBoxItem>
                 </ComboBox>
 
                 <TextBlock Margin="50,20,10,20" Grid.Column="0" Grid.Row="5" TextWrapping="Wrap"  HorizontalAlignment="Left" Text="ÁSZF:" FontSize="15"></TextBlock>
                 <StackPanel Grid.Column="1" Grid.Row="5" Height="40" Orientation="Horizontal">
-                    <CheckBox VerticalAlignment="Center" Margin="10,0"></CheckBox>
-                    <TextBlock Text="Elfogadom az Adatvédelmi nyilatkozat §12.4/B1, ill. annak származtatott pontjait!" FontSize="15" TextWrapping="Wrap" Width="293"/>
+                    <Viewbox Margin="10,0" Height="20">
+                        <CheckBox x:Name="CbEULA" VerticalAlignment="Center"></CheckBox>
+                    </Viewbox>
+                    <TextBlock Text="Elfogadom az Adatvédelmi nyilatkozat §12.4/B1, ill. annak alárendelt pontjait!" FontSize="15" TextWrapping="Wrap" Width="293"/>
                 </StackPanel>
-
-                <Button x:Name="BtnLoginPage" Grid.Column="0" Grid.Row="6" Height="30" Content="Vissza a kezdőlapra" FontSize="15" Width="130" Margin="0,20,0,20" Click="BtnLoginPage_Click"></Button>
-                <Button x:Name="BtnModify" Grid.Column="1" Grid.Row="6" Height="30" Content="Módosítás" Width="100" FontSize="15" Margin="10,20,0,20" HorizontalAlignment="Left" Click="BtnModify_Click"></Button>
-                <Button x:Name="BtnDelete" Grid.Column="1" Grid.Row="6" Height="30" Content="Törlés" Width="100" FontSize="15" Margin="0,20,50,20" HorizontalAlignment="Right" Click="BtnDelete_Click"></Button>
 
             </Grid>
 
         </StackPanel>
         <TextBlock HorizontalAlignment="Left" Text="Avatár:" FontSize="15" Margin="709,503,0,176.4" Width="67"/>
-        <ComboBox HorizontalAlignment="Left" Height="30" Width="65" FontSize="15" Margin="785,499,0,181.4"></ComboBox>
+        <ComboBox x:Name="CbAvatar" HorizontalAlignment="Left" Height="30" Width="65" FontSize="15" Margin="785,499,0,181.4">
+            <ComboBoxItem Content="1: All figures" FontSize="15"></ComboBoxItem>
+        </ComboBox>
+
+        <WrapPanel Height="40" Width="800" HorizontalAlignment="Center" Margin="0,620,0,30.4" >
+            <Button x:Name="BtnLoginPage" Margin="50,0" Height="40" Style="{StaticResource OrangeButton}" Content="Vissza a kezdőlapra" FontSize="15" Click="BtnLoginPage_Click" Width="204"/>
+            <Button x:Name="BtnModify" Margin="50,0" Height="40" Style="{StaticResource PurpleButton}" Content="MÓDOSÍTÁS" Width="140" FontSize="15" HorizontalAlignment="Left" Click="BtnModify_Click"/>
+            <Button x:Name="BtnDelete" Margin="50,0" Height="40" Style="{StaticResource OrangeButton}" Content="TÖRLÉS" FontSize="15"  Click="BtnDelete_Click" Width="104"/>
+        </WrapPanel>
+
+
     </Grid>
 </local:PageBase>

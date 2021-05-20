@@ -143,9 +143,6 @@
     <Compile Include="Pages\ShootingMission.xaml.cs">
       <DependentUpon>ShootingMission.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ShopPage.xaml.cs">
-      <DependentUpon>ShopPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\StartingPage.xaml.cs">
       <DependentUpon>StartingPage.xaml</DependentUpon>
     </Compile>
@@ -204,11 +201,20 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\ShopPage.xaml">
+    <Page Include="Pages\StartingPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\BasicResources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\StartingPage.xaml">
+    <Page Include="Styles\ButtonResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\DatePickerResources.xaml">
+		<SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\HaircutMinigame\UserControls\Scoreboard.xaml">
@@ -219,7 +225,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Styles\BasicResources.xaml">
+    <Page Include="Styles\InputResources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -376,7 +382,6 @@
     <Resource Include="Assets\Backgrounds\Bg9.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Backgrounds\Sp10.png" />
     <Resource Include="Assets\Backgrounds\Sp7.png" />
     <Resource Include="Assets\Backgrounds\Sp8.png" />
     <Resource Include="Assets\Backgrounds\Sp9.png" />
@@ -414,6 +419,30 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Notepad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Backgrounds\Bg11.png" />
+    <Resource Include="Assets\Backgrounds\Bg12.png" />
+    <Resource Include="Assets\Backgrounds\Bg13.png" />
+    <Resource Include="Assets\Backgrounds\Bg14.png" />
+    <Resource Include="Assets\Backgrounds\Bg15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Backgrounds\Sp10.png" />
+    <Resource Include="Assets\Backgrounds\Sp11.png" />
+    <Resource Include="Assets\Backgrounds\Sp12.png" />
+    <Resource Include="Assets\Backgrounds\Sp13.png" />
+    <Resource Include="Assets\Backgrounds\Sp14.png" />
+    <Resource Include="Assets\Backgrounds\Sp15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\CluckinIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Haircut.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

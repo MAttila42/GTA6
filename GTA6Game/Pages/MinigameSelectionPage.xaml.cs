@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using GTA6Game.PlayerData;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace GTA6Game.Pages
 {
@@ -23,16 +11,6 @@ namespace GTA6Game.Pages
         public MinigameSelectionPage()
         {
             InitializeComponent();
-        }
-
-        private void UiShop_Click(object sender, RoutedEventArgs e)
-        {
-            Router.ChangeCurrentPage(new ShopPage());
-        }
-
-        private void BtnShootingMission_Click(object sender, RoutedEventArgs e)
-        {
-            Router.ChangeCurrentPage(new ShootingMission());
         }
 
         private void UiExit_Click(object sender, RoutedEventArgs e)
@@ -48,9 +26,33 @@ namespace GTA6Game.Pages
             }
         }
 
+        private void BtnShootingMission_Click(object sender, RoutedEventArgs e)
+        {
+            Router.ChangeCurrentPage(new ShootingMission());
+        }
+
         private void BtnBigSmokeOrder_Click(object sender, RoutedEventArgs e)
         {
             Router.ChangeCurrentPage(new BigSmokeOrder());
+        }
+
+        private void BtnHaircut_Click(object sender, RoutedEventArgs e)
+        {
+            //Router.ChangeCurrentPage(new HaircutMinigamePage());
+        }
+
+        private void Windows_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (SaveLoader.Save.SelectedProfile.Money <= 0)
+            {
+                SaveLoader.Save.SelectedProfile.Money = 0;
+                BtnShootingMission.IsEnabled = false;
+            }
+            else
+            {
+                BtnShootingMission.IsEnabled = true;
+            }
+            TbMoney.Text = $"{SaveLoader.Save.SelectedProfile.Money} Ft";
         }
     }
 }

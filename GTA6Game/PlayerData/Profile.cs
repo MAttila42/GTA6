@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -48,18 +48,6 @@ namespace GTA6Game.PlayerData
             }
         }
 
-        private int weapon;
-
-        public int Weapon
-        {
-            get { return weapon; }
-            set
-            {
-                weapon = value;
-                OnPropertyChanged();
-            }
-        }
-
         private int avatarId;
 
         public int AvatarId
@@ -84,12 +72,12 @@ namespace GTA6Game.PlayerData
             }
         }
 
-        public Profile(string name, string password/* ,int avatarId, string dateOfBirth*/)
+        public Profile(string name, string password, string dateOfBirth/* ,int avatarId*/)
         {
             Name = name;
-            Password = password;/*
-            AvatarId = avatarId;
-            DateOfBirth = dateOfBirth;*/
+            Password = password;
+            DateOfBirth = dateOfBirth;/*
+            AvatarId = avatarId;*/
         }
 
         public void Dispose()
