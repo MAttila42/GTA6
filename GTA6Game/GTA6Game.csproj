@@ -111,6 +111,9 @@
     <Compile Include="Pages\HaircutMinigame\HaircutState.cs" />
     <Compile Include="Pages\HaircutMinigame\Orientation.cs" />
     <Compile Include="Pages\HaircutMinigame\EditableImage.cs" />
+    <Compile Include="Pages\HaircutMinigame\UserControls\GameEndPanel.xaml.cs">
+      <DependentUpon>GameEndPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\HaircutMinigame\UserControls\Scoreboard.xaml.cs">
       <DependentUpon>Scoreboard.xaml</DependentUpon>
     </Compile>
@@ -151,6 +154,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\HaircutMinigame\HaircutMinigamePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\HaircutMinigame\UserControls\GameEndPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
