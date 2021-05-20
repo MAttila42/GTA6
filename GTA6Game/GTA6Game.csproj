@@ -127,15 +127,11 @@
     <Compile Include="PlayerData\ProfileCollection.cs" />
     <Compile Include="PlayerData\SaveLoader.cs" />
     <Compile Include="Routing\RoutingHelper.cs" />
-    <Compile Include="Pages\HaircutMinigame\UserControls\CameraMovementPanel.xaml.cs">
-      <DependentUpon>CameraMovementPanel.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\HaircutMinigame\UserControls\FranklinDisplay.xaml.cs">
-      <DependentUpon>FranklinDisplay.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="UserControls\ImageMovement.cs" />
     <Compile Include="UserControls\LoginTitle.xaml.cs">
       <DependentUpon>LoginTitle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\OutlinedTextBlock.cs" />
     <Compile Include="UserControls\UserIcon.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -153,12 +149,35 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\HaircutMinigame\HaircutMinigamePage.xaml">
+    <Page Include="Pages\BigSmokeOrder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\HaircutMinigame\UserControls\GameEndPanel.xaml">
+    <Page Include="Pages\LoadingMission.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\LoadingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MinigameSelectionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ModifyUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ShootingMission.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ShopPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\StartingPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\HaircutMinigame\UserControls\Scoreboard.xaml">
@@ -232,6 +251,7 @@
     <Resource Include="Assets\Fonts\PricedownBl-SLY Regular.ttf" />
     <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\test\Meta" />
     <Resource Include="Assets\Fonts\Chalet.ttf" />
+    <Resource Include="Assets\Fonts\Pricedown Bl.ttf" />
     <None Include="packages.config" />
     <None Include="create-csv.bat" />
     <None Include="generate-localized-resource.bat" />
@@ -249,6 +269,8 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\HaircutMinigame\arrow.png" />
+    <Resource Include="Assets\Backgrounds\Bg2.png" />
+    <Resource Include="Assets\Backgrounds\Bg3.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\User.png" />
@@ -301,6 +323,66 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\HaircutMinigame\BarberShopLogo.PNG" />
+    <Resource Include="Assets\Backgrounds\Sp2.png" />
+    <Resource Include="Assets\Backgrounds\Sp3.png" />
+    <Resource Include="Assets\Backgrounds\Sp4.png" />
+    <Resource Include="Assets\Backgrounds\Sp5.png" />
+    <Resource Include="Assets\Backgrounds\Sp6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Backgrounds\Bg1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Backgrounds\Sp1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Backgrounds\Bg10.png" />
+    <Resource Include="Assets\Backgrounds\Bg4.png" />
+    <Resource Include="Assets\Backgrounds\Bg5.png" />
+    <Resource Include="Assets\Backgrounds\Bg6.png" />
+    <Resource Include="Assets\Backgrounds\Bg7.png" />
+    <Resource Include="Assets\Backgrounds\Bg8.png" />
+    <Resource Include="Assets\Backgrounds\Bg9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Backgrounds\Sp10.png" />
+    <Resource Include="Assets\Backgrounds\Sp7.png" />
+    <Resource Include="Assets\Backgrounds\Sp8.png" />
+    <Resource Include="Assets\Backgrounds\Sp9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\StickyNote.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\AmmuNation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Target.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Weapon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Exit.png" />
+    <Resource Include="Assets\Shop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\PistolHand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\ShootingRange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\CluckinBell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\BigSmoke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Notepad.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

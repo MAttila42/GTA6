@@ -1,4 +1,4 @@
-﻿using GTA6Game.PlayerData;
+using GTA6Game.PlayerData;
 using System;
 using System.Collections.Generic;
 using System.Configuration;

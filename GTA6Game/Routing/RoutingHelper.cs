@@ -1,4 +1,5 @@
-﻿using GTA6Game.Pages;
+using GTA6Game.Pages;
+using GTA6Game.PlayerData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,8 @@ namespace GTA6Game.Routing
         /// </summary>
         private Frame container;
 
+        public bool StartGame { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -35,6 +38,7 @@ namespace GTA6Game.Routing
         {
             container = frame;
             container.Navigated += OnFrameNavigation;
+            StartGame = false;
         }
 
         private void OnFrameNavigation(object sender, NavigationEventArgs e)
@@ -60,7 +64,7 @@ namespace GTA6Game.Routing
         /// </summary>
         public void ReloadPage()
         {
-            if (CurrentPage ==null)
+            if (CurrentPage == null)
             {
                 return;
             }

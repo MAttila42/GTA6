@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GTA6Game"
         mc:Ignorable="d"
-        Title="Grand Theft Autó 6" Height="750" Width="1200" Initialized="Windows_Initialized" x:Name="Windows" SizeChanged="Windows_SizeChanged">
+        Title="Grand Theft Autó 6" Height="750" Width="1200" Initialized="Windows_Initialized" x:Name="Windows" SizeChanged="Windows_SizeChanged" ResizeMode="NoResize">
     <Grid>
         <Frame x:Name="PageContainer" NavigationUIVisibility="Hidden" DockPanel.Dock="Top"></Frame>
         <!--<Button x:Name="BtnLoginPage" Content="BtnLoginPage" HorizontalAlignment="Left" Margin="1089,24,0,0" VerticalAlignment="Top" Width="75" Click="Btn_Click"/>

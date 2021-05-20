@@ -2,7 +2,7 @@ body {
   margin: 0;
   background-color: #2b2c2e;
   color: white;
-  font-family: sans-serif;
+  font-family: Roboto;
   user-select: none;
 }
 
@@ -38,7 +38,8 @@ body {
 
 .cover-img {
   height: 70vh;
-  border-radius: 12px;
+  /* max-height: 400px; */
+  border-radius: 1vh;
   box-shadow: #0000007e 4px 4px 14px;
 }
 
@@ -112,9 +113,94 @@ body {
   font-size: 17px;
 }
 
+hr {
+  width: 80%;
+  margin: 60px auto;
+}
+
+.footer {
+  text-align: center;
+  color: #9d9fa0;
+  margin: 30px;
+}
+
+.footer span {
+  color: #d8d9da;
+  font-weight: bold;
+}
+
 @media screen and (orientation: portrait) {
   .background-img {
     width: auto;
     height: 100vh;
+  }
+}
+
+img.phone {
+  display: none;
+}
+
+@media screen and (max-width: 1000px) {
+  img {
+    display: none;
+  }
+
+  .img-container {
+    min-height: 720px;
+  }
+
+  img.phone {
+    display: block;
+  }
+
+  .background-img {
+    display: block;
+    min-height: 720px;
+  }
+
+  .cover td {
+    min-width: auto;
+  }
+
+  td.phone {
+    width: 100%;
+  }
+
+  .cover p {
+    font-size: 16px;
+    margin: 0;
+  }
+
+  .cover span {
+    font-size: 24px;
+  }
+
+  .cover-img {
+    height: 320px;
+    margin: 40px auto;
+  }
+
+  .button {
+    width: 80%;
+    padding: 16px;
+    font-size: 30px;
+    cursor: default;
+  }
+
+  .button:hover {
+    width: 80%;
+  }
+
+  .paragraph img {
+    width: 100%;
+    margin: 50px auto;
+  }
+
+  hr {
+    width: 100%;
+  }
+
+  .footer {
+    font-size: 14px;
   }
 }

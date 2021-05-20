@@ -44,6 +44,8 @@ namespace GTA6Game.Languages
             }
         }
 
+        public static CultureInfo CurrentCulture => Thread.CurrentThread.CurrentCulture;
+
         public static void SetThreadCulture()
         {
             if (!string.IsNullOrEmpty(PreferredLanguage))

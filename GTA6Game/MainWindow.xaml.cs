@@ -24,18 +24,20 @@ namespace GTA6Game
         /// <summary>
         /// The router of the application. 
         /// </summary>
-        private RoutingHelper Router;
+        public RoutingHelper Router;
 
         public MainWindow()
         {
             InitializeComponent();
+            Router.StartGame = false;
         }
 
         private void Windows_Initialized(object sender, EventArgs e)
         {
             Router = new RoutingHelper(PageContainer);
             Router.CurrentPageChanged += OnCurrentPageChanged;
-            Router.ChangeCurrentPage(new HaircutMinigamePage());
+            Router.ChangeCurrentPage(new LoadingPage());
+
         }
 
         private void OnCurrentPageChanged()
@@ -64,5 +66,7 @@ namespace GTA6Game
                 Router.ChangeCurrentPage(page);
             }
         }
+
+
     }
 }

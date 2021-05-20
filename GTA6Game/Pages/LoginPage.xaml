@@ -1,22 +1,17 @@
-﻿<local:PageBase x:Class="GTA6Game.Pages.LoginPage"
+<local:PageBase x:Class="GTA6Game.Pages.LoginPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:GTA6Game.Pages"
-      xmlns:gif="http://wpfanimatedgif.codeplex.com" xmlns:usercontrols="clr-namespace:GTA6Game.UserControls"
+      xmlns:usercontrols="clr-namespace:GTA6Game.UserControls"
                 mc:Ignorable="d" 
       d:DesignHeight="710" d:DesignWidth="1200"
       Title="LoginPage" Background="White">
 
     <Grid>
-        <StackPanel x:Name="SpLoadingCircle" Height="300" Visibility="Hidden">
-            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Content="Töltés, kérem várjon..." Foreground="Black" FontSize="30" Margin="0,10" FontFamily="Arial Rounded MT Bold"></Label>
-            <Image RenderOptions.BitmapScalingMode="HighQuality" gif:ImageBehavior.AnimatedSource="/Assets/LoadingSpinner.gif" Stretch="None" Height="208" Width="205"/>
-        </StackPanel>
 
-
-        <StackPanel>
+        <StackPanel x:Name="SpLoginContent">
             <usercontrols:LoginTitle></usercontrols:LoginTitle>
 
             <WrapPanel>
@@ -24,35 +19,33 @@
                     <TextBlock Margin="50,50,50,20" Style="{StaticResource LoginTitle}" TextAlignment="Left" Text="Bejelentkezés"/>
                     <ScrollViewer Margin="50,30" Width="560" VerticalScrollBarVisibility="Auto" Height="230">
                         <WrapPanel x:Name="WpUserIconContainer">
-                            <usercontrols:UserIcon x:Name="UiAdmin" ImageSource="/Assets/User.png" Style="{StaticResource UserIconStyle}" Content="Admin" Click="UserIcon_Click"></usercontrols:UserIcon>
-                            <usercontrols:UserIcon x:Name="UiSziszi" ImageSource="/Assets/User.png" Style="{StaticResource UserIconStyle}" Content="Sziszi" Click="UserIcon_Click"></usercontrols:UserIcon>
-                            <usercontrols:UserIcon x:Name="UiKari" ImageSource="/Assets/User.png" Style="{StaticResource UserIconStyle}" Content="Kari" Click="UserIcon_Click"></usercontrols:UserIcon>
-                            <usercontrols:UserIcon x:Name="UiPista" ImageSource="/Assets/User.png" Style="{StaticResource UserIconStyle}" Content="Pista" Click="UserIcon_Click"></usercontrols:UserIcon>
-                            <usercontrols:UserIcon x:Name="UiMarci" ImageSource="/Assets/User.png" Style="{StaticResource UserIconStyle}" Content="Marci" Click="UserIcon_Click"></usercontrols:UserIcon>
+                            <!--<usercontrols:UserIcon x:Name="UiAdmin" Style="{StaticResource UserIconStyle}" Content="Admin" Click="UserIcon_Click"></usercontrols:UserIcon>
+                            <usercontrols:UserIcon x:Name="UiTest" Style="{StaticResource UserIconStyle}" Content="Teszt" Click="UserIcon_Click"></usercontrols:UserIcon>-->
                         </WrapPanel>
                     </ScrollViewer>
 
                     <WrapPanel>
                         <Label Content="Jelszó:" FontSize="15" Margin="50,20,10,20"/>
-                        <TextBox Height="30" FontSize="15" TextWrapping="Wrap" Width="256"/>
+                        <TextBox x:Name="TboxPassword" Height="30" FontSize="15" TextWrapping="Wrap" Width="256"/>
                     </WrapPanel>
 
                     <Grid Margin="50,0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*" />
-                            <ColumnDefinition Width="0.5*" />
-                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="224*" />
+                            <ColumnDefinition Width="112*" />
+                            <ColumnDefinition Width="165*" />
+                            <ColumnDefinition Width="59*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="1*" />
                         </Grid.RowDefinitions>
 
-                        <CheckBox Content="Nem vagyok robot" Grid.Row="0" Grid.Column="0" Height="53" FontSize="15" VerticalContentAlignment="Center" DockPanel.Dock="Left"/>
-                        <Image Height="64" Grid.Row="0" Grid.Column="1" RenderOptions.BitmapScalingMode="HighQuality" DockPanel.Dock="Right" HorizontalAlignment="Right" Width="70" Source="/Assets/Recaptcha.png"/>
-                        <Button x:Name="BtnLogIn" Content="Bejelentkezés" FontSize="15" Grid.Row="0" Grid.Column="2" Width="102" Height="36" Click="BtnLogIn_Click"/>
+                        <CheckBox x:Name="CbRobot"  Content="Nem vagyok robot" Grid.Row="0" Grid.Column="0" Height="53" FontSize="15" VerticalContentAlignment="Center" Margin="0,6"/>
+                        <Image Height="64" Grid.Row="0" Grid.Column="1" RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Right" Width="70" Source="/Assets/Recaptcha.png"/>
+                        <Button x:Name="BtnLogIn" Content="Bejelentkezés" FontSize="15" Grid.Row="0" Grid.Column="2" Width="102" Height="36" Click="BtnLogIn_Click" Margin="61,14,1.867,14"/>
                     </Grid>
 
-                    <Button x:Name="BtnAddUser" Content="Új felhasználó létrehozása" FontSize="15" Margin="50,10,0,0" HorizontalAlignment="Left" Width="176" Height="26" Click="BtnAddUser_Click"/>
+                    <Button x:Name="BtnAddUser" Content="Új felhasználó létrehozása" FontSize="15" Margin="50,0,0,0" HorizontalAlignment="Left" Width="186" Height="26" Click="BtnAddUser_Click"/>
 
                 </StackPanel>
 
@@ -61,7 +54,10 @@
                     <Image Margin="50,20" Height="383" Width="299" Source="/Assets/BoxCover.png" Stretch="Fill"/>
                 </StackPanel>
             </WrapPanel>
-           
+
         </StackPanel>
+        <Button x:Name="BtnModifyUser" Content="Szerkesztés" HorizontalAlignment="Left" FontSize="15" Margin="449,582,0,0" VerticalAlignment="Top" Width="126" Height="37" Click="BtnRemoveUser_Click"/>
+
     </Grid>
 </local:PageBase>
+

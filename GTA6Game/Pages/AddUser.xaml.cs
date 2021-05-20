@@ -1,4 +1,6 @@
-﻿using System;
+using GTA6Game.Languages;
+using GTA6Game.PlayerData;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,6 +30,35 @@ namespace GTA6Game.Pages
         private void BtnLoginPage_Click(object sender, RoutedEventArgs e)
         {
             Router.ChangeCurrentPage(new LoginPage());
+        }
+
+        private void BtnSignUp_Click(object sender, RoutedEventArgs e)
+        {
+            var ifContains = SaveLoader.Save.Profiles.Where(x => x.Name.Contains(TboxUsername.Text));
+
+            if (TboxUsername.Text != "" && TboxPassword.Text == TboxPasswordCheck.Text && ifContains.Count() == 0)
+            {
+                SaveLoader.Save.Profiles.AddProfile(new Profile(TboxUsername.Text, TboxPassword.Text));
+                Router.ChangeCurrentPage(new LoginPage());
+            }
+            else
+            {
+                string msgboxTitle;
+                string msgboxText;
+
+                if (LanguageManager.CurrentCulture.IetfLanguageTag == "hu-HU" )// angolnál en-US
+                {
+                    msgboxTitle = "Hiba";
+                    msgboxText = "Sajna-bajna, hibás a felhasználónév vagy a jelszavak nem egyeznek!";
+                }
+                else
+                {
+                    msgboxTitle = "english";
+                    msgboxText = "english";
+                }
+
+                MessageBox.Show(msgboxText, msgboxTitle, MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
+            }
         }
     }
 }
