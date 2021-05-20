@@ -1,4 +1,4 @@
-﻿using GTA6Game.Pages;
+using GTA6Game.Pages;
 using GTA6Game.Routing;
 using System;
 using System.Collections.Generic;

@@ -1,4 +1,4 @@
-﻿using GTA6Game.PlayerData;
+using GTA6Game.PlayerData;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -16,7 +16,7 @@ namespace GTA6Game
     {
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            LanguageManager.PreferredLanguage = "hu-HU";
+            LanguageManager.PreferredLanguage = "en-US";
             LanguageManager.SetThreadCulture();
             SaveLoader.LoadSave();
         }
