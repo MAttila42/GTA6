@@ -16,8 +16,7 @@
 
         <Image HorizontalAlignment="Left" Source="/Assets/PistolHand.png" Height="232" Margin="481,478,0,0" VerticalAlignment="Top" Width="280"/>
 
-        <usercontrols:OutlinedTextBlock x:Name="TbMoney" Text="12.563 Ft" TextAlignment="Right" FontFamily="/GTA6Game;component/Assets/Fonts/#Pricedown Bl" FontSize="40pt" FontWeight="ExtraBold" TextWrapping="Wrap" StrokeThickness="3" Stroke="Black" Fill="#A8D08D" Canvas.Left="257" Canvas.Top="267" Margin="562,10,10,636.4" ></usercontrols:OutlinedTextBlock>
-        <TextBlock x:Name="TbLoops" TextWrapping="Wrap" Text="TextBlock" Margin="1048,97,29,575.4" />
+        <usercontrols:OutlinedTextBlock x:Name="TbMoney" Text="0 Ft" TextAlignment="Right" FontFamily="/GTA6Game;component/Assets/Fonts/#Pricedown Bl" FontSize="40pt" FontWeight="ExtraBold" TextWrapping="Wrap" StrokeThickness="3" Stroke="Black" Fill="#A8D08D" Canvas.Left="257" Canvas.Top="267" Margin="562,10,10,636.4" ></usercontrols:OutlinedTextBlock>
 
         <Canvas x:Name="Playground" Margin="65,74,41,46.4">
 

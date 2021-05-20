@@ -1,21 +1,10 @@
 ﻿using GTA6Game.PlayerData;
 using GTA6Game.UserControls;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Media;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace GTA6Game.Pages
@@ -25,7 +14,8 @@ namespace GTA6Game.Pages
     /// </summary>
     public partial class ShootingMission : PageBase
     {
-        private int score = 500;
+
+        private int score = SaveLoader.Save.SelectedProfile.Money;
 
         private int Score
         {
@@ -36,32 +26,32 @@ namespace GTA6Game.Pages
             set
             {
                 score = value;
-                if (Score == 0)
+                if (Score <= 0)
                 {
-
+                    score = 0;
                     GameOver();
                 }
             }
         }
+
         Random R = new Random();
         int LoopNumber = 0;
-        int WeaponNum = 0;
         int TargetCount = 0;
-        DispatcherTimer _timer;
-        TimeSpan _time;
+        DispatcherTimer Timer;
+        TimeSpan Time;
 
         public ShootingMission()
         {
             InitializeComponent();
-            LoopNumber = R.Next(1, 100);
-            TbLoops.Text = $"{LoopNumber}";
+            LoopNumber = R.Next(10, 100);
         }
 
         private void GameOver()
         {
             Playground.Children.Clear();
             LoopNumber = 0;
-            TbMoney.Text = "0 Ft";
+            TargetCount = 0;
+            TbMoney.Text = $"{Score} Ft";
             MessageBoxResult result = MessageBox.Show("Elvesztetted a játékot!", "Game Over", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.No);
             switch (result)
             {
@@ -84,7 +74,7 @@ namespace GTA6Game.Pages
             {
                 await Task.Delay(delay);
             }
-            if (TbMoney.Text != "0 Ft")
+            if (Score > 0)
             {
                 MessageBox.Show("A szint teljesítve. Vissza a kezdőképernyőre", "Kész", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                 Router.ChangeCurrentPage(new MinigameSelectionPage());
@@ -93,31 +83,27 @@ namespace GTA6Game.Pages
 
         private void Windows_Loaded(object sender, RoutedEventArgs e)
         {
-            SaveLoader.Save.SelectedProfile = SaveLoader.Save.Profiles.First();
-            SaveLoader.Save.SelectedProfile.Money = 500;
-            SaveLoader.Save.SelectedProfile.Weapon = 4;
-            Score = SaveLoader.Save.SelectedProfile.Money;
-            WeaponNum = SaveLoader.Save.SelectedProfile.Weapon;
-            TbMoney.Text = $"{Score} Ft";
+            UpdateMoney(0);
             Countdown();
         }
 
         private void Countdown()
         {
-            _time = TimeSpan.FromSeconds(5);
+            Time = TimeSpan.FromSeconds(5);
 
-            _timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, async delegate
+            Timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, async delegate
             {
-                TbTime.Text = _time.ToString("ss").TrimStart(new Char[] { '0' });
-                if (_time == TimeSpan.Zero)
+                TbTime.Text = Time.ToString("ss").TrimStart(new Char[] { '0' });
+                if (Time == TimeSpan.Zero)
                 {
-                    _timer.Stop();
+                    Timer.Stop();
                     await Task.Delay(1000);
                     Start();
                 };
-                _time = _time.Add(TimeSpan.FromSeconds(-1));
+                Time = Time.Add(TimeSpan.FromSeconds(-1));
             }, Application.Current.Dispatcher);
-            _timer.Start();
+            Timer.Start();
+
         }
 
         private async Task AddTarget()
@@ -126,7 +112,7 @@ namespace GTA6Game.Pages
             int disappearTime = R.Next(600, 5000);
             bool removed = false;
             target.Content = disappearTime;
-            target.Height = R.Next(WeaponNum * 10, WeaponNum * 30);
+            target.Height = R.Next(30, 120);
             target.ImageSource = new BitmapImage(new Uri("/Assets/Target.png", UriKind.Relative));
             target.Style = this.FindResource("Menu") as Style;
             Canvas.SetLeft(target, R.Next(40, 978));
@@ -135,15 +121,7 @@ namespace GTA6Game.Pages
             TargetCount++;
             target.Click += (source, e) =>
             {
-                Score += 1000;
-                if (Score > 0)
-                {
-                    TbMoney.Text = $"{Score} Ft";
-                }
-                else
-                {
-                    TbMoney.Text = "0 Ft";
-                }
+                UpdateMoney(1000);
                 Playground.Children.Remove(target);
                 TargetCount--;
                 removed = true;
@@ -153,11 +131,21 @@ namespace GTA6Game.Pages
             {
                 if (Score > 0)
                 {
-                    Score -= 500;
-                    TbMoney.Text = $"{Score} Ft";
+                    UpdateMoney(-1500);
                     Playground.Children.Remove(target);
                     TargetCount--;
                 }
+            }
+
+        }
+
+        private void UpdateMoney(int plusz)
+        {
+            if (Score > 0)
+            {
+                SaveLoader.Save.SelectedProfile.Money += plusz;
+                Score = SaveLoader.Save.SelectedProfile.Money;
+                TbMoney.Text = $"{Score} Ft";
             }
         }
     }

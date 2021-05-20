@@ -7,10 +7,9 @@
       xmlns:usercontrols="clr-namespace:GTA6Game.UserControls"
                 mc:Ignorable="d" 
       d:DesignHeight="710" d:DesignWidth="1200"
-      Title="LoginPage" Background="White">
+      Title="LoginPage" Background="White" x:Name="Windows">
 
     <Grid>
-
         <StackPanel x:Name="SpLoginContent">
             <usercontrols:LoginTitle></usercontrols:LoginTitle>
 
@@ -26,7 +25,7 @@
 
                     <WrapPanel>
                         <Label Content="Jelszó:" FontSize="17" FontWeight="SemiBold" Margin="50,20,10,20"/>
-                        <TextBox IsEnabled="True" x:Name="TboxPassword" Height="30" TextWrapping="Wrap" Width="256"/>
+                        <PasswordBox x:Name="TboxPassword" IsEnabled="True" Height="30" FontSize="15" Width="256"/>
                     </WrapPanel>
 
                     <Grid Margin="120,-10,290,0">
@@ -50,7 +49,7 @@
                 </StackPanel>
 
                 <StackPanel Width="400" Margin="50">
-                    <TextBlock TextWrapping="Wrap" TextAlignment="Justify" Text="Ahhoz, hogy hozzáférést szerezz a Grand Theft Auto VI játékohoz rendelkezned kell egy érvényes Anti-Social Club felhasználói fiókkal, valamint biztosítanod kell bennünket, hogy nem vagy robot! A bejelentkezés és a szerkesztés jelszókötels, ugyanakkor jelszó nélkül is lehet új felhsználót létrehozni." FontSize="15" Margin="0,0,-0.6,0" />
+                    <TextBlock TextWrapping="Wrap" TextAlignment="Justify" FontSize="15" Text="Ahhoz, hogy hozzáférést szerezz a Grand Theft Auto VI játékohoz rendelkezned kell egy érvényes Anti-Social Club felhasználói fiókkal, valamint biztosítanod kell bennünket, hogy nem vagy robot! A bejelentkezés és a szerkesztés jelszókötels, ugyanakkor jelszó nélkül is lehet új felhsználót létrehozni."/>
                     <Image Margin="50,20" Height="383" Width="299" Source="/Assets/BoxCover.png" Stretch="Fill"/>
                 </StackPanel>
             </WrapPanel>
@@ -60,7 +59,6 @@
             <Button x:Name="BtnLogIn" Content="BEJELENTKEZÉS" Style="{StaticResource PurpleButton}" Margin="0,0,0,20" Height="40" Click="BtnLogIn_Click" />
             <Button x:Name="BtnModifyUser" Content="SZERKESZTÉS" Style="{StaticResource OrangeButton}" Height="40" Click="BtnRemoveUser_Click"/>
         </StackPanel>
-
 
     </Grid>
 </local:PageBase>

@@ -1,17 +1,9 @@
-﻿using System;
+﻿using GTA6Game.PlayerData;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace GTA6Game.Pages
 {
@@ -165,6 +157,7 @@ namespace GTA6Game.Pages
                     {
                         tbInput.Text = "";
                         lbNote.Content += $"{Orders[0].Text} - {Orders[0].Price} Ft\n";
+                        UpdateMoney(Orders[0].Price);
                         FullPrice += Orders[0].Price;
                         Orders.RemoveAt(0);
                         lbOrder.Content = Orders[0].Text;
@@ -183,6 +176,17 @@ namespace GTA6Game.Pages
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             Router.ChangeCurrentPage(new MinigameSelectionPage());
+        }
+
+        private void UpdateMoney(int plusz)
+        {
+            SaveLoader.Save.SelectedProfile.Money += plusz;
+            TbMoney.Text = $"{SaveLoader.Save.SelectedProfile.Money} Ft";
+        }
+
+        private void Windows_Loaded(object sender, RoutedEventArgs e)
+        {
+            UpdateMoney(0);
         }
     }
 }

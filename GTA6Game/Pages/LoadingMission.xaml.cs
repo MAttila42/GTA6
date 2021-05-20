@@ -1,23 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Automation.Peers;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Threading;
-using GTA6Game.Routing;
+using GTA6Game.PlayerData;
 using GTA6Game.UserControls;
 
 namespace GTA6Game.Pages
@@ -40,8 +27,7 @@ namespace GTA6Game.Pages
         public LoadingMission()
         {
             InitializeComponent();
-
-            LoopCount = MainR.Next(1, 15);
+            LoopCount = MainR.Next(1, 16);
 
             AddPicturesNameHashSet();
             AddPicturesNameList();
@@ -78,8 +64,19 @@ namespace GTA6Game.Pages
 
         private void Windows_Loaded(object sender, RoutedEventArgs e)
         {
+            SaveLoader.Save.SelectedProfile.Money += 100 * LoopCount;
+            Windows.KeyDown += new KeyEventHandler(Windows_KeyDown);
             Img.Move(ImgBackground, -1200, -1210, -2467, LoopCount, BackPicturesName, Router);
             Img2.Move(ImgScprite, -1200, -1500, -2467, LoopCount, SpritePicturesName, Router);
+        }
+
+        private void Windows_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.F1 && Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.H))
+            {
+                SaveLoader.Save.SelectedProfile.Money -= 100 * LoopCount;
+                Router.ChangeCurrentPage(new MinigameSelectionPage());
+            }
         }
     }
 }

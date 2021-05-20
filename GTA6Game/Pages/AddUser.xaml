@@ -40,17 +40,17 @@
                 <PasswordBox x:Name="TboxPasswordCheck" Width="256" Height="30" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" FontSize="15"></PasswordBox>
 
                 <TextBlock Margin="50,20,10,20" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" Text="Születési idő:" FontSize="15"></TextBlock>
-                <DatePicker Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Height="30" FontSize="15"/>
+                <DatePicker x:Name="DpBirth" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Height="30" FontSize="15"/>
 
                 <TextBlock Margin="50,20,10,20" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" Text="Játéknyelv:" FontSize="15"></TextBlock>
-                <ComboBox Grid.Row="4" HorizontalAlignment="Left" Height="30" Width="171" FontSize="15" Grid.ColumnSpan="2" Margin="166,15,0,15.8">
+                <ComboBox x:Name="CbLanguage" Grid.Row="4" HorizontalAlignment="Left" Height="30" Width="171" FontSize="15" Grid.ColumnSpan="2" Margin="166,15,0,15.8">
                     <ComboBoxItem Content="Magyar/Hungarian" FontSize="15"></ComboBoxItem>
                     <ComboBoxItem Content="Angol/English" FontSize="15"></ComboBoxItem>
                 </ComboBox>
                 <TextBlock Margin="50,20,10,20" Grid.Column="0" Grid.Row="5" TextWrapping="Wrap"  HorizontalAlignment="Left" Text="ÁSZF:" FontSize="15"></TextBlock>
                 <StackPanel Grid.Column="1" Grid.Row="5" Height="40" Orientation="Horizontal">
                     <Viewbox Margin="10,0" Height="20">
-                        <CheckBox VerticalAlignment="Center"></CheckBox>
+                        <CheckBox x:Name="CbEULA" VerticalAlignment="Center"></CheckBox>
                     </Viewbox>
                     <TextBlock Text="Elfogadom az Adatvédelmi nyilatkozat §12.4/B1, ill. annak alárendelt pontjait!" FontSize="15" TextWrapping="Wrap" Width="293"/>
                 </StackPanel>
@@ -60,7 +60,7 @@
         </StackPanel>
 
         <TextBlock HorizontalAlignment="Left" Text="Avatár:" FontSize="15" Margin="709,503,0,176.4" Width="67"/>
-        <ComboBox HorizontalAlignment="Left" Height="30" Width="65" FontSize="15" Margin="785,499,0,181.4">
+        <ComboBox x:Name="CbAvatar" HorizontalAlignment="Left" Height="30" Width="65" FontSize="15" Margin="785,499,0,181.4">
             <ComboBoxItem Content="1: All figures" FontSize="15"></ComboBoxItem>
         </ComboBox>
         <Button x:Name="BtnLoginPage" Height="40" Style="{StaticResource OrangeButton}" Content="Vissza a kezdőlapra" FontSize="15" Margin="405,621,591,49.4" Click="BtnLoginPage_Click"/>

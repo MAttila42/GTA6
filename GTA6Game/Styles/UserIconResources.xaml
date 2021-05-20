@@ -130,4 +130,14 @@
 
         </Style.Triggers>
     </Style>
+
+    <Style x:Key="Fake" TargetType="usercontrols:UserIcon">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="usercontrols:UserIcon">
+                    <Image Source="{TemplateBinding ImageSource}" VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

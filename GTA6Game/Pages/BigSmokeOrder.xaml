@@ -6,25 +6,25 @@
       xmlns:local="clr-namespace:GTA6Game.Pages" xmlns:usercontrols="clr-namespace:GTA6Game.UserControls"
                 mc:Ignorable="d" 
       d:DesignHeight="710" d:DesignWidth="1200"
-      Title="BigSmokeOrder">
+      Title="BigSmokeOrder" x:Name="Windows" Loaded="Windows_Loaded">
 
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/Assets/CluckinBell.png" Stretch="UniformToFill"/>
         </Grid.Background>
 
-        <usercontrols:OutlinedTextBlock x:Name="TbMoney" Text="12.563 Ft" TextAlignment="Right" FontFamily="/GTA6Game;component/Assets/Fonts/#Pricedown Bl"  FontSize="40pt" FontWeight="ExtraBold" TextWrapping="Wrap" StrokeThickness="3" Stroke="Black" Fill="#A8D08D" Canvas.Left="257" Canvas.Top="267" Margin="562,10,10,636.4"></usercontrols:OutlinedTextBlock>
+        <usercontrols:OutlinedTextBlock x:Name="TbMoney" Text="0 Ft" TextAlignment="Right" FontFamily="/GTA6Game;component/Assets/Fonts/#Pricedown Bl"  FontSize="40pt" FontWeight="ExtraBold" TextWrapping="Wrap" StrokeThickness="3" Stroke="Black" Fill="#A8D08D" Canvas.Left="257" Canvas.Top="267" Margin="562,10,10,636.4"></usercontrols:OutlinedTextBlock>
 
         <Image Margin="0,219,495,-24.6" Source="/Assets/BigSmoke.png"/>
         <Image Margin="710,81,31,28.4" Source="/Assets/Notepad.png" Stretch="Fill"/>
         <Frame Background="Black" Opacity="0.7" HorizontalAlignment="Left" Height="37" Margin="25,81,0,0" VerticalAlignment="Top" Width="480"/>
-        <Frame Background="Black" Opacity="0.7" HorizontalAlignment="Left" Height="40" Margin="360,26,0,0" VerticalAlignment="Top" Width="145"/>
+        <!--<Frame Background="Black" Opacity="0.7" HorizontalAlignment="Left" Height="40" Margin="360,26,0,0" VerticalAlignment="Top" Width="145"/>-->
         <Label Content="Rendelés:" Foreground="White" FontSize="20" HorizontalAlignment="Left" Margin="25,81,0,0" VerticalAlignment="Top" Width="100"/>
         <Label x:Name="lbOrder" Foreground="White" Content="" FontSize="20" HorizontalAlignment="Left" Margin="130,81,0,0" VerticalAlignment="Top" Width="364"/>
         <Button x:Name="btnBack" Style="{StaticResource OrangeButton}" Content="Vissza" FontSize="20" HorizontalAlignment="Left" Margin="25,26,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="btnBack_Click"/>
         <Button x:Name="btnStart" Style="{StaticResource PurpleButton}" Content="Indítás" FontSize="20" HorizontalAlignment="Left" Margin="130,26,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="BtnStart_Click"/>
         <TextBox x:Name="tbInput" Style="{StaticResource NaturalTextBox}" Background="Black" Opacity="0.7" Foreground="White" FontSize="20" HorizontalAlignment="Left" Height="33" Margin="25,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="480" TextChanged="tbInput_TextChanged"/>
         <Label x:Name="lbNote" Content="" FontSize="20" HorizontalAlignment="Left" Margin="737,134,0,0" VerticalAlignment="Top" Height="528" Width="407"/>
-        <Label Content="" Foreground="White" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="360,26,0,0" VerticalAlignment="Top" Height="40" Width="145"/>
+        <!--<Label Content="" Foreground="White" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="360,26,0,0" VerticalAlignment="Top" Height="40" Width="145"/>-->
     </Grid>
 </local:PageBase>

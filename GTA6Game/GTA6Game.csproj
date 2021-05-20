@@ -110,9 +110,6 @@
     <Compile Include="Pages\ShootingMission.xaml.cs">
       <DependentUpon>ShootingMission.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ShopPage.xaml.cs">
-      <DependentUpon>ShopPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\StartingPage.xaml.cs">
       <DependentUpon>StartingPage.xaml</DependentUpon>
     </Compile>
@@ -168,10 +165,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\ShootingMission.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\ShopPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -356,6 +349,15 @@
     <Resource Include="Assets\Backgrounds\Sp13.png" />
     <Resource Include="Assets\Backgrounds\Sp14.png" />
     <Resource Include="Assets\Backgrounds\Sp15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\CluckinIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Haircut.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
