@@ -214,6 +214,9 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\DatePickerResources.xaml">
+		<SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\HaircutMinigame\UserControls\Scoreboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
