@@ -36,7 +36,7 @@ namespace GTA6Game
         {
             Router = new RoutingHelper(PageContainer);
             Router.CurrentPageChanged += OnCurrentPageChanged;
-            Router.ChangeCurrentPage(new LoginPage());
+            Router.ChangeCurrentPage(new LoadingPage());
         }
 
         private void OnCurrentPageChanged()

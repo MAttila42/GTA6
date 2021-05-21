@@ -1,3 +1,4 @@
+using GTA6Game.Pages.HaircutMinigame;
 using GTA6Game.PlayerData;
 using System.Windows;
 
@@ -38,7 +39,7 @@ namespace GTA6Game.Pages
 
         private void BtnHaircut_Click(object sender, RoutedEventArgs e)
         {
-            //Router.ChangeCurrentPage(new HaircutMinigamePage());
+            Router.ChangeCurrentPage(new HaircutMinigamePage());
         }
 
         private void Windows_Loaded(object sender, RoutedEventArgs e)

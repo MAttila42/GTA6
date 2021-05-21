@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 
 namespace GTA6Game.Helpers
 {
+    [Serializable]
     public class PropertyChangeNotifier : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
