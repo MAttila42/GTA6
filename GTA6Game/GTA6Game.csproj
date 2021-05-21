@@ -155,7 +155,12 @@
     <Compile Include="UserControls\LoginTitle.xaml.cs">
       <DependentUpon>LoginTitle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Overlay\Overlay.xaml.cs">
+      <DependentUpon>Overlay.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\OutlinedTextBlock.cs" />
+    <Compile Include="UserControls\Overlay\OverlaySettings.cs" />
+    <Compile Include="UserControls\Overlay\OverlayVM.cs" />
     <Compile Include="UserControls\UserIcon.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -214,7 +219,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\DatePickerResources.xaml">
-		<SubType>Designer</SubType>
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\HaircutMinigame\UserControls\Scoreboard.xaml">
@@ -250,6 +255,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\LoginTitle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Overlay\Overlay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -444,5 +453,6 @@
   <ItemGroup>
     <Resource Include="Assets\Haircut.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

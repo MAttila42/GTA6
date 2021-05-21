@@ -43,5 +43,11 @@ namespace GTA6Game.Pages
                 ExecuteWithDelay(new Action(delegate { Router.ChangeCurrentPage(new LoginPage()); }), TimeSpan.FromSeconds(3));
             }
         }
+
+        public override void OnAttachedToFrame()
+        {
+            base.OnAttachedToFrame();
+            OverlaySettings.OverlayDisabled = true;
+        }
     }
 }

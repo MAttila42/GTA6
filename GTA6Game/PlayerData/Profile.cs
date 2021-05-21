@@ -31,6 +31,10 @@ namespace GTA6Game.PlayerData
             get { return money; }
             set
             {
+                if (value < 0)
+                {
+                    value = 0;
+                }
                 money = value;
                 OnPropertyChanged();
             }

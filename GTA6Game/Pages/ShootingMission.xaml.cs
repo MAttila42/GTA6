@@ -51,7 +51,6 @@ namespace GTA6Game.Pages
             Playground.Children.Clear();
             LoopNumber = 0;
             TargetCount = 0;
-            TbMoney.Text = $"{Score} Ft";
             MessageBoxResult result = MessageBox.Show("Elvesztetted a játékot!", "Game Over", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.No);
             switch (result)
             {
@@ -145,7 +144,6 @@ namespace GTA6Game.Pages
             {
                 SaveLoader.Save.SelectedProfile.Money += plusz;
                 Score = SaveLoader.Save.SelectedProfile.Money;
-                TbMoney.Text = $"{Score} Ft";
             }
         }
     }

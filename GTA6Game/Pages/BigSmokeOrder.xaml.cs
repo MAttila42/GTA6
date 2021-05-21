@@ -181,7 +181,6 @@ namespace GTA6Game.Pages
         private void UpdateMoney(int plusz)
         {
             SaveLoader.Save.SelectedProfile.Money += plusz;
-            TbMoney.Text = $"{SaveLoader.Save.SelectedProfile.Money} Ft";
         }
 
         private void Windows_Loaded(object sender, RoutedEventArgs e)
