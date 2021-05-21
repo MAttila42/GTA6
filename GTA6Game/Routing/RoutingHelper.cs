@@ -1,5 +1,6 @@
 using GTA6Game.Pages;
 using GTA6Game.PlayerData;
+using GTA6Game.UserControls.Overlay;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,11 @@ namespace GTA6Game.Routing
         public PageBase CurrentPage { get; private set; }
 
         /// <summary>
+        /// Object to control the overlay
+        /// </summary>
+        public OverlaySettings OverlaySettings { get; private set; }
+
+        /// <summary>
         /// Gets invoked when we navigate to another page
         /// </summary>
         public event Action CurrentPageChanged;
@@ -34,11 +40,12 @@ namespace GTA6Game.Routing
         /// 
         /// </summary>
         /// <param name="frame">The frame that will show the pages</param>
-        public RoutingHelper(Frame frame)
+        public RoutingHelper(Frame frame, OverlaySettings overlaySettings)
         {
             container = frame;
             container.Navigated += OnFrameNavigation;
             StartGame = false;
+            OverlaySettings = overlaySettings;
         }
 
         private void OnFrameNavigation(object sender, NavigationEventArgs e)
@@ -52,7 +59,9 @@ namespace GTA6Game.Routing
         /// <param name="page">The page that we want to navigate to</param>
         public void ChangeCurrentPage(PageBase page)
         {
+            OverlaySettings.Reset();
             page.Router = this;
+            page.OverlaySettings = OverlaySettings;
             CurrentPage = page;
             container.Content = page;
             page.OnAttachedToFrame();

@@ -14,6 +14,12 @@ namespace GTA6Game.Pages
             InitializeComponent();
         }
 
+        public override void OnAttachedToFrame()
+        {
+            base.OnAttachedToFrame();
+            OverlaySettings.OverlayTopOffset = 79;
+        }
+
         private void UiExit_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Biztosan ki akar lépni?", "Bezárás", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
@@ -46,14 +52,12 @@ namespace GTA6Game.Pages
         {
             if (SaveLoader.Save.SelectedProfile.Money <= 0)
             {
-                SaveLoader.Save.SelectedProfile.Money = 0;
                 BtnShootingMission.IsEnabled = false;
             }
             else
             {
                 BtnShootingMission.IsEnabled = true;
             }
-            TbMoney.Text = $"{SaveLoader.Save.SelectedProfile.Money} Ft";
         }
     }
 }

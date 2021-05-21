@@ -10,9 +10,12 @@ namespace GTA6Game.Pages
     /// </summary>
     public partial class ModifyUser : PageBase
     {
-        public ModifyUser()
+        private Profile ProfileToModify;
+
+        public ModifyUser(Profile profileToModify)
         {
             InitializeComponent();
+            ProfileToModify = profileToModify;
         }
 
         string[] ErrorMessages = new string[] { "a jelszavak nem egyeznek!", "ilyen felhasználónév már létezik!", "nem adtál meg minden adatot!", "18 éven aluliak nem használhatják a játékot!" };
@@ -33,7 +36,7 @@ namespace GTA6Game.Pages
             switch (result)
             {
                 case MessageBoxResult.Yes:
-                    SaveLoader.Save.Profiles.RemoveProfile(SaveLoader.Save.SelectedProfile);
+                    SaveLoader.Save.Profiles.RemoveProfile(ProfileToModify);
                     Router.ChangeCurrentPage(new LoginPage());
                     break;
                 case MessageBoxResult.No:
@@ -48,9 +51,9 @@ namespace GTA6Game.Pages
             {
                 if (CbEULA.IsChecked == true)
                 {
-                    SaveLoader.Save.SelectedProfile.Name = TboxUsername.Text;
-                    SaveLoader.Save.SelectedProfile.Password = TboxPassword.Password;
-                    SaveLoader.Save.SelectedProfile.DateOfBirth = DpBirth.Text;
+                    ProfileToModify.Name = TboxUsername.Text;
+                    ProfileToModify.Password = TboxPassword.Password;
+                    ProfileToModify.DateOfBirth = DpBirth.Text;
                     Router.ChangeCurrentPage(new LoginPage());
                 }
                 else
@@ -67,14 +70,14 @@ namespace GTA6Game.Pages
 
         private void Windows_Loaded(object sender, RoutedEventArgs e)
         {
-            TboxUsername.Text = SaveLoader.Save.SelectedProfile.Name;
-            TboxPassword.Password = SaveLoader.Save.SelectedProfile.Password;
-            TboxPasswordCheck.Password = SaveLoader.Save.SelectedProfile.Password;
-            TboxPasswordCheck.Password = SaveLoader.Save.SelectedProfile.Password;
-            DpBirth.Text = SaveLoader.Save.SelectedProfile.DateOfBirth;
+            TboxUsername.Text = ProfileToModify.Name;
+            TboxPassword.Password = ProfileToModify.Password;
+            TboxPasswordCheck.Password = ProfileToModify.Password;
+            TboxPasswordCheck.Password = ProfileToModify.Password;
+            DpBirth.Text = ProfileToModify.DateOfBirth;
             CbLanguage.SelectedItem = CbLanguage.Items[0];
             CbAvatar.SelectedItem = CbAvatar.Items[0];
-            OriginalName = SaveLoader.Save.SelectedProfile.Name;
+            OriginalName = ProfileToModify.Name;
         }
 
         private void ErrorIdentifier()

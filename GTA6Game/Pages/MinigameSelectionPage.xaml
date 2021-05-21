@@ -76,7 +76,6 @@
         </ScrollViewer>
 
         <usercontrols:UserIcon x:Name="UiExit" Style="{StaticResource Menu}" ImageSource="/Assets/Exit.png" Margin="1078,615,39,10.4" Click="UiExit_Click" Height="Auto" Width="Auto"></usercontrols:UserIcon>
-        <usercontrols:OutlinedTextBlock x:Name="TbMoney" Text="0 Ft" TextAlignment="Right" FontFamily="/GTA6Game;component/Assets/Fonts/#Pricedown Bl" FontSize="40pt" FontWeight="ExtraBold" TextWrapping="Wrap" StrokeThickness="3" Stroke="Black" Fill="#A8D08D" Margin="715,79,10,560.4"/>
 
     </Grid>
 </local:PageBase>

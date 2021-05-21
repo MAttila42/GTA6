@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.ComponentModel;
 
 namespace GTA6Game.PlayerData
 {
@@ -45,8 +46,12 @@ namespace GTA6Game.PlayerData
         }
            
 
-        private static void OnSaveChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private static void OnSaveChanged(object sender, PropertyChangedEventArgs e)
         {
+            if (e.PropertyName == nameof(PlayerSave.SelectedProfile))
+            {
+                return;
+            }
             PersistData();
         }
 

@@ -62,6 +62,12 @@ namespace GTA6Game.Pages
             }
         }
 
+        public override void OnAttachedToFrame()
+        {
+            base.OnAttachedToFrame();
+            OverlaySettings.OverlayDisabled = true;
+        }
+
         private void Windows_Loaded(object sender, RoutedEventArgs e)
         {
             SaveLoader.Save.SelectedProfile.Money += 100 * LoopCount;

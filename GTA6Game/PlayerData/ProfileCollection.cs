@@ -12,7 +12,7 @@ using GTA6Game.Helpers;
 namespace GTA6Game.PlayerData
 {
     [Serializable]
-    public class ProfileCollection : PropertyChangeNotifier,IEnumerable<Profile>, ISerializable
+    public class ProfileCollection : PropertyChangeNotifier, IEnumerable<Profile>, ISerializable
     {
         public int NumberOfProfiles => Profiles.Count;
 

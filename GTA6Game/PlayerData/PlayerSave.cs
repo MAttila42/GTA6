@@ -21,29 +21,44 @@ namespace GTA6Game.PlayerData
         /// </summary>
         public ProfileCollection Profiles { get; }
 
-        public Profile SelectedProfile { get; set; }
+        private Profile selectedProfile;
+
+        public Profile SelectedProfile
+        {
+            get => selectedProfile; set
+            {
+                if (value == selectedProfile)
+                {
+                    return;
+                }
+                selectedProfile = value;
+                OnPropertyChanged();
+            }
+        }
 
         public PlayerSave()
         {
             Profiles = new ProfileCollection();
-            Profiles.PropertyChanged += (sender, e) =>
-            {
-                OnPropertyChanged(nameof(Profiles));
-            };
+            BindEventHandler();
         }
 
         public PlayerSave(SerializationInfo info, StreamingContext context)
         {
-            Profiles = (ProfileCollection)info.GetValue(nameof(Profiles), typeof(ProfileCollection));
-            Profiles.PropertyChanged += (sender, e) =>
-            {
-                OnPropertyChanged(nameof(Profiles));
-            };
+            Profiles = (ProfileCollection) info.GetValue(nameof(Profiles), typeof(ProfileCollection));
+            BindEventHandler();
         }
 
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             info.AddValue(nameof(Profiles), Profiles, typeof(ProfileCollection));
+        }
+
+        private void BindEventHandler()
+        {
+            Profiles.PropertyChanged += (sender, e) =>
+            {
+                OnPropertyChanged(nameof(Profiles));
+            };
         }
     }
 }

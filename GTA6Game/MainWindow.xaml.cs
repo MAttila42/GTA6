@@ -2,6 +2,7 @@
 using GTA6Game.Pages.HaircutMinigame;
 using GTA6Game.PlayerData;
 using GTA6Game.Routing;
+using GTA6Game.UserControls.Overlay;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,15 +27,19 @@ namespace GTA6Game
         /// </summary>
         public RoutingHelper Router;
 
+        private OverlaySettings OverlaySettings;
+
         public MainWindow()
         {
+            OverlaySettings = new OverlaySettings();
             InitializeComponent();
             Router.StartGame = false;
+            Overlay.Init(OverlaySettings);
         }
 
         private void Windows_Initialized(object sender, EventArgs e)
         {
-            Router = new RoutingHelper(PageContainer);
+            Router = new RoutingHelper(PageContainer, OverlaySettings);
             Router.CurrentPageChanged += OnCurrentPageChanged;
             Router.ChangeCurrentPage(new LoadingPage());
         }

@@ -1,4 +1,5 @@
 ﻿using GTA6Game.Routing;
+using GTA6Game.UserControls.Overlay;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,8 @@ namespace GTA6Game.Pages
         /// The Router object that will get injected to the page by the Router when the page is navigated to
         /// </summary>
         public RoutingHelper Router { get; set; }
+
+        public OverlaySettings OverlaySettings { get; set; }
 
         /// <summary>
         /// Method that will get called when the page is shown
