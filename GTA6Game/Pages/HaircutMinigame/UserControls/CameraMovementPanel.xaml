@@ -15,7 +15,7 @@
             Visibility="{Binding CameraOrientation.IsLeftEnabled, Converter={StaticResource BooleanToVisibilityConverter}}" 
             Style="{StaticResource DirectionIcon}" 
             RenderTransformOrigin="0.5,0.5"
-            Click="MoveCameraLeft"
+            Click="MoveCameraLeft" Margin="0,20,0,0"
         >
             <Button.RenderTransform>
                 <TransformGroup>
@@ -28,7 +28,7 @@
             DockPanel.Dock="Right" 
             Visibility="{Binding CameraOrientation.IsRightEnabled, Converter={StaticResource BooleanToVisibilityConverter}}" 
             Style="{StaticResource DirectionIcon}" 
-            Click="MoveCameraRight"
+            Click="MoveCameraRight" Margin="0,20,0,0"
         >
         </Button>
 

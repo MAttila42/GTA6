@@ -12,6 +12,6 @@
         <Image Source="/Assets/HaircutMinigame/background.jpg" Stretch="None" Margin="-21,-35,-114,-41" />
         <usercontrols:CameraMovementPanel Margin="80,0,80,20" Panel.ZIndex="2" />
         <usercontrols:FranklinDisplay Panel.ZIndex="1"  Width="720" Height="540" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        <usercontrols:Scoreboard HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"></usercontrols:Scoreboard>
+        <usercontrols:Scoreboard HorizontalAlignment="Left" Panel.ZIndex="2" VerticalAlignment="Top" Margin="10,10,0,0"></usercontrols:Scoreboard>
     </Grid>
 </local:PageBase>

@@ -161,7 +161,7 @@ namespace GTA6Game.Pages.HaircutMinigame
                 FailedCuts.Lock();
                 foreach (var point in pointsOutsideArea)
                 {
-                    FailedCuts.ModifyImage(point, Color.FromArgb(255, 255, 0, 0));
+                    FailedCuts.ModifyImage(point, Color.FromArgb(200, 255, 0, 0));
                 }
                 FailedCuts.Unlock();
             });
@@ -248,13 +248,13 @@ namespace GTA6Game.Pages.HaircutMinigame
             {
                 return;
             }
-            Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+            Application.Current?.Dispatcher?.BeginInvoke(new Action(() =>
             {
 
                 CompletePercent = completePercent;
                 FailPercent = failPercent;
 
-            })).Wait();
+            }))?.Wait();
         }
     }
 }
