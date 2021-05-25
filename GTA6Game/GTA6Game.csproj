@@ -74,6 +74,7 @@
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Numerics" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -83,9 +84,11 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
     <Reference Include="WpfAnimatedGif, Version=2.0.0.0, Culture=neutral, PublicKeyToken=9e7cd3b544a090dc, processorArchitecture=MSIL">
       <HintPath>..\packages\WpfAnimatedGif.2.0.0\lib\net40\WpfAnimatedGif.dll</HintPath>
     </Reference>
@@ -106,6 +109,7 @@
     <Compile Include="Pages\HaircutMinigame\CameraOrientation.cs" />
     <Compile Include="Pages\HaircutMinigame\DesiredShape.cs" />
     <Compile Include="Pages\HaircutMinigame\Direction.cs" />
+    <Compile Include="Pages\HaircutMinigame\GameEndPayload.cs" />
     <Compile Include="Pages\HaircutMinigame\HaircutMinigamePage.xaml.cs">
       <DependentUpon>HaircutMinigamePage.xaml</DependentUpon>
     </Compile>
@@ -119,6 +123,9 @@
     </Compile>
     <Compile Include="Pages\HaircutMinigame\UserControls\FranklinDisplay.xaml.cs">
       <DependentUpon>FranklinDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\HaircutMinigame\UserControls\GameEndModalContent.xaml.cs">
+      <DependentUpon>GameEndModalContent.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\HaircutMinigame\UserControls\Scoreboard.xaml.cs">
       <DependentUpon>Scoreboard.xaml</DependentUpon>
@@ -155,6 +162,15 @@
     <Compile Include="UserControls\LoginTitle.xaml.cs">
       <DependentUpon>LoginTitle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Overlay\Modal\BaseModal.cs" />
+    <Compile Include="UserControls\Overlay\Modal\ModalContent.cs" />
+    <Compile Include="UserControls\Overlay\Modal\ModalCollection.cs" />
+    <Compile Include="UserControls\Overlay\Modal\ModalContentBase.cs" />
+    <Compile Include="UserControls\Overlay\Modal\ModalContentDisplay.xaml.cs">
+      <DependentUpon>ModalContentDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Overlay\Modal\Modal.cs" />
+    <Compile Include="UserControls\Overlay\Modal\ModalResult.cs" />
     <Compile Include="UserControls\Overlay\Overlay.xaml.cs">
       <DependentUpon>Overlay.xaml</DependentUpon>
     </Compile>
@@ -185,6 +201,10 @@
     <Page Include="Pages\HaircutMinigame\HaircutMinigamePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\HaircutMinigame\UserControls\GameEndModalContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\LoadingMission.xaml">
       <SubType>Designer</SubType>
@@ -242,6 +262,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\ModalResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\UserIconResources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -255,6 +279,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\LoginTitle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Overlay\Modal\ModalContentDisplay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

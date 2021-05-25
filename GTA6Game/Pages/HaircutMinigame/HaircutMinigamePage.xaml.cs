@@ -31,6 +31,10 @@ namespace GTA6Game.Pages.HaircutMinigame
             
         }
 
-      
+        public override void OnAttachedToFrame()
+        {
+            base.OnAttachedToFrame();
+            ViewModel.InjectOverlaySettings(OverlaySettings);
+        }
     }
 }

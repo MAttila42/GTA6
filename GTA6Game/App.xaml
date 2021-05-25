@@ -14,6 +14,7 @@
                 <ResourceDictionary Source="Styles/DatePickerResources.xaml"/>
                 <ResourceDictionary Source="Styles/HaircutMinigame/CameraMovementResources.xaml"/>
                 <ResourceDictionary Source="Styles/MenuResources.xaml"/>
+                <ResourceDictionary Source="Styles/ModalResources.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

@@ -47,7 +47,7 @@ namespace GTA6Game.Pages
         public override void OnAttachedToFrame()
         {
             base.OnAttachedToFrame();
-            OverlaySettings.OverlayDisabled = true;
+            OverlaySettings.MoneyBarDisabled = true;
         }
     }
 }

@@ -4,19 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GTA6Game.Helpers;
+using GTA6Game.UserControls.Overlay.Modal;
 
 namespace GTA6Game.UserControls.Overlay
 {
     public class OverlaySettings : PropertyChangeNotifier
     {
-        private bool overlayDisabled;
+        private bool moneyBarDisabled;
 
-        public bool OverlayDisabled
+        public bool MoneyBarDisabled
         {
-            get { return overlayDisabled; }
+            get { return moneyBarDisabled; }
             set
             {
-                overlayDisabled = value;
+                moneyBarDisabled = value;
                 OnPropertyChanged();
             }
         }
@@ -33,16 +34,27 @@ namespace GTA6Game.UserControls.Overlay
             }
         }
 
+        public ModalCollection OpenedModals { get; }
+
         public OverlaySettings()
         {
-            overlayDisabled = false;
+            moneyBarDisabled = false;
             overlayTopOffset = 20;
+            OpenedModals = new ModalCollection();
+            OpenedModals.PropertyChanged += OnOpenedModalsChanged;
+        }
+
+        private void OnOpenedModalsChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            OnPropertyChanged(nameof(OpenedModals), GetNestedPropertyName(nameof(OpenedModals), e));
         }
 
         public void Reset()
         {
-            OverlayDisabled = false;
+            MoneyBarDisabled = false;
             OverlayTopOffset = 20;
         }
+
+
     }
 }
