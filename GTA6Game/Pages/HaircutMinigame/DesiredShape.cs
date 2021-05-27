@@ -69,7 +69,7 @@ namespace GTA6Game.Pages.HaircutMinigame
 
         public Dictionary<string, string> LocalizedNames { get; }
 
-        public string Name => LocalizedNames[LanguageManager.PreferredLanguage];
+        public string Name => LocalizedNames[LanguageManager.CurrentCulture.IetfLanguageTag];
 
         public Bitmap Top { get; }
 

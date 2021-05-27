@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:usercontrols="clr-namespace:GTA6Game.UserControls"
+                    >
+    <Style x:Key="MissionCompletedText" TargetType="usercontrols:OutlinedTextBlock">
+        <Setter Property="FontWeight" Value="ExtraBold"> </Setter>
+        <Setter Property="StrokeThickness" Value="1.2"></Setter>
+        <Setter Property="Stroke" Value="Black"></Setter>
+        <Setter Property="Fill" Value="#deb94f"></Setter>
+        <Setter Property="FontSize" Value="75px">  </Setter>
+        <Setter Property="FontFamily" Value="/GTA6Game;component/Assets/Fonts/#PricedownBl-SLY"> </Setter>
+        <Setter Property="TextAlignment" Value="Center"></Setter>
+    </Style>
+</ResourceDictionary>

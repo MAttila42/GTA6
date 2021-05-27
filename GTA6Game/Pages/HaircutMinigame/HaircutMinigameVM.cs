@@ -10,6 +10,7 @@ using GTA6Game.Helpers;
 using GTA6Game.UserControls.Overlay;
 using GTA6Game.UserControls.Overlay.Modal;
 using GTA6Game.Pages.HaircutMinigame.UserControls;
+using System.Windows;
 
 namespace GTA6Game.Pages.HaircutMinigame
 {
@@ -46,9 +47,21 @@ namespace GTA6Game.Pages.HaircutMinigame
             }
         }
 
-        private Haircut LastSide;
-
         public DesiredShape Shape { get; }
+
+        private Visibility hudVisibility;
+
+        public Visibility HUDVisibility
+        {
+            get { return hudVisibility; }
+            set
+            {
+                hudVisibility = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Haircut LastSide;
 
         private bool IsRoundEnded = false;
 
@@ -66,6 +79,8 @@ namespace GTA6Game.Pages.HaircutMinigame
 
             CurrentSide.PropertyChanged += OnCurrentSideChanged;
             LastSide = CurrentSide;
+
+            HUDVisibility = Visibility.Visible;
         }
 
         public void InjectOverlaySettings(OverlaySettings overlaySettings)
@@ -82,10 +97,11 @@ namespace GTA6Game.Pages.HaircutMinigame
 
         public async void EndRound()
         {
+            HUDVisibility = Visibility.Hidden;
             if (!IsRoundEnded)
             {
                 bool isFailed = HaircutState.FailPercent >= 40;
-                GameEndPayload payload = new GameEndPayload(CalculateReward(), HaircutState.FailPercent, "", isFailed);
+                GameEndPayload payload = new GameEndPayload(CalculateReward(), HaircutState.FailPercent, "", isFailed, Shape.Name);
                 GameEndModalContent modalContent = new GameEndModalContent(payload);
                 await OverlaySettings.OpenedModals.OpenModal(new Modal<object>(modalContent));
             }

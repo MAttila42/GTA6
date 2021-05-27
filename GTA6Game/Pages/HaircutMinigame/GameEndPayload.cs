@@ -17,12 +17,15 @@ namespace GTA6Game.Pages.HaircutMinigame
 
         public bool IsFailed { get; }
 
-        public GameEndPayload(int earnedMoney, int failPercent, string message, bool isFailed)
+        public string Hairstyle { get; }
+
+        public GameEndPayload(int earnedMoney, int failPercent, string message, bool isFailed, string hairstyle)
         {
             EarnedMoney = earnedMoney;
             FailPercent = failPercent;
             Message = message;
             IsFailed = isFailed;
+            Hairstyle = hairstyle;
         }
 
         public void Dispose()
