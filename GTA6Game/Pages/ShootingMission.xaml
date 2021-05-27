@@ -21,6 +21,6 @@
         </Canvas>
 
         <usercontrols:OutlinedTextBlock x:Name="TbTime" Text="5" TextAlignment="Center" FontFamily="Arial" FontSize="300" FontWeight="ExtraBold" TextWrapping="Wrap" StrokeThickness="5" Stroke="Black" Fill="White" Margin="353,179,331,164.4"/>
-        <usercontrols:OutlinedTextBlock x:Name="TbCount" Text="100/100" TextAlignment="Center" FontFamily="Pricedown" FontSize="40pt" FontWeight="ExtraBold" TextWrapping="Wrap" StrokeThickness="3" Stroke="Black" Fill="White" Margin="-1,34,1009,618.4"/>
+        <usercontrols:OutlinedTextBlock x:Name="TbCount" Text="100/100" TextAlignment="Center" FontFamily="/GTA6Game;component/Assets/Fonts/#Pricedown Bl" FontSize="40pt" FontWeight="ExtraBold" TextWrapping="Wrap" StrokeThickness="3" Stroke="Black" Fill="White" Margin="-1,34,1014,604.4"/>
     </Grid>
 </local:PageBase>
