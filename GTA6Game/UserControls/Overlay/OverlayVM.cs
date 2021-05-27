@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using GTA6Game.Helpers;
 using GTA6Game.PlayerData;
+using GTA6Game.UserControls.Overlay.Modal;
 
 namespace GTA6Game.UserControls.Overlay
 {
@@ -16,9 +17,13 @@ namespace GTA6Game.UserControls.Overlay
 
         public string MoneyBarText => $"{Save.SelectedProfile?.Money} Ft";
 
-        public Visibility MoneyBarVisibility => Save.SelectedProfile == null || Settings.OverlayDisabled ? Visibility.Hidden : Visibility.Visible;
+        public Visibility MoneyBarVisibility => Save.SelectedProfile == null || Settings.MoneyBarDisabled ? Visibility.Hidden : Visibility.Visible;
+
+        public Visibility ModalContainerVisibility => Settings.OpenedModals.HasModals ? Visibility.Visible : Visibility.Hidden;
 
         public Thickness MoneyBarMargin => new Thickness(715, Settings.OverlayTopOffset, 10, 560);
+
+        public ModalCollection Modals => Settings.OpenedModals;
 
         private Profile PreviousSelectedProfile = null;
 
@@ -34,7 +39,7 @@ namespace GTA6Game.UserControls.Overlay
 
         private void OnSettingsChanged(object sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(OverlaySettings.OverlayDisabled))
+            if (e.PropertyName == nameof(OverlaySettings.MoneyBarDisabled))
             {
                 OnPropertyChanged(nameof(MoneyBarVisibility));
             }
@@ -42,6 +47,13 @@ namespace GTA6Game.UserControls.Overlay
             if (e.PropertyName == nameof(OverlaySettings.OverlayTopOffset))
             {
                 OnPropertyChanged(nameof(MoneyBarMargin));
+            }
+
+            string hasModalsPropertyName = $"{nameof(OverlaySettings.OpenedModals)}.{nameof(ModalCollection.HasModals)}";
+            if (e is NestedPropertyChangedEventArgs nested
+                && nested.NestedPropertyName == hasModalsPropertyName)
+            {
+                OnPropertyChanged(nameof(ModalContainerVisibility));
             }
 
         }

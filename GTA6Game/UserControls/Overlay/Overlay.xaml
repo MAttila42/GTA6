@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        
+        <ItemsControl Background="Transparent"  ItemsSource="{Binding Modals}" Visibility="{Binding ModalContainerVisibility}" Style="{StaticResource ModalContainer}"></ItemsControl>
         <usercontrols:OutlinedTextBlock Visibility="{Binding MoneyBarVisibility}" Text="{Binding MoneyBarText}" Margin="{Binding MoneyBarMargin}" TextAlignment="Right" FontFamily="/GTA6Game;component/Assets/Fonts/#Pricedown Bl" FontSize="40pt" FontWeight="ExtraBold" TextWrapping="Wrap" StrokeThickness="3" Stroke="Black" Fill="#A8D08D"/>
     </Grid>
 </UserControl>

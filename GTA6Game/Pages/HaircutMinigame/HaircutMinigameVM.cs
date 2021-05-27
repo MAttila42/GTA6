@@ -7,6 +7,10 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Media.Imaging;
 using GTA6Game.Helpers;
+using GTA6Game.UserControls.Overlay;
+using GTA6Game.UserControls.Overlay.Modal;
+using GTA6Game.Pages.HaircutMinigame.UserControls;
+using System.Windows;
 
 namespace GTA6Game.Pages.HaircutMinigame
 {
@@ -43,11 +47,25 @@ namespace GTA6Game.Pages.HaircutMinigame
             }
         }
 
-        private Haircut LastSide;
-
         public DesiredShape Shape { get; }
 
+        private Visibility hudVisibility;
+
+        public Visibility HUDVisibility
+        {
+            get { return hudVisibility; }
+            set
+            {
+                hudVisibility = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Haircut LastSide;
+
         private bool IsRoundEnded = false;
+
+        private OverlaySettings OverlaySettings;
 
         public HaircutMinigameVM()
         {
@@ -61,6 +79,13 @@ namespace GTA6Game.Pages.HaircutMinigame
 
             CurrentSide.PropertyChanged += OnCurrentSideChanged;
             LastSide = CurrentSide;
+
+            HUDVisibility = Visibility.Visible;
+        }
+
+        public void InjectOverlaySettings(OverlaySettings overlaySettings)
+        {
+            OverlaySettings = overlaySettings;
         }
 
         public void Dispose()
@@ -70,14 +95,17 @@ namespace GTA6Game.Pages.HaircutMinigame
             HaircutState.Dispose();
         }
 
-        public void EndRound()
+        public async void EndRound()
         {
+            HUDVisibility = Visibility.Hidden;
             if (!IsRoundEnded)
             {
-
+                bool isFailed = HaircutState.FailPercent >= 40;
+                GameEndPayload payload = new GameEndPayload(CalculateReward(), HaircutState.FailPercent, "", isFailed, Shape.Name);
+                GameEndModalContent modalContent = new GameEndModalContent(payload);
+                await OverlaySettings.OpenedModals.OpenModal(new Modal<object>(modalContent));
             }
             IsRoundEnded = true;
-            
         }
 
         private void OnCurrentSideChanged(object sender, PropertyChangedEventArgs e)
@@ -88,11 +116,11 @@ namespace GTA6Game.Pages.HaircutMinigame
         private void OnHaircutStateChanged(object sender, PropertyChangedEventArgs e)
         {
             OnPropertyChanged(nameof(HaircutState), GetNestedPropertyName(nameof(HaircutState), e));
-            if (e.PropertyName == "CompletePercent")
+            if (e.PropertyName == nameof(HaircutState.CompletePercent))
             {
                 OnCompletePercentChanged();
             }
-            if (e.PropertyName == "FailPercent")
+            if (e.PropertyName == nameof(HaircutState.FailPercent))
             {
                 OnFailPercentChanged();
             }
@@ -134,6 +162,11 @@ namespace GTA6Game.Pages.HaircutMinigame
         {
             int rnd = new Random().Next(0, DesiredShape.Shapes.Count);
             return DesiredShape.Shapes.ToList()[rnd].Value;
+        }
+
+        private int CalculateReward()
+        {
+            return 0;
         }
     }
 }

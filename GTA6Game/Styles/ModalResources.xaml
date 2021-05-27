@@ -1,0 +1,42 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:modal="clr-namespace:GTA6Game.UserControls.Overlay.Modal">
+    <Style x:Key="ModalContainer" TargetType="ItemsControl">
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate >
+                    <Grid></Grid>
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemTemplate">
+            <Setter.Value>
+                <DataTemplate DataType="{x:Type modal:BaseModal}">
+                    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <modal:ModalContentDisplay></modal:ModalContentDisplay>
+                    </Grid>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="MissionTitle" TargetType="TextBlock">
+        <Setter Property="TextAlignment" Value="Center"></Setter>
+        <Setter Property="FontFamily" Value="/GTA6Game;component/Assets/Fonts/#Chalet"></Setter>
+        <Setter Property="FontSize" Value="25px"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="Margin" Value="0,6,0,6"> </Setter>
+    </Style>
+    <Style x:Key="MissionBar" TargetType="StackPanel">
+        <Setter Property="Height" Value="2"></Setter>
+        <Setter Property="Background" Value="White"></Setter>
+    </Style>
+    <Style x:Key="MissionObjectiveText" TargetType="Label">
+        <Setter Property="FontFamily" Value="/GTA6Game;component/Assets/Fonts/#Chalet"></Setter>
+        <Setter Property="FontSize" Value="18px"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+    </Style>
+    <Style x:Key="MissionObjectiveContainer" TargetType="DockPanel">
+        <Setter Property="LastChildFill" Value="False"></Setter>
+        <Setter Property="Margin" Value="12,5,16,5"></Setter>
+    </Style>
+</ResourceDictionary>

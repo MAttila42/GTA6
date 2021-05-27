@@ -29,7 +29,6 @@ namespace GTA6Game.UserControls.Overlay
         {
             DataContext = new OverlayVM(settings);
             InitializeComponent();
-
         }
     }
 }
