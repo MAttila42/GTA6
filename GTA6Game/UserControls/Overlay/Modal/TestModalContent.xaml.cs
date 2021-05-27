@@ -1,5 +1,4 @@
-﻿using GTA6Game.UserControls.Overlay.Modal;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,31 +13,23 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GTA6Game.Pages.HaircutMinigame.UserControls
+namespace GTA6Game.UserControls.Overlay.Modal
 {
     /// <summary>
-    /// Interaction logic for GameEndModalContent.xaml
+    /// Interaction logic for TestModalContent.xaml
     /// </summary>
-    public partial class GameEndModalContent : ModalContentBase
+    public partial class TestModalContent : ModalContentBase
     {
-        private Modal<object> ModalVM;
+        private Modal<object> Modal;
 
-        public GameEndModalContent(GameEndPayload payload)
+        public TestModalContent()
         {
-            DataContext = payload;
             InitializeComponent();
         }
 
         public override void InjectModalVM(BaseModal modal)
         {
-            ModalVM = (Modal<object>)modal;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            ModalVM.CloseModal(false, null);
+            Modal = (Modal<object>)modal;
         }
     }
-
-
 }
