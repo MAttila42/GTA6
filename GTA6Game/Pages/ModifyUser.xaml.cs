@@ -1,6 +1,9 @@
 using GTA6Game.PlayerData;
+using GTA6Game.UserControls.Messages;
+using GTA6Game.UserControls.Overlay.Modal;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace GTA6Game.Pages
@@ -30,23 +33,25 @@ namespace GTA6Game.Pages
             Router.ChangeCurrentPage(new LoginPage());
         }
 
-        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        private async void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show($"Biztosan törölni akarod a felhasználót? Ha törlöd, az összes pénzed elveszik!", "Törlés megerősítés", MessageBoxButton.YesNo, MessageBoxImage.Information, MessageBoxResult.Yes);
-            switch (result)
+            Modal<object> modal = new Modal<object>(new MessageYesNo($"Biztosan törölni akarod a felhasználót? Ha törlöd, az összes pénzed elveszik!", "Alert"));
+            var modalResult = await OverlaySettings.OpenedModals.OpenModal(modal);
+
+            switch (modalResult.Payload)
             {
-                case MessageBoxResult.Yes:
+                case true:
                     SaveLoader.Save.Profiles.RemoveProfile(ProfileToModify);
                     Router.ChangeCurrentPage(new LoginPage());
                     break;
-                case MessageBoxResult.No:
+                case false:
                     break;
             }
         }
 
-        private void BtnModify_Click(object sender, RoutedEventArgs e)
+        private async void BtnModify_Click(object sender, RoutedEventArgs e)
         {
-            ErrorIdentifier();
+            await ErrorIdentifier();
             if (CurrentError == ErrorType.none)
             {
                 if (CbEULA.IsChecked == true)
@@ -58,13 +63,15 @@ namespace GTA6Game.Pages
                 }
                 else
                 {
-                    MessageBox.Show($"Sajna-bajna, az ÁSZF elfogadása kötelező!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
+                    Modal<object> modal = new Modal<object>(new MessageOk("Sajna-bajna, az ÁSZF elfogadása kötelező!", "Social Club Error"));
+                    await OverlaySettings.OpenedModals.OpenModal(modal);
                 }
 
             }
             else if (CurrentError != ErrorType.check)
             {
-                MessageBox.Show($"Sajna-bajna, {ErrorWriter()}", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
+                Modal<object> modal = new Modal<object>(new MessageOk($"Sajna-bajna, {ErrorWriter()}", "Social Club Error"));
+                await OverlaySettings.OpenedModals.OpenModal(modal);
             }
         }
 
@@ -80,7 +87,7 @@ namespace GTA6Game.Pages
             OriginalName = ProfileToModify.Name;
         }
 
-        private void ErrorIdentifier()
+        private async Task ErrorIdentifier()
         {
             
 
@@ -92,7 +99,7 @@ namespace GTA6Game.Pages
             {
                 if (TboxUsername.Text == OriginalName)
                 {
-                    ErrorIdentifierTwo();
+                    await ErrorIdentifierTwo();
                 }
                 else
                 {
@@ -104,7 +111,7 @@ namespace GTA6Game.Pages
                     }
                     else
                     {
-                        ErrorIdentifierTwo();
+                        await ErrorIdentifierTwo();
                     }
                 }
                 
@@ -133,7 +140,7 @@ namespace GTA6Game.Pages
             return errorResult;
         }
 
-        private void ErrorIdentifierTwo()
+        private async Task ErrorIdentifierTwo()
         {
             var limitDate = DateTime.Now.AddYears(-18).Date;
             if (DpBirth.SelectedDate > limitDate)
@@ -146,13 +153,15 @@ namespace GTA6Game.Pages
                 {
                     if (string.IsNullOrEmpty(TboxPassword.Password))
                     {
-                        MessageBoxResult result = MessageBox.Show($"Nincs beállítva jelszó! Beállítasz egyet mégis?", "Jelszó kérdés", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.Yes);
-                        switch (result)
+                        Modal<object> modal = new Modal<object>(new MessageYesNo($"Nincs beállítva jelszó! Beállítasz egyet mégis?", "Alert"));
+                        var modalResult = await OverlaySettings.OpenedModals.OpenModal(modal);
+
+                        switch (modalResult.Payload)
                         {
-                            case MessageBoxResult.Yes:
+                            case true:
                                 CurrentError = ErrorType.check;
                                 break;
-                            case MessageBoxResult.No:
+                            case false:
                                 CurrentError = ErrorType.none;
                                 break;
                         }

@@ -3,6 +3,7 @@ using GTA6Game.UserControls.Messages;
 using GTA6Game.UserControls.Overlay.Modal;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace GTA6Game.Pages
@@ -27,9 +28,10 @@ namespace GTA6Game.Pages
             Router.ChangeCurrentPage(new LoginPage());
         }
 
-        private void BtnSignUp_Click(object sender, RoutedEventArgs e)
+        private async void BtnSignUp_Click(object sender, RoutedEventArgs e)
         {
-            ErrorIdentifier();
+            await ErrorIdentifier();
+            
             if (CurrentError == ErrorType.none)
             {
                 if (CbEULA.IsChecked == true)
@@ -40,18 +42,18 @@ namespace GTA6Game.Pages
                 else
                 {
                     Modal<object> modal = new Modal<object>(new MessageOk("Sajna-bajna, az ÁSZF elfogadása kötelező!", "Social Club Error"));
-                    OverlaySettings.OpenedModals.OpenModal(modal);
+                    await OverlaySettings.OpenedModals.OpenModal(modal);
                 }
                 
             }
             else if(CurrentError != ErrorType.check)
             {
                 Modal<object> modal = new Modal<object>(new MessageOk($"Sajna-bajna, {ErrorWriter()}", "Social Club Error"));
-                OverlaySettings.OpenedModals.OpenModal(modal);
+                await OverlaySettings.OpenedModals.OpenModal(modal);
             }
         }
 
-        private async void ErrorIdentifier()
+        private async Task ErrorIdentifier()
         {
             var limitDate = DateTime.Now.AddYears(-18).Date;
 
