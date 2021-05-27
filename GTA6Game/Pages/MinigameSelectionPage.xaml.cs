@@ -1,5 +1,9 @@
+using GTA6Game.Languages;
 using GTA6Game.Pages.HaircutMinigame;
 using GTA6Game.PlayerData;
+using GTA6Game.UserControls.Messages;
+using GTA6Game.UserControls.Overlay.Modal;
+using System.Collections.Generic;
 using System.Windows;
 
 namespace GTA6Game.Pages
@@ -14,21 +18,26 @@ namespace GTA6Game.Pages
             InitializeComponent();
         }
 
+        string[] ExitText = new string[] { "Biztosan ki akarsz lépni a GTA VI-ból?", "Are you sure you want to quit GTA VI?" };
+        string[] ExitTitle = new string[] { "Kilépés", "Quit" };
+
         public override void OnAttachedToFrame()
         {
             base.OnAttachedToFrame();
             OverlaySettings.OverlayTopOffset = 79;
         }
 
-        private void UiExit_Click(object sender, RoutedEventArgs e)
+        private async void UiExit_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Biztosan ki akar lépni?", "Bezárás", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
-            switch (result)
+            Modal<object> modal = new Modal<object>(new MessageYesNo($"{(LanguageManager.CurrentCulture.IetfLanguageTag == "hu-HU" ? $"{ExitText[0]}" : $"{ExitText[1]}")}", $"{(LanguageManager.CurrentCulture.IetfLanguageTag == "hu-HU" ? $"{ExitTitle[0]}" : $"{ExitTitle[1]}")}"));
+            var modalResult = await OverlaySettings.OpenedModals.OpenModal(modal);
+
+            switch (modalResult.Payload)
             {
-                case MessageBoxResult.Yes:
+                case true:
                     Application.Current.Shutdown();
                     break;
-                case MessageBoxResult.No:
+                case false:
                     break;
             }
         }

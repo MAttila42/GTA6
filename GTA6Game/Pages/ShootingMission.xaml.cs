@@ -1,5 +1,7 @@
 using GTA6Game.PlayerData;
 using GTA6Game.UserControls;
+using GTA6Game.UserControls.Messages;
+using GTA6Game.UserControls.Overlay.Modal;
 using System;
 using System.Threading.Tasks;
 using System.Windows;
@@ -30,7 +32,7 @@ namespace GTA6Game.Pages
                 if (Score <= 0)
                 {
                     score = 0;
-                    GameOver();
+                    _ = GameOver();
                 }
             }
         }
@@ -49,21 +51,18 @@ namespace GTA6Game.Pages
             UpdateClicks();
         }
 
-        private void GameOver()
+        private async Task GameOver()
         {
             Playground.Children.Clear();
             LoopNumber = 0;
             TargetCount = 0;
-            MessageBoxResult result = MessageBox.Show("Elvesztetted a játékot!", "Game Over", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.No);
-            switch (result)
-            {
-                case MessageBoxResult.OK:
-                    Router.ChangeCurrentPage(new MinigameSelectionPage());
-                    break;
-            }
+            Modal<object> modal = new Modal<object>(new MessageOk("Elvesztetted a játékot!", "Mission Failed"));
+            await OverlaySettings.OpenedModals.OpenModal(modal);
+            Router.ChangeCurrentPage(new MinigameSelectionPage());
+            
         }
 
-        private async void Start()
+        private async Task Start()
         {
             int delay = 0;
             for (int i = 0; i < LoopNumber; i++)
@@ -80,12 +79,13 @@ namespace GTA6Game.Pages
             {
                 if (ClickedCount > LoopNumber / 2)
                 {
-                    MessageBox.Show("A szint teljesítve. Vissza a kezdőképernyőre", "Kész", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                    Modal<object> modal = new Modal<object>(new MessageOk("A szint teljesítve. Vissza a kezdőképernyőre!", "Mission Passed"));
+                    await OverlaySettings.OpenedModals.OpenModal(modal);
                     Router.ChangeCurrentPage(new MinigameSelectionPage());
                 }
                 else
                 {
-                    GameOver();
+                    await GameOver();
                 }
             }
         }
@@ -107,7 +107,7 @@ namespace GTA6Game.Pages
                 {
                     Timer.Stop();
                     await Task.Delay(1000);
-                    Start();
+                    _ = Start();
                 };
                 Time = Time.Add(TimeSpan.FromSeconds(-1));
             }, Application.Current.Dispatcher);
@@ -129,7 +129,7 @@ namespace GTA6Game.Pages
             TargetCount++;
             target.Click += (source, e) =>
             {
-                UpdateMoney(100);
+                UpdateMoney(1000);
                 Playground.Children.Remove(target);
                 TargetCount--;
                 ClickedCount++;
