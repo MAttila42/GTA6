@@ -4,6 +4,7 @@ using System;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 
@@ -37,6 +38,7 @@ namespace GTA6Game.Pages
         Random R = new Random();
         int LoopNumber = 0;
         int TargetCount = 0;
+        int ClickedCount = 0;
         DispatcherTimer Timer;
         TimeSpan Time;
 
@@ -44,6 +46,7 @@ namespace GTA6Game.Pages
         {
             InitializeComponent();
             LoopNumber = R.Next(10, 100);
+            UpdateClicks();
         }
 
         private void GameOver()
@@ -75,8 +78,15 @@ namespace GTA6Game.Pages
             }
             if (Score > 0)
             {
-                MessageBox.Show("A szint teljesítve. Vissza a kezdőképernyőre", "Kész", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
-                Router.ChangeCurrentPage(new MinigameSelectionPage());
+                if (ClickedCount > LoopNumber / 2)
+                {
+                    MessageBox.Show("A szint teljesítve. Vissza a kezdőképernyőre", "Kész", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                    Router.ChangeCurrentPage(new MinigameSelectionPage());
+                }
+                else
+                {
+                    GameOver();
+                }
             }
         }
 
@@ -102,7 +112,6 @@ namespace GTA6Game.Pages
                 Time = Time.Add(TimeSpan.FromSeconds(-1));
             }, Application.Current.Dispatcher);
             Timer.Start();
-
         }
 
         private async Task AddTarget()
@@ -120,31 +129,31 @@ namespace GTA6Game.Pages
             TargetCount++;
             target.Click += (source, e) =>
             {
-                UpdateMoney(1000);
+                UpdateMoney(100);
                 Playground.Children.Remove(target);
                 TargetCount--;
+                ClickedCount++;
+                UpdateClicks();
                 removed = true;
             };
             await Task.Delay(disappearTime);
-            if (removed == false)
+            if (removed == false && Score > 0)
             {
-                if (Score > 0)
-                {
-                    UpdateMoney(-1500);
-                    Playground.Children.Remove(target);
-                    TargetCount--;
-                }
+                UpdateMoney(-1500);
+                Playground.Children.Remove(target);
+                TargetCount--;
             }
-
         }
 
         private void UpdateMoney(int plusz)
         {
-            if (Score > 0)
-            {
-                SaveLoader.Save.SelectedProfile.Money += plusz;
-                Score = SaveLoader.Save.SelectedProfile.Money;
-            }
+            SaveLoader.Save.SelectedProfile.Money += plusz;
+            Score = SaveLoader.Save.SelectedProfile.Money;
+        }
+
+        private void UpdateClicks()
+        {
+            TbCount.Text = $"{ClickedCount}/{LoopNumber}";
         }
     }
 }
