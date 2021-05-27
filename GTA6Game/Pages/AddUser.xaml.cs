@@ -1,4 +1,6 @@
 using GTA6Game.PlayerData;
+using GTA6Game.UserControls.Messages;
+using GTA6Game.UserControls.Overlay.Modal;
 using System;
 using System.Linq;
 using System.Windows;
@@ -37,17 +39,19 @@ namespace GTA6Game.Pages
                 }
                 else
                 {
-                    MessageBox.Show($"Sajna-bajna, az ÁSZF elfogadása kötelező!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
+                    Modal<object> modal = new Modal<object>(new MessageOk("Sajna-bajna, az ÁSZF elfogadása kötelező!", "Social Club Error"));
+                    OverlaySettings.OpenedModals.OpenModal(modal);
                 }
                 
             }
             else if(CurrentError != ErrorType.check)
             {
-                MessageBox.Show($"Sajna-bajna, {ErrorWriter()}", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
+                Modal<object> modal = new Modal<object>(new MessageOk($"Sajna-bajna, {ErrorWriter()}", "Social Club Error"));
+                OverlaySettings.OpenedModals.OpenModal(modal);
             }
         }
 
-        private void ErrorIdentifier()
+        private async void ErrorIdentifier()
         {
             var limitDate = DateTime.Now.AddYears(-18).Date;
 
@@ -74,16 +78,19 @@ namespace GTA6Game.Pages
                         {
                             if (string.IsNullOrEmpty(TboxPassword.Password))
                             {
-                                MessageBoxResult result = MessageBox.Show($"Nincs beállítva jelszó! Beállítasz egyet mégis?", "Jelszó kérdés", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.Yes);
-                                switch (result)
+                                Modal<bool> modal = new Modal<bool>(new MessageYesNo($"Nincs beállítva jelszó! Beállítasz egyet mégis?", "Alert"));
+                                var modalResult = await OverlaySettings.OpenedModals.OpenModal(modal);
+
+                                switch (modalResult.Payload)
                                 {
-                                    case MessageBoxResult.Yes:
+                                    case true:
                                         CurrentError = ErrorType.check;
                                         break;
-                                    case MessageBoxResult.No:
+                                    case false:
                                         CurrentError = ErrorType.none;
                                         break;
                                 }
+
                             }
                             else
                             {
