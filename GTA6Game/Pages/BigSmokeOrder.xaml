@@ -9,20 +9,33 @@
       Title="BigSmokeOrder" x:Name="Windows" Loaded="Windows_Loaded">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="38*"/>
+            <RowDefinition Height="673*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="18*"/>
+        </Grid.ColumnDefinitions>
         <Grid.Background>
             <ImageBrush ImageSource="/Assets/CluckinBell.png" Stretch="UniformToFill"/>
         </Grid.Background>
 
-        <Image Margin="0,219,495,-24.6" Source="/Assets/BigSmoke.png"/>
-        <Image Margin="710,81,31,28.4" Source="/Assets/Notepad.png" Stretch="Fill"/>
-        <Frame Background="Black" Opacity="0.7" HorizontalAlignment="Left" Height="37" Margin="25,81,0,0" VerticalAlignment="Top" Width="480"/>
-        <!--<Frame Background="Black" Opacity="0.7" HorizontalAlignment="Left" Height="40" Margin="360,26,0,0" VerticalAlignment="Top" Width="145"/>-->
-        <Label Content="Rendelés:" Foreground="White" FontSize="20" HorizontalAlignment="Left" Margin="25,81,0,0" VerticalAlignment="Top" Width="100"/>
-        <Label x:Name="lbOrder" Foreground="White" Content="" FontSize="20" HorizontalAlignment="Left" Margin="130,81,0,0" VerticalAlignment="Top" Width="364"/>
-        <Button x:Name="btnBack" Style="{StaticResource OrangeButton}" Content="Vissza" FontSize="20" HorizontalAlignment="Left" Margin="25,26,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="btnBack_Click"/>
-        <Button x:Name="btnStart" Style="{StaticResource PurpleButton}" Content="Indítás" FontSize="20" HorizontalAlignment="Left" Margin="130,26,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="BtnStart_Click"/>
-        <TextBox x:Name="tbInput" Style="{StaticResource NaturalTextBox}" Background="Black" Opacity="0.7" Foreground="White" FontSize="20" HorizontalAlignment="Left" Height="33" Margin="25,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="480" TextChanged="tbInput_TextChanged"/>
-        <Label x:Name="lbNote" Content="" FontSize="20" HorizontalAlignment="Left" Margin="737,134,0,0" VerticalAlignment="Top" Height="528" Width="407"/>
-        <!--<Label Content="" Foreground="White" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="360,26,0,0" VerticalAlignment="Top" Height="40" Width="145"/>-->
+        <Image Margin="0,181.4,495,-24.6" Source="/Assets/BigSmoke.png" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <Image Margin="374,43.4,31,28.4" Source="/Assets/Notepad.png" Stretch="Fill" Grid.Column="1" Grid.Row="1"/>
+        <Frame Background="Black" Opacity="0.7" HorizontalAlignment="Left" Height="37" Margin="25,43.4,0,0" VerticalAlignment="Top" Width="480" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <Frame Background="Black" Opacity="0.7" HorizontalAlignment="Left" Height="40" Margin="24,26,0,0" VerticalAlignment="Top" Width="145" Grid.Column="1" Grid.RowSpan="2"/>
+        <Label Content="Rendelés:" Foreground="White" FontSize="20" HorizontalAlignment="Left" Margin="25,43.4,0,0" VerticalAlignment="Top" Width="100" Grid.Row="1"/>
+        <Label x:Name="lbOrder" Foreground="White" Content="" FontSize="20" HorizontalAlignment="Left" Margin="130,43.4,0,0" VerticalAlignment="Top" Width="364" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <Button x:Name="btnBack" Style="{StaticResource OrangeButton}" Content="Vissza" FontSize="20" HorizontalAlignment="Left" Margin="25,26,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="btnBack_Click" Grid.RowSpan="2"/>
+        <Button x:Name="btnStart" Style="{StaticResource PurpleButton}" Content="Indítás" FontSize="20" HorizontalAlignment="Left" Margin="130,26,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="BtnStart_Click" Grid.RowSpan="2"/>
+        <TextBox x:Name="tbInput" Style="{StaticResource NaturalTextBox}" Background="Black" Opacity="0.7" Foreground="White" FontSize="20" HorizontalAlignment="Left" Height="33" Margin="25,96.4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="480" TextChanged="tbInput_TextChanged" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <Label x:Name="lbNote" Content="" FontSize="20" HorizontalAlignment="Left" Margin="401,96.4,0,0" VerticalAlignment="Top" Height="528" Width="407" Grid.Column="1" Grid.Row="1"/>
+        <Label x:Name="lbTimer" Content="00:00" Foreground="White" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="24,26,0,0" VerticalAlignment="Top" Height="40" Width="145" Grid.Column="1" Grid.RowSpan="2"/>
+        <Frame x:Name="frBackgroundDisabler" HorizontalAlignment="Left" Height="710" VerticalAlignment="Top" Width="1200" Visibility="Hidden" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <Frame x:Name="frPopupBackground" Background="Black" Visibility="Hidden" Opacity="0.7" HorizontalAlignment="Center" Height="261" VerticalAlignment="Center" Width="500" Grid.Column="1" Grid.Row="1" Margin="24,158.4,340,253.4"/>
+        <Label x:Name="lbPopupTitle" Content="Nyertél!" Visibility="Hidden" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Foreground="White" FontSize="40" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Height="59" Width="461" Margin="43,181.4,360,432.4"/>
+        <Label x:Name="lbPopupDesc" Content="Placeholder" Visibility="Hidden" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Foreground="White" FontSize="30" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Height="63" Width="461" Margin="43,240.4,360,369.4"/>
+        <Button x:Name="btnOk" Visibility="Hidden" Content="OK" Style="{StaticResource BlackButton}" Grid.Column="1" HorizontalAlignment="Left" Margin="222,331.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Height="50" FontSize="25" Click="btnOk_Click"/>
     </Grid>
 </local:PageBase>

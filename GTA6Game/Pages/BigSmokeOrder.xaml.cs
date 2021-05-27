@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Threading;
+using System.Threading.Tasks;
 
 namespace GTA6Game.Pages
 {
@@ -98,6 +100,7 @@ namespace GTA6Game.Pages
             btnStart.IsEnabled = false;
             Idle = false;
             Orders.Clear();
+            FullPrice = 0;
             Random r = new Random();
             lbNote.Content = "";
             Orders.Add(Menus[r.Next(0, Menus.Length)]);
@@ -144,6 +147,39 @@ namespace GTA6Game.Pages
             Orders.Last().Text = $"and {Orders.Last().Text}";
 
             lbOrder.Content = Orders[0].Text;
+            
+            Timer(Orders.Sum(x => x.Text.Length) * 350);
+        }
+
+        DispatcherTimer _timer;
+        TimeSpan _time;
+
+        private void Timer(int ms)
+        {
+            _time = TimeSpan.FromSeconds(ms / 1000);
+
+            _timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+                lbTimer.Content = _time.ToString(@"mm\:ss");
+                if (_time == TimeSpan.Zero)
+                {
+                    lbTimer.Content = "00:00";
+                    lbOrder.Content = "";
+                    lbNote.Content = "";
+                    btnStart.IsEnabled = true;
+                    Idle = true;
+                    PopupWindow("Vesztettél!", "Majd legközelebb.");
+                    _timer.Stop();
+                }
+                else if (Idle)
+                {
+                    lbTimer.Content = "00:00";
+                    _timer.Stop();
+                }
+                _time = _time.Add(TimeSpan.FromSeconds(-1));
+            }, Application.Current.Dispatcher);
+
+            _timer.Start();
         }
 
         static int FullPrice = 0;
@@ -157,7 +193,6 @@ namespace GTA6Game.Pages
                     {
                         tbInput.Text = "";
                         lbNote.Content += $"{Orders[0].Text} - {Orders[0].Price} Ft\n";
-                        UpdateMoney(Orders[0].Price);
                         FullPrice += Orders[0].Price;
                         Orders.RemoveAt(0);
                         lbOrder.Content = Orders[0].Text;
@@ -167,10 +202,23 @@ namespace GTA6Game.Pages
                 {
                     lbOrder.Content = "";
                     lbNote.Content += $"\nÖsszesen: {FullPrice} Ft";
+                    UpdateMoney(FullPrice);
+                    PopupWindow("Nyertél!", $"Nyeremény: {FullPrice} Ft");
                     btnStart.IsEnabled = true;
                     Idle = true;
                 }
             }
+        }
+
+        private void PopupWindow(string title, string desc)
+        {
+            frBackgroundDisabler.Visibility = Visibility.Visible;
+            frPopupBackground.Visibility = Visibility.Visible;
+            lbPopupTitle.Visibility = Visibility.Visible;
+            lbPopupDesc.Visibility = Visibility.Visible;
+            btnOk.Visibility = Visibility.Visible;
+            lbPopupTitle.Content = title;
+            lbPopupDesc.Content = desc;
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
@@ -186,6 +234,15 @@ namespace GTA6Game.Pages
         private void Windows_Loaded(object sender, RoutedEventArgs e)
         {
             UpdateMoney(0);
+        }
+
+        private void btnOk_Click(object sender, RoutedEventArgs e)
+        {
+            frBackgroundDisabler.Visibility = Visibility.Hidden;
+            frPopupBackground.Visibility = Visibility.Hidden;
+            lbPopupTitle.Visibility = Visibility.Hidden;
+            lbPopupDesc.Visibility = Visibility.Hidden;
+            btnOk.Visibility = Visibility.Hidden;
         }
     }
 }
