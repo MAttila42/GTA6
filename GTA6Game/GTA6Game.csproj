@@ -162,6 +162,9 @@
     <Compile Include="UserControls\LoginTitle.xaml.cs">
       <DependentUpon>LoginTitle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Messages\MessageOk.xaml.cs">
+      <DependentUpon>MessageOk.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Overlay\Modal\BaseModal.cs" />
     <Compile Include="UserControls\Overlay\Modal\ModalContent.cs" />
     <Compile Include="UserControls\Overlay\Modal\ModalCollection.cs" />
@@ -283,6 +286,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\LoginTitle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Messages\MessageOk.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

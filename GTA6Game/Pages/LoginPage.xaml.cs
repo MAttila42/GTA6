@@ -2,7 +2,6 @@ using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using GTA6Game.PlayerData;
 using GTA6Game.UserControls;

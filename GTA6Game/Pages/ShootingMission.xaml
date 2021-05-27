@@ -11,10 +11,10 @@
     <Grid>
 
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\Sziszi\Desktop\Shooting1.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/Assets/ShootingRange.png" Stretch="UniformToFill"/>
         </Grid.Background>
 
-        <Image Source="C:\Users\Sziszi\Desktop\fegyver2-removebg-preview.png" Height="184" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="222"/>
+        <Image Source="/Assets/PistolHand.png" Height="184" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="222"/>
 
         <Canvas x:Name="Playground" Margin="65,74,41,46.4">
 
