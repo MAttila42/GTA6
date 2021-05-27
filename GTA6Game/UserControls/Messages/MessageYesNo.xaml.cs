@@ -21,7 +21,7 @@ namespace GTA6Game.UserControls.Messages
     /// </summary>
     public partial class MessageYesNo : ModalContentBase
     {
-        private Modal<bool> Modal;
+        private Modal<object> Modal;
 
         public MessageYesNo(string description, string title)
         {
@@ -32,7 +32,7 @@ namespace GTA6Game.UserControls.Messages
 
         public override void InjectModalVM(BaseModal modal)
         {
-            Modal = (Modal<bool>)modal;
+            Modal = (Modal<object>)modal;
         }
 
         private void TbYes_Click(object sender, RoutedEventArgs e)
