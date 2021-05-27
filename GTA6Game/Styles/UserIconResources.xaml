@@ -82,6 +82,58 @@
 
     </Style>
 
+    <Style x:Key="MessageButton" TargetType="usercontrols:UserIcon">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="usercontrols:UserIcon">
+                    <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Image Source="{TemplateBinding ImageSource}" Stretch="Uniform" Width="25" Margin="0,0,10,0" RenderOptions.BitmapScalingMode="HighQuality" VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                    </WrapPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="FontSize" Value="17"></Setter>
+        <Setter Property="Height" Value="30"></Setter>
+        <Setter Property="Width" Value="200"></Setter>
+
+        <Setter Property="FontFamily" Value="/GTA6Game;component/Assets/Fonts/#Source Sans Pro"></Setter>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="usercontrols:UserIcon">
+                            <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Image Source="{TemplateBinding ImageSource}" Stretch="Uniform" Width="30" Margin="0,0,10,0" RenderOptions.BitmapScalingMode="HighQuality" VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                                <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                            </WrapPanel>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="FontSize" Value="20"></Setter>
+            </Trigger>
+
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="usercontrols:UserIcon">
+                            <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Image Source="{TemplateBinding ImageSource}" Stretch="Uniform" Width="30" Margin="0,0,10,0" RenderOptions.BitmapScalingMode="HighQuality" VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                                <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                            </WrapPanel>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="FontSize" Value="20"></Setter>
+            </Trigger>
+
+        </Style.Triggers>
+
+    </Style>
+
     <Style x:Key="Menu" TargetType="usercontrols:UserIcon">
         <Setter Property="Template">
             <Setter.Value>

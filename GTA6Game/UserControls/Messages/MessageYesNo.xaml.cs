@@ -17,13 +17,13 @@ using System.Windows.Shapes;
 namespace GTA6Game.UserControls.Messages
 {
     /// <summary>
-    /// Interaction logic for MessageOk.xaml
+    /// Interaction logic for MessageYesNo.xaml
     /// </summary>
-    public partial class MessageOk : ModalContentBase
+    public partial class MessageYesNo : ModalContentBase
     {
-        private Modal<object> Modal;
+        private Modal<bool> Modal;
 
-        public MessageOk(string description, string title)
+        public MessageYesNo(string description, string title)
         {
             InitializeComponent();
             TbDescription.Text = description;
@@ -32,12 +32,17 @@ namespace GTA6Game.UserControls.Messages
 
         public override void InjectModalVM(BaseModal modal)
         {
-            Modal = (Modal<object>)modal;
+            Modal = (Modal<bool>)modal;
         }
 
-        private void TbOk_Click(object sender, RoutedEventArgs e)
+        private void TbYes_Click(object sender, RoutedEventArgs e)
         {
-            Modal.CloseModal(false, null);
+            Modal.CloseModal(false, true);
+        }
+
+        private void TbNo_Click(object sender, RoutedEventArgs e)
+        {
+            Modal.CloseModal(false, false);
         }
     }
 }

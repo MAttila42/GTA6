@@ -165,6 +165,9 @@
     <Compile Include="UserControls\Messages\MessageOk.xaml.cs">
       <DependentUpon>MessageOk.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Messages\MessageYesNo.xaml.cs">
+      <DependentUpon>MessageYesNo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Overlay\Modal\BaseModal.cs" />
     <Compile Include="UserControls\Overlay\Modal\ModalContent.cs" />
     <Compile Include="UserControls\Overlay\Modal\ModalCollection.cs" />
@@ -290,6 +293,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Messages\MessageOk.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Messages\MessageYesNo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -492,6 +499,9 @@
   <ItemGroup>
     <Resource Include="Assets\Haircut.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Assets\EnterIcon.png" />
+    <Resource Include="Assets\EscapeIcon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

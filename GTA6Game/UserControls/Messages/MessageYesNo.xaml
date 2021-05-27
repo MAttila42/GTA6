@@ -1,4 +1,4 @@
-﻿<local:ModalContentBase x:Class="GTA6Game.UserControls.Messages.MessageOk"
+﻿<local:ModalContentBase x:Class="GTA6Game.UserControls.Messages.MessageYesNo"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -17,7 +17,10 @@
                 <StackPanel Height="2" Background="White"/>
                 <TextBlock x:Name="TbDescription" Foreground="White" FontSize="20" TextAlignment="Center" FontFamily="/GTA6Game;component/Assets/Fonts/#Source Sans Pro" TextWrapping="Wrap" Text="Null" Margin="20" />
                 <StackPanel Height="2" Background="White"/>
-                <usercontrols:UserIcon x:Name="TbOk" Margin="0,50,0,0" Style="{StaticResource MessageButton}" Content="OK" Click="TbOk_Click" ImageSource="/Assets/EnterIcon.png"></usercontrols:UserIcon>
+                <WrapPanel Margin="0,50,0,0" HorizontalAlignment="Center">
+                    <usercontrols:UserIcon x:Name="TbYes" Style="{StaticResource MessageButton}" Content="Igen" Click="TbYes_Click" ImageSource="/Assets/EnterIcon.png"></usercontrols:UserIcon>
+                    <usercontrols:UserIcon x:Name="TbNo" Style="{StaticResource MessageButton}" Content="Nem" Click="TbNo_Click" ImageSource="/Assets/EscapeIcon.png"></usercontrols:UserIcon>
+                </WrapPanel>
             </StackPanel>
         </Border>
     </Grid>
