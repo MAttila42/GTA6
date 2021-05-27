@@ -78,7 +78,7 @@ namespace GTA6Game.Pages
                         {
                             if (string.IsNullOrEmpty(TboxPassword.Password))
                             {
-                                Modal<bool> modal = new Modal<bool>(new MessageYesNo($"Nincs beállítva jelszó! Beállítasz egyet mégis?", "Alert"));
+                                Modal<object> modal = new Modal<object>(new MessageYesNo($"Nincs beállítva jelszó! Beállítasz egyet mégis?", "Alert"));
                                 var modalResult = await OverlaySettings.OpenedModals.OpenModal(modal);
 
                                 switch (modalResult.Payload)
