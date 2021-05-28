@@ -1,0 +1,22 @@
+<Application x:Class="GTA6Game.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:GTA6Game"
+             StartupUri="MainWindow.xaml"
+             Startup="Application_Startup">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/BasicResources.xaml"/>
+                <ResourceDictionary Source="Styles/UserIconResources.xaml"/>
+                <ResourceDictionary Source="Styles/ButtonResources.xaml"/>
+                <ResourceDictionary Source="Styles/InputResources.xaml"/>
+                <ResourceDictionary Source="Styles/DatePickerResources.xaml"/>
+                <ResourceDictionary Source="Styles/HaircutMinigame/CameraMovementResources.xaml"/>
+                <ResourceDictionary Source="Styles/HaircutMinigame/GameEndPanelResources.xaml"/>
+                <ResourceDictionary Source="Styles/MenuResources.xaml"/>
+                <ResourceDictionary Source="Styles/ModalResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

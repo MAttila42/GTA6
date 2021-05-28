@@ -1,0 +1,26 @@
+<local:PageBase x:Class="GTA6Game.Pages.ShootingMission"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GTA6Game.Pages" xmlns:usercontrols="clr-namespace:GTA6Game.UserControls"
+                mc:Ignorable="d" 
+      d:DesignHeight="710" d:DesignWidth="1200"
+      Title="ShootingMission" Background="White" x:Name="Windows" Loaded="Windows_Loaded">
+
+    <Grid>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/ShootingRange.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+
+        <Image Source="/Assets/PistolHand.png" Height="184" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="222"/>
+
+        <Canvas x:Name="Playground" Margin="65,74,41,46.4">
+
+        </Canvas>
+
+        <usercontrols:OutlinedTextBlock x:Name="TbTime" Text="5" TextAlignment="Center" FontFamily="Arial" FontSize="300" FontWeight="ExtraBold" TextWrapping="Wrap" StrokeThickness="5" Stroke="Black" Fill="White" Margin="353,179,331,164.4"/>
+        <usercontrols:OutlinedTextBlock x:Name="TbCount" Text="100/100" TextAlignment="Center" FontFamily="/GTA6Game;component/Assets/Fonts/#Pricedown Bl" FontSize="40pt" FontWeight="ExtraBold" TextWrapping="Wrap" StrokeThickness="3" Stroke="Black" Fill="White" Margin="-1,22,1014,616.4"/>
+    </Grid>
+</local:PageBase>

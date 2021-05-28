@@ -1,0 +1,48 @@
+﻿<modal:ModalContentBase  xmlns:modal="clr-namespace:GTA6Game.UserControls.Overlay.Modal" x:Class="GTA6Game.Pages.HaircutMinigame.UserControls.GameEndModalContent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GTA6Game.Pages.HaircutMinigame.UserControls" xmlns:haircutminigame="clr-namespace:GTA6Game.Pages.HaircutMinigame" xmlns:usercontrols="clr-namespace:GTA6Game.UserControls" d:DataContext="{d:DesignInstance Type=haircutminigame:GameEndPayload}"
+                         mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel >
+
+        <usercontrols:OutlinedTextBlock  Style="{StaticResource MissionCompletedText}" VerticalAlignment="Top" Margin="0,40,0,50">Mission Passed</usercontrols:OutlinedTextBlock>
+        <DockPanel LastChildFill="False" Width="450" Height="340" Background="#F2000000" VerticalAlignment="Top">
+            
+            <StackPanel DockPanel.Dock="Top">
+                <StackPanel Style="{StaticResource MissionBar}"></StackPanel>
+                <TextBlock  Style="{StaticResource MissionTitle}">Yee Yee Ass Haircut</TextBlock>
+                <StackPanel Style="{StaticResource MissionBar}" Margin="0,0,0,6" ></StackPanel>
+                <DockPanel Style="{StaticResource MissionObjectiveContainer}">
+                    <Label DockPanel.Dock="Left" Style="{StaticResource MissionObjectiveText}">Frizura</Label>
+                    <Label DockPanel.Dock="Right" Style="{StaticResource MissionObjectiveText}" Content="{Binding Hairstyle}"></Label>
+                </DockPanel>
+                <DockPanel Style="{StaticResource MissionObjectiveContainer}">
+                    <Label DockPanel.Dock="Left" Style="{StaticResource MissionObjectiveText}">Hibázás</Label>
+                    <Label DockPanel.Dock="Right" Style="{StaticResource MissionObjectiveText}" Content="{Binding FailText}"></Label>
+                </DockPanel>
+                <DockPanel Style="{StaticResource MissionObjectiveContainer}">
+                    <Label Style="{StaticResource MissionObjectiveText}"  >
+                        <TextBlock TextWrapping="Wrap" Text="{Binding Message}"></TextBlock>
+                    </Label>
+                </DockPanel>
+            </StackPanel>
+            
+            <StackPanel DockPanel.Dock="Bottom">
+                <StackPanel Style="{StaticResource MissionBar}" Margin="0,0,0,6"></StackPanel>
+                <DockPanel Style="{StaticResource MissionObjectiveContainer}" >
+                    <Label DockPanel.Dock="Left" Style="{StaticResource MissionObjectiveText}">Fizetség</Label>
+                    <Label DockPanel.Dock="Right" Style="{StaticResource MissionObjectiveText}" Content="{Binding EarnedMoneyText}"></Label>
+                </DockPanel>
+                <StackPanel Style="{StaticResource MissionBar}" Margin="0,0,0,8"></StackPanel>
+                <DockPanel LastChildFill="False"  Margin="20,0,20,10">
+                    <usercontrols:UserIcon Style="{StaticResource MessageButton}" Content="Menü" ImageSource="/Assets/HaircutMinigame/Icons/BackToMenuIcon.png" DockPanel.Dock="Left" Click="BackToMenuButton_Click"></usercontrols:UserIcon>
+                    <usercontrols:UserIcon Style="{StaticResource MessageButton}" Content="Új kör" ImageSource="/Assets/HaircutMinigame/Icons/NewRoundIcon.png" DockPanel.Dock="Left"  Click="NewRoundButton_Click"></usercontrols:UserIcon>
+                </DockPanel>
+            </StackPanel>
+        </DockPanel>
+
+    </StackPanel>
+</modal:ModalContentBase>

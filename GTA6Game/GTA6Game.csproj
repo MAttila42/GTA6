@@ -1,0 +1,604 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <UICulture>hu-HU</UICulture>
+    <PublishUrl>C:\Users\kekesi.adam\Desktop\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <WebPage>publish.htm</WebPage>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F92D7D18-25AB-404A-AC42-D87759DFA33E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GTA6Game</RootNamespace>
+    <AssemblyName>GTA6Game</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>222DB7342886151FD3F910A6499F0CB737590802</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>GTA6Game_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>GtaLogo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WpfAnimatedGif, Version=2.0.0.0, Culture=neutral, PublicKeyToken=9e7cd3b544a090dc, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.2.0.0\lib\net40\WpfAnimatedGif.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Helpers\NestedPropertyChangedEventArgs.cs" />
+    <Compile Include="Helpers\PropertyChangeNotifier.cs" />
+    <Compile Include="Pages\AddUser.xaml.cs">
+      <DependentUpon>AddUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BigSmokeOrder.xaml.cs">
+      <DependentUpon>BigSmokeOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\HaircutMinigame\HaircutIntro.xaml.cs">
+      <DependentUpon>HaircutIntro.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\HaircutMinigame\CameraOrientation.cs" />
+    <Compile Include="Pages\HaircutMinigame\DesiredShape.cs" />
+    <Compile Include="Pages\HaircutMinigame\Direction.cs" />
+    <Compile Include="Pages\HaircutMinigame\GameEndPayload.cs" />
+    <Compile Include="Pages\HaircutMinigame\HaircutMinigamePage.xaml.cs">
+      <DependentUpon>HaircutMinigamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\HaircutMinigame\HaircutMinigameVM.cs" />
+    <Compile Include="Pages\HaircutMinigame\Haircut.cs" />
+    <Compile Include="Pages\HaircutMinigame\HaircutState.cs" />
+    <Compile Include="Pages\HaircutMinigame\Orientation.cs" />
+    <Compile Include="Pages\HaircutMinigame\EditableImage.cs" />
+    <Compile Include="Pages\HaircutMinigame\UserControls\CameraMovementPanel.xaml.cs">
+      <DependentUpon>CameraMovementPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\HaircutMinigame\UserControls\FranklinDisplay.xaml.cs">
+      <DependentUpon>FranklinDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\HaircutMinigame\UserControls\GameEndModalContent.xaml.cs">
+      <DependentUpon>GameEndModalContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\HaircutMinigame\UserControls\Scoreboard.xaml.cs">
+      <DependentUpon>Scoreboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LoadingMission.xaml.cs">
+      <DependentUpon>LoadingMission.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LoadingPage.xaml.cs">
+      <DependentUpon>LoadingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\LanguageManager.cs" />
+    <Compile Include="Pages\MinigameSelectionPage.xaml.cs">
+      <DependentUpon>MinigameSelectionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ModifyUser.xaml.cs">
+      <DependentUpon>ModifyUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageBase.cs" />
+    <Compile Include="Pages\ShootingMission.xaml.cs">
+      <DependentUpon>ShootingMission.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StartingPage.xaml.cs">
+      <DependentUpon>StartingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerData\PlayerSave.cs" />
+    <Compile Include="PlayerData\Profile.cs" />
+    <Compile Include="PlayerData\ProfileCollection.cs" />
+    <Compile Include="PlayerData\SaveLoader.cs" />
+    <Compile Include="Routing\RoutingHelper.cs" />
+    <Compile Include="UserControls\ImageMovement.cs" />
+    <Compile Include="UserControls\LoginTitle.xaml.cs">
+      <DependentUpon>LoginTitle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Messages\MessageOk.xaml.cs">
+      <DependentUpon>MessageOk.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Messages\MessageYesNo.xaml.cs">
+      <DependentUpon>MessageYesNo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Overlay\Modal\BaseModal.cs" />
+    <Compile Include="UserControls\Overlay\Modal\ModalContent.cs" />
+    <Compile Include="UserControls\Overlay\Modal\ModalCollection.cs" />
+    <Compile Include="UserControls\Overlay\Modal\ModalContentBase.cs" />
+    <Compile Include="UserControls\Overlay\Modal\ModalContentDisplay.xaml.cs">
+      <DependentUpon>ModalContentDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Overlay\Modal\Modal.cs" />
+    <Compile Include="UserControls\Overlay\Modal\ModalResult.cs" />
+    <Compile Include="UserControls\Overlay\Modal\TestModalContent.xaml.cs">
+      <DependentUpon>TestModalContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Overlay\Overlay.xaml.cs">
+      <DependentUpon>Overlay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\OutlinedTextBlock.cs" />
+    <Compile Include="UserControls\Overlay\OverlaySettings.cs" />
+    <Compile Include="UserControls\Overlay\OverlayVM.cs" />
+    <Compile Include="UserControls\Settings\SettingsModalContent.xaml.cs">
+      <DependentUpon>SettingsModalContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserIcon.cs" />
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Pages\AddUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\BigSmokeOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\HaircutMinigame\HaircutIntro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\HaircutMinigame\HaircutMinigamePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\HaircutMinigame\UserControls\GameEndModalContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\LoadingMission.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\LoadingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MinigameSelectionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ModifyUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ShootingMission.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\StartingPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\BasicResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ButtonResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\DatePickerResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\HaircutMinigame\UserControls\Scoreboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\HaircutMinigame\GameEndPanelResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\InputResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\HaircutMinigame\CameraMovementResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\MenuResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ModalResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\UserIconResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\HaircutMinigame\UserControls\CameraMovementPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\HaircutMinigame\UserControls\FranklinDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\LoginTitle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Messages\MessageOk.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Messages\MessageYesNo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Overlay\Modal\ModalContentDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Overlay\Modal\TestModalContent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Overlay\Overlay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Settings\SettingsModalContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Resource Include="Assets\Fonts\SourceSansPro-Black.ttf" />
+    <Resource Include="Assets\Fonts\SourceSansPro-BlackItalic.ttf" />
+    <Resource Include="Assets\Fonts\SourceSansPro-Bold.ttf" />
+    <Resource Include="Assets\Fonts\SourceSansPro-BoldItalic.ttf" />
+    <Resource Include="Assets\Fonts\SourceSansPro-ExtraLight.ttf" />
+    <Resource Include="Assets\Fonts\SourceSansPro-ExtraLightItalic.ttf" />
+    <Resource Include="Assets\Fonts\SourceSansPro-Italic.ttf" />
+    <Resource Include="Assets\Fonts\SourceSansPro-Light.ttf" />
+    <Resource Include="Assets\Fonts\SourceSansPro-LightItalic.ttf" />
+    <Resource Include="Assets\Fonts\SourceSansPro-Regular.ttf" />
+    <Resource Include="Assets\Fonts\SourceSansPro-SemiBold.ttf" />
+    <Resource Include="Assets\Fonts\SourceSansPro-SemiBoldItalic.ttf" />
+    <Resource Include="Assets\Fonts\PricedownBl-SLY Regular.ttf" />
+    <Resource Include="Assets\Fonts\Chalet.ttf" />
+    <Resource Include="Assets\Fonts\Pricedown Bl.ttf" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\random\Meta" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\stripy\Meta" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\balding\Meta" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\tictactoe\Meta" />
+    <None Include="GTA6Game_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="create-csv.bat" />
+    <None Include="generate-localized-resource.bat" />
+    <None Include="init-localization.bat" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\AntiSocialClub.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\HaircutMinigame\arrow.png" />
+    <Resource Include="Assets\Backgrounds\Bg2.png" />
+    <Resource Include="Assets\Backgrounds\Bg3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\BoxCover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Recaptcha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\LoadingSpinner.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <Resource Include="Assets\GtaLogo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\HaircutMinigame\background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\HaircutMinigame\Head\Front.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\Head\Left.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\Head\Rear.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\Head\Right.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\Head\Top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\HaircutMinigame\Hair\Front.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\Hair\Left.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\Hair\Rear.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\Hair\Right.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\Hair\Top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\HaircutMinigame\BarberShopLogo.PNG" />
+    <Resource Include="Assets\Backgrounds\Sp2.png" />
+    <Resource Include="Assets\Backgrounds\Sp3.png" />
+    <Resource Include="Assets\Backgrounds\Sp4.png" />
+    <Resource Include="Assets\Backgrounds\Sp5.png" />
+    <Resource Include="Assets\Backgrounds\Sp6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Backgrounds\Bg1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Backgrounds\Sp1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Backgrounds\Bg10.png" />
+    <Resource Include="Assets\Backgrounds\Bg4.png" />
+    <Resource Include="Assets\Backgrounds\Bg5.png" />
+    <Resource Include="Assets\Backgrounds\Bg6.png" />
+    <Resource Include="Assets\Backgrounds\Bg7.png" />
+    <Resource Include="Assets\Backgrounds\Bg8.png" />
+    <Resource Include="Assets\Backgrounds\Bg9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Backgrounds\Sp7.png" />
+    <Resource Include="Assets\Backgrounds\Sp8.png" />
+    <Resource Include="Assets\Backgrounds\Sp9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\StickyNote.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\AmmuNation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Target.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Weapon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Exit.png" />
+    <Resource Include="Assets\Shop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\PistolHand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\ShootingRange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\CluckinBell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\BigSmoke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Notepad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Backgrounds\Bg11.png" />
+    <Resource Include="Assets\Backgrounds\Bg12.png" />
+    <Resource Include="Assets\Backgrounds\Bg13.png" />
+    <Resource Include="Assets\Backgrounds\Bg14.png" />
+    <Resource Include="Assets\Backgrounds\Bg15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Backgrounds\Sp10.png" />
+    <Resource Include="Assets\Backgrounds\Sp11.png" />
+    <Resource Include="Assets\Backgrounds\Sp12.png" />
+    <Resource Include="Assets\Backgrounds\Sp13.png" />
+    <Resource Include="Assets\Backgrounds\Sp14.png" />
+    <Resource Include="Assets\Backgrounds\Sp15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\CluckinIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Haircut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\HaircutMinigame\Icons\BackToMenuIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\EnterIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\EscapeIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\GtaLogo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GtaLogo1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\HaircutMinigame\Icons\NewRoundIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\random\Front.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\random\Left.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\random\Rear.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\random\Right.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\random\Top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\stripy\Front.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\stripy\Left.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\stripy\Rear.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\stripy\Right.png" />
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\stripy\Top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\balding\Front.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\balding\Left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\balding\Rear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\balding\Right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\balding\Top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\tictactoe\Front.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\tictactoe\Left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\tictactoe\Rear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\tictactoe\Right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\HaircutMinigame\DesiredShapes\tictactoe\Top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\HaircutMinigame\intro.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="GtaLogo.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
