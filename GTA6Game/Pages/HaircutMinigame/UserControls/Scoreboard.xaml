@@ -11,7 +11,7 @@
         <StackPanel Background="#CC000000">
             <Label Margin="0,6,0,3" Style="{StaticResource MenuTitle}" >Nyírd meg Franklint</Label>
             <StackPanel Orientation="Horizontal" Margin="0,0,0,4" >
-                <Label Style="{StaticResource MenuSmallText}">Franklin ilyet szeretne: </Label>
+                <Label Style="{StaticResource MenuSmallText}">Ilyet szeretne:</Label>
                 <Label Style="{StaticResource MenuSmallText}"  Content="{Binding Shape.Name}"></Label>
             </StackPanel>
             <DockPanel LastChildFill="False" Margin="0,0,0,4" >
