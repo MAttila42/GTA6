@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
+using GTA6Game.Languages;
 using GTA6Game.PlayerData;
 using GTA6Game.UserControls;
 using GTA6Game.UserControls.Messages;
@@ -77,7 +78,7 @@ namespace GTA6Game.Pages
             }
             else
             {
-                Modal<object> modal = new Modal<object>(new MessageOk("Helytelen jelszót adtál meg, vagy lehet, hogy robot vagy!", "Social Club Error"));
+                Modal<object> modal = new Modal<object>(new MessageOk($"{(LanguageManager.CurrentCulture.IetfLanguageTag == "hu-HU" ? "Helytelen jelszót adtál meg, vagy lehet, hogy robot vagy!" : "Password is incorrect or you are a robot!")}", "Social Club Error"));
                 OverlaySettings.OpenedModals.OpenModal(modal);
             }           
         }
@@ -90,7 +91,7 @@ namespace GTA6Game.Pages
             }
             else
             {
-                Modal<object> modal = new Modal<object>(new MessageOk("Helytelen jelszót adtál meg!", "Social Club Error"));
+                Modal<object> modal = new Modal<object>(new MessageOk($"{(LanguageManager.CurrentCulture.IetfLanguageTag == "hu-HU" ? "Helytelen jelszót adtál meg!" : "Password is incorrect!")}", "Social Club Error"));
                 OverlaySettings.OpenedModals.OpenModal(modal);
             }
         }

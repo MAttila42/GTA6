@@ -13,7 +13,7 @@
             <usercontrols:LoginTitle></usercontrols:LoginTitle>
 
 
-            <TextBlock TextAlignment="Center" Margin="30" Style="{StaticResource LoginTitle}" TextWrapping="Wrap" Text="Új felhasználó létrehozása"/>
+            <TextBlock x:Uid="NewUserTitleUid" TextAlignment="Center" Margin="30" Style="{StaticResource LoginTitle}" TextWrapping="Wrap" Text="Új felhasználó létrehozása"/>
 
             <Grid Width="500">
                 <Grid.ColumnDefinitions>
@@ -30,41 +30,41 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
 
-                <TextBlock Margin="50,20,10,20" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Text="Felhasználónév:" FontSize="15"></TextBlock>
+                <TextBlock x:Uid="TbAddUsernameUid" Margin="50,20,10,20" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Text="Felhasználónév:" FontSize="15"></TextBlock>
                 <TextBox x:Name="TboxUsername" Width="256" Height="30" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" FontSize="15"></TextBox>
 
-                <TextBlock Margin="50,20,10,20" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Text="Jelszó:" FontSize="15"></TextBlock>
+                <TextBlock x:Uid="TbAddPasswordUid" Margin="50,20,10,20" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Text="Jelszó:" FontSize="15"></TextBlock>
                 <PasswordBox x:Name="TboxPassword" Width="256" Height="30" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" FontSize="15"></PasswordBox>
 
-                <TextBlock Margin="50,20,10,20" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" Text="Jelszó újra:" FontSize="15"></TextBlock>
+                <TextBlock x:Uid="TbAddPassword2Uid" Margin="50,20,10,20" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" Text="Jelszó újra:" FontSize="15"></TextBlock>
                 <PasswordBox x:Name="TboxPasswordCheck" Width="256" Height="30" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" FontSize="15"></PasswordBox>
 
-                <TextBlock Margin="50,20,10,20" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" Text="Születési idő:" FontSize="15"></TextBlock>
+                <TextBlock x:Uid="TbAddBirthUid" Margin="50,20,10,20" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" Text="Születési idő:" FontSize="15"></TextBlock>
                 <DatePicker x:Name="DpBirth" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Height="30" FontSize="15"/>
 
-                <TextBlock Margin="50,20,10,20" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" Text="Játéknyelv:" FontSize="15"></TextBlock>
+                <TextBlock x:Uid="TbAddLangUid" Margin="50,20,10,20" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" Text="Játéknyelv:" FontSize="15"></TextBlock>
                 <ComboBox x:Name="CbLanguage" Grid.Row="4" HorizontalAlignment="Left" Height="30" Width="171" FontSize="15" Grid.ColumnSpan="2" Margin="166,15,0,15.8">
                     <ComboBoxItem Content="Magyar/Hungarian" FontSize="15"></ComboBoxItem>
                     <ComboBoxItem Content="Angol/English" FontSize="15"></ComboBoxItem>
                 </ComboBox>
-                <TextBlock Margin="50,20,10,20" Grid.Column="0" Grid.Row="5" TextWrapping="Wrap"  HorizontalAlignment="Left" Text="ÁSZF:" FontSize="15"></TextBlock>
+                <TextBlock x:Uid="TbAddEULAUid" Margin="50,20,10,20" Grid.Column="0" Grid.Row="5" TextWrapping="Wrap"  HorizontalAlignment="Left" Text="ÁSZF:" FontSize="15"></TextBlock>
                 <StackPanel Grid.Column="1" Grid.Row="5" Height="40" Orientation="Horizontal">
                     <Viewbox Margin="10,0" Height="20">
                         <CheckBox x:Name="CbEULA" VerticalAlignment="Center"></CheckBox>
                     </Viewbox>
-                    <TextBlock Text="Elfogadom az Adatvédelmi nyilatkozat §12.4/B1, ill. annak alárendelt pontjait!" FontSize="15" TextWrapping="Wrap" Width="293"/>
+                    <TextBlock x:Uid="TbAddEULA2Uid" Text="Elfogadom az Adatvédelmi nyilatkozat §12.4/B1, ill. annak alárendelt pontjait!" FontSize="15" TextWrapping="Wrap" Width="293"/>
                 </StackPanel>
 
             </Grid>
 
         </StackPanel>
 
-        <TextBlock HorizontalAlignment="Left" Text="Avatár:" FontSize="15" Margin="709,503,0,176.4" Width="67"/>
+        <TextBlock x:Uid="TbAddAvatarUid" HorizontalAlignment="Left" Text="Avatár:" FontSize="15" Margin="709,503,0,176.4" Width="67"/>
         <ComboBox x:Name="CbAvatar" HorizontalAlignment="Left" Height="30" Width="65" FontSize="15" Margin="785,499,0,181.4">
             <ComboBoxItem Content="1: All figures" FontSize="15"></ComboBoxItem>
         </ComboBox>
-        <Button x:Name="BtnLoginPage" Height="40" Style="{StaticResource OrangeButton}" Content="Vissza a kezdőlapra" FontSize="15" Margin="405,621,591,49.4" Click="BtnLoginPage_Click"/>
-        <Button x:Name="BtnSignUp" Height="40" Style="{StaticResource PurpleButton}" Content="REGISZTRÁLÁS" Width="161" FontSize="15" Margin="689,621,0,49.4" HorizontalAlignment="Left" Click="BtnSignUp_Click"/>
+        <Button x:Uid="BtnAddBackLoginUid" x:Name="BtnLoginPage" Height="40" Style="{StaticResource OrangeButton}" Content="Vissza a kezdőlapra" FontSize="15" Margin="405,621,591,49.4" Click="BtnLoginPage_Click"/>
+        <Button x:Uid="BtnSignUpUid" x:Name="BtnSignUp" Height="40" Style="{StaticResource PurpleButton}" Content="REGISZTRÁLÁS" Width="161" FontSize="15" Margin="689,621,0,49.4" HorizontalAlignment="Left" Click="BtnSignUp_Click"/>
 
     </Grid>
 </local:PageBase>

@@ -1,3 +1,4 @@
+using GTA6Game.Languages;
 using GTA6Game.PlayerData;
 using GTA6Game.UserControls.Messages;
 using GTA6Game.UserControls.Overlay.Modal;
@@ -21,7 +22,8 @@ namespace GTA6Game.Pages
             ProfileToModify = profileToModify;
         }
 
-        string[] ErrorMessages = new string[] { "a jelszavak nem egyeznek!", "ilyen felhasználónév már létezik!", "nem adtál meg minden adatot!", "18 éven aluliak nem használhatják a játékot!" };
+        string[] ErrorMessagesHun = new string[] { "a jelszavak nem egyeznek!", "ilyen felhasználónév már létezik!", "nem adtál meg minden adatot!", "18 éven aluliak nem használhatják a játékot!" };
+        string[] ErrorMessagesEng = new string[] { "passwords don't match!", "this username already exists!", "you haven't entered all the data!", "children under the age of 18 are not allowed to use the game!" };
         enum ErrorType { password, username, datas, birth, none, check }
 
         ErrorType CurrentError = ErrorType.datas;
@@ -35,7 +37,7 @@ namespace GTA6Game.Pages
 
         private async void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
-            Modal<object> modal = new Modal<object>(new MessageYesNo($"Biztosan törölni akarod a felhasználót? Ha törlöd, az összes pénzed elveszik!", "Alert"));
+            Modal<object> modal = new Modal<object>(new MessageYesNo($"{(LanguageManager.CurrentCulture.IetfLanguageTag == "hu-HU" ? "Biztosan törölni akarod a felhasználót? Ha törlöd, az összes pénzed elveszik!" : "Are you sure to want to delete the user? If you delete it, all your money will be lost!")}", "Alert"));
             var modalResult = await OverlaySettings.OpenedModals.OpenModal(modal);
 
             switch (modalResult.Payload)
@@ -63,14 +65,14 @@ namespace GTA6Game.Pages
                 }
                 else
                 {
-                    Modal<object> modal = new Modal<object>(new MessageOk("Sajna-bajna, az ÁSZF elfogadása kötelező!", "Social Club Error"));
+                    Modal<object> modal = new Modal<object>(new MessageOk($"{(LanguageManager.CurrentCulture.IetfLanguageTag == "hu-HU" ? "Sajna-bajna, az ÁSZF elfogadása kötelező!" : "Unfortunately, you have to agree the EULA!")}", "Social Club Error"));
                     await OverlaySettings.OpenedModals.OpenModal(modal);
                 }
 
             }
             else if (CurrentError != ErrorType.check)
             {
-                Modal<object> modal = new Modal<object>(new MessageOk($"Sajna-bajna, {ErrorWriter()}", "Social Club Error"));
+                Modal<object> modal = new Modal<object>(new MessageOk($"{(LanguageManager.CurrentCulture.IetfLanguageTag == "hu-HU" ? "Sajna-bajna, " : "Unfortunately, ")} {ErrorWriter()}", "Social Club Error"));
                 await OverlaySettings.OpenedModals.OpenModal(modal);
             }
         }
@@ -125,16 +127,16 @@ namespace GTA6Game.Pages
             switch (CurrentError)
             {
                 case ErrorType.password:
-                    errorResult = ErrorMessages[0];
+                    errorResult = (LanguageManager.CurrentCulture.IetfLanguageTag == "hu-HU" ? $"{ErrorMessagesHun[0]}" : $"{ErrorMessagesEng[0]}");
                     break;
                 case ErrorType.username:
-                    errorResult = ErrorMessages[1];
+                    errorResult = (LanguageManager.CurrentCulture.IetfLanguageTag == "hu-HU" ? $"{ErrorMessagesHun[1]}" : $"{ErrorMessagesEng[1]}");
                     break;
                 case ErrorType.datas:
-                    errorResult = ErrorMessages[2];
+                    errorResult = (LanguageManager.CurrentCulture.IetfLanguageTag == "hu-HU" ? $"{ErrorMessagesHun[2]}" : $"{ErrorMessagesEng[2]}");
                     break;
                 case ErrorType.birth:
-                    errorResult = ErrorMessages[3];
+                    errorResult = (LanguageManager.CurrentCulture.IetfLanguageTag == "hu-HU" ? $"{ErrorMessagesHun[3]}" : $"{ErrorMessagesEng[3]}");
                     break;
             }
             return errorResult;
@@ -153,7 +155,7 @@ namespace GTA6Game.Pages
                 {
                     if (string.IsNullOrEmpty(TboxPassword.Password))
                     {
-                        Modal<object> modal = new Modal<object>(new MessageYesNo($"Nincs beállítva jelszó! Beállítasz egyet mégis?", "Alert"));
+                        Modal<object> modal = new Modal<object>(new MessageYesNo($"{(LanguageManager.CurrentCulture.IetfLanguageTag == "hu-HU" ? "Nincs beállítva jelszó! Beállítasz egyet mégis?" : "A password isn't defined! Would you like to set one?")}", "Alert"));
                         var modalResult = await OverlaySettings.OpenedModals.OpenModal(modal);
 
                         switch (modalResult.Payload)

@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
 using System.Threading.Tasks;
+using GTA6Game.Languages;
 
 namespace GTA6Game.Pages
 {
@@ -166,9 +167,9 @@ namespace GTA6Game.Pages
                     lbTimer.Content = "00:00";
                     lbOrder.Content = "";
                     lbNote.Content = "";
-                    btnStart.IsEnabled = true;
                     Idle = true;
-                    PopupWindow("Vesztettél!", "Majd legközelebb.");
+                    PopupWindow($"{(LanguageManager.CurrentCulture.IetfLanguageTag == "hu-HU" ? "Vesztettél!" : "You lose!")}", $"{(LanguageManager.CurrentCulture.IetfLanguageTag == "hu-HU" ? "Majd legközelebb." : "Maybe next time!")}");
+                    btnStart.IsEnabled = true;
                     _timer.Stop();
                 }
                 else if (Idle)
@@ -201,9 +202,9 @@ namespace GTA6Game.Pages
                 catch (Exception)
                 {
                     lbOrder.Content = "";
-                    lbNote.Content += $"\nÖsszesen: {FullPrice} Ft";
+                    lbNote.Content += $"\n{(LanguageManager.CurrentCulture.IetfLanguageTag == "hu-HU" ? "Összesen: " : "Total: ")} {FullPrice} Ft";
                     UpdateMoney(FullPrice);
-                    PopupWindow("Nyertél!", $"Nyeremény: {FullPrice} Ft");
+                    PopupWindow($"{(LanguageManager.CurrentCulture.IetfLanguageTag == "hu-HU" ? "Nyertél!" : "You won!")}", $"{(LanguageManager.CurrentCulture.IetfLanguageTag == "hu-HU" ? "Nyeremény: " : "Prize: ")}{FullPrice} Ft");
                     btnStart.IsEnabled = true;
                     Idle = true;
                 }

@@ -15,7 +15,7 @@
 
             <WrapPanel>
                 <StackPanel>
-                    <TextBlock Margin="50,30,50,20" Style="{StaticResource LoginTitle}" TextAlignment="Left" Text="Bejelentkezés"/>
+                    <TextBlock x:Uid="TbLoginTitleUid" Margin="50,30,50,20" Style="{StaticResource LoginTitle}" TextAlignment="Left" Text="Bejelentkezés"/>
                     <ScrollViewer Margin="50,30,50,10" Width="560" VerticalScrollBarVisibility="Auto" Height="230">
                         <WrapPanel x:Name="WpUserIconContainer">
                             <!--<usercontrols:UserIcon x:Name="UiAdmin" Style="{StaticResource UserIconStyle}" Content="Admin" Click="UserIcon_Click"></usercontrols:UserIcon>
@@ -24,7 +24,7 @@
                     </ScrollViewer>
 
                     <WrapPanel>
-                        <Label Content="Jelszó:" FontSize="17" FontWeight="SemiBold" Margin="50,20,10,20"/>
+                        <Label x:Uid="LbPasswordUid" Content="Jelszó:" FontSize="17" FontWeight="SemiBold" Margin="50,20,10,20"/>
                         <PasswordBox x:Name="TboxPassword" IsEnabled="True" Height="30" FontSize="15" Width="256"/>
                     </WrapPanel>
 
@@ -38,26 +38,26 @@
                         </Grid.RowDefinitions>
 
                         <Viewbox Height="22" Grid.Row="0" Grid.Column="0">
-                            <CheckBox x:Name="CbRobot"  Content="Nem vagyok robot" FontWeight="SemiBold" FontSize="17" FontFamily="/GTA6Game;component/Assets/Fonts/#Source Sans Pro" VerticalContentAlignment="Center"/>
+                            <CheckBox x:Uid="CbRobotUid" x:Name="CbRobot"  Content="Nem vagyok robot" FontWeight="SemiBold" FontSize="17" FontFamily="/GTA6Game;component/Assets/Fonts/#Source Sans Pro" VerticalContentAlignment="Center"/>
 
                         </Viewbox>
                         <Image Height="55" Grid.Row="0" Grid.Column="1" RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Right" Width="70" Source="/Assets/Recaptcha.png"/>
                     </Grid>
 
-                    <Button x:Name="BtnAddUser" Content="Új felhasználó létrehozása" Style="{StaticResource OrangeButton}" Margin="50,10,0,0" HorizontalAlignment="Left" Width="260" Height="40" Click="BtnAddUser_Click"/>
+                    <Button x:Uid="BtnAddUserUid" x:Name="BtnAddUser" Content="Új felhasználó létrehozása" Style="{StaticResource OrangeButton}" Margin="50,10,0,0" HorizontalAlignment="Left" Width="260" Height="40" Click="BtnAddUser_Click"/>
 
                 </StackPanel>
 
                 <StackPanel Width="400" Margin="50">
-                    <TextBlock TextWrapping="Wrap" TextAlignment="Justify" FontSize="15" Text="Ahhoz, hogy hozzáférést szerezz a Grand Theft Auto VI játékohoz rendelkezned kell egy érvényes Anti-Social Club felhasználói fiókkal, valamint biztosítanod kell bennünket, hogy nem vagy robot! A bejelentkezés és a szerkesztés jelszókötels, ugyanakkor jelszó nélkül is lehet új felhsználót létrehozni."/>
+                    <TextBlock x:Uid="TbStartInfosUid" TextWrapping="Wrap" TextAlignment="Justify" FontSize="15" Text="Ahhoz, hogy hozzáférést szerezz a Grand Theft Auto VI játékohoz rendelkezned kell egy érvényes Anti-Social Club felhasználói fiókkal, valamint biztosítanod kell bennünket, hogy nem vagy robot! A bejelentkezés és a szerkesztés jelszókötels, ugyanakkor jelszó nélkül is lehet új felhsználót létrehozni."/>
                     <Image Margin="50,20" Height="383" Width="299" Source="/Assets/BoxCover.png" Stretch="Fill"/>
                 </StackPanel>
             </WrapPanel>
 
         </StackPanel>
         <StackPanel Margin="407,521,591,67.4">
-            <Button x:Name="BtnLogIn" Content="BEJELENTKEZÉS" Style="{StaticResource PurpleButton}" Margin="0,0,0,20" Height="40" Click="BtnLogIn_Click" />
-            <Button x:Name="BtnModifyUser" Content="SZERKESZTÉS" Style="{StaticResource OrangeButton}" Height="40" Click="BtnRemoveUser_Click"/>
+            <Button x:Uid="BtnLoginUid" x:Name="BtnLogIn" Content="BEJELENTKEZÉS" Style="{StaticResource PurpleButton}" Margin="0,0,0,20" Height="40" Click="BtnLogIn_Click" />
+            <Button x:Uid="BtnEditUid" x:Name="BtnModifyUser" Content="SZERKESZTÉS" Style="{StaticResource OrangeButton}" Height="40" Click="BtnRemoveUser_Click"/>
         </StackPanel>
 
     </Grid>

@@ -18,8 +18,8 @@
                 <TextBlock x:Name="TbDescription" Foreground="White" FontSize="20" TextAlignment="Center" FontFamily="/GTA6Game;component/Assets/Fonts/#Source Sans Pro" TextWrapping="Wrap" Text="Null" Margin="20" />
                 <StackPanel Height="2" Background="White"/>
                 <WrapPanel Margin="0,50,0,0" HorizontalAlignment="Center">
-                    <usercontrols:UserIcon x:Name="TbYes" Style="{StaticResource MessageButton}" Content="Igen" Click="TbYes_Click" ImageSource="/Assets/EnterIcon.png"></usercontrols:UserIcon>
-                    <usercontrols:UserIcon x:Name="TbNo" Style="{StaticResource MessageButton}" Content="Nem" Click="TbNo_Click" ImageSource="/Assets/EscapeIcon.png"></usercontrols:UserIcon>
+                    <usercontrols:UserIcon x:Uid="UIYesUid" x:Name="TbYes" Style="{StaticResource MessageButton}" Content="Igen" Click="TbYes_Click" ImageSource="/Assets/EnterIcon.png"></usercontrols:UserIcon>
+                    <usercontrols:UserIcon x:Uid="UINoUid" x:Name="TbNo" Style="{StaticResource MessageButton}" Content="Nem" Click="TbNo_Click" ImageSource="/Assets/EscapeIcon.png"></usercontrols:UserIcon>
                 </WrapPanel>
             </StackPanel>
         </Border>

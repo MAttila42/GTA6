@@ -1,3 +1,4 @@
+using GTA6Game.Languages;
 using GTA6Game.PlayerData;
 using GTA6Game.UserControls;
 using GTA6Game.UserControls.Messages;
@@ -56,7 +57,7 @@ namespace GTA6Game.Pages
             Playground.Children.Clear();
             LoopNumber = 0;
             TargetCount = 0;
-            Modal<object> modal = new Modal<object>(new MessageOk("Elvesztetted a játékot!", "Mission Failed"));
+            Modal<object> modal = new Modal<object>(new MessageOk($"{(LanguageManager.CurrentCulture.IetfLanguageTag == "hu-HU" ? "Elvesztetted a játékot!" : "You have lost the game! Game Over!")}", "Mission Failed"));
             await OverlaySettings.OpenedModals.OpenModal(modal);
             Router.ChangeCurrentPage(new MinigameSelectionPage());
             
@@ -79,7 +80,7 @@ namespace GTA6Game.Pages
             {
                 if (ClickedCount > LoopNumber / 2)
                 {
-                    Modal<object> modal = new Modal<object>(new MessageOk("A szint teljesítve. Vissza a kezdőképernyőre!", "Mission Passed"));
+                    Modal<object> modal = new Modal<object>(new MessageOk($"{(LanguageManager.CurrentCulture.IetfLanguageTag == "hu-HU" ? "A szint teljesítve. Vissza a kezdőképernyőre!" : "Level completed. Back to the main window!")}", "Mission Passed"));
                     await OverlaySettings.OpenedModals.OpenModal(modal);
                     Router.ChangeCurrentPage(new MinigameSelectionPage());
                 }
